@@ -6,26 +6,14 @@ export default function ExampleCard({ title, description, steps, image, barModel
         <div className="card" style={{ padding: '2rem', marginBottom: '2rem', borderLeft: '5px solid var(--primary)', ...contentStyle }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
                 {showTitle && <h4 style={{ marginTop: 0, fontSize: '1.3rem', fontWeight: 700, color: titleColor }}>{title}</h4>}
-                {barModel && (
-                    <span style={{
-                        background: '#DCFCE7',
-                        color: '#15803D',
-                        fontSize: '0.75rem',
-                        fontWeight: 700,
-                        padding: '0.3rem 0.8rem',
-                        borderRadius: '20px',
-                        textTransform: 'uppercase'
-                    }}>
-                        Bar Model
-                    </span>
-                )}
+                {/* Bar Model badge removed */}
             </div>
             <p style={{ marginBottom: '1.5rem', fontSize: '1.25rem', lineHeight: '1.6', color: '#f97316', fontWeight: 500 }}>{description}</p>
 
             {/* Visuals */}
             {(image || barModelData) && (
                 <div style={{ background: image ? '#FFFFFF' : '#2A2A2A', padding: '1.5rem', borderRadius: '8px', marginBottom: '1.5rem', border: '1px solid var(--border)', textAlign: 'center' }}>
-                    {image && <img src={image} alt="Example Diagram" style={{ maxWidth: '100%', maxHeight: '300px', objectFit: 'contain', borderRadius: '4px' }} />}
+                    {image && <img src={image} alt="Example Diagram" style={{ maxWidth: '50%', maxHeight: '180px', objectFit: 'contain', borderRadius: '4px' }} />}
                     {barModelData && <BarModelDiagram type={barModelData.type} data={barModelData} />}
                 </div>
             )}

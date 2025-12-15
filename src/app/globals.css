@@ -106,3 +106,24 @@ button {
 .search-result-item:hover {
   background-color: #2A2A2A !important;
 }
+
+/* Animations */
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.pop-anim {
+  animation: pop 0.3s ease-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.shake-anim {
+  animation: shake 0.4s ease-in-out;
+}

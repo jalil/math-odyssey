@@ -12,7 +12,7 @@ export default function LoginPage() {
         e.preventDefault();
         if (name.trim()) {
             login(name.trim());
-            router.push('/dashboard');
+            router.push('/');
         }
     };
 
@@ -38,7 +38,7 @@ export default function LoginPage() {
                                 key={u.name}
                                 onClick={() => {
                                     login(u.name);
-                                    router.push('/dashboard');
+                                    router.push('/');
                                 }}
                                 style={{
                                     padding: '1rem',

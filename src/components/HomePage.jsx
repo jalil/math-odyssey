@@ -3,6 +3,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { useUser } from '../context/UserContext';
 import topics from '../data/topics.json';
+import AdventureMap from './AdventureMap';
 
 import AdminDashboard from './AdminDashboard';
 
@@ -27,14 +28,33 @@ export default function HomePage() {
     };
 
     // Get badge type based on topic
+    // Get badge type based on topic
     const getBadge = (topicId) => {
-        if (topicId === 'bar-model-level-1') return { text: 'Intro', color: '#10B981' };
+        if (topicId.includes('bar-model')) {
+            if (topicId.includes('level-1')) return { text: 'Intro', color: '#10B981' };
+            if (topicId.includes('level-2')) return { text: 'Intermediate', color: '#F59E0B' };
+            if (topicId.includes('level-3')) return { text: 'Advanced', color: '#EF4444' };
+            return { text: 'Skill', color: '#10B981' };
+        }
+        if (topicId.includes('mita')) return { text: 'Entrance Exam', color: '#EC4899' };
+        if (topicId.includes('hiroo')) return { text: 'Entrance Exam', color: '#8B5CF6' };
+
         if (topicId.includes('p3') || topicId.includes('singapore-p3')) return { text: 'P3', color: '#F59E0B' };
         if (topicId.includes('p4') || topicId.includes('singapore-p4')) return { text: 'P4', color: '#06B6D4' };
         if (topicId.includes('p5')) return { text: 'P5', color: '#3B82F6' };
         if (topicId.includes('p6')) return { text: 'P6', color: '#8B5CF6' };
         if (topicId.includes('ultimate')) return { text: 'Challenge', color: '#EF4444' };
-        return { text: 'P5', color: '#3B82F6' };
+        return { text: 'General', color: '#64748B' };
+    };
+
+    // Calculate locks based on progress
+    const locks = {
+        'singapore-p3': false, // Always unlocked
+        'singapore-p4': getModuleProgress('singapore-p3') < 100,
+        'bar-model-level-1': getModuleProgress('singapore-p4') < 100,
+        'singapore-p5': getModuleProgress('bar-model-level-1') < 100,
+        'singapore-p6': getModuleProgress('singapore-p5') < 100,
+        'hiroo': getModuleProgress('singapore-p6') < 100
     };
 
     return (
@@ -87,140 +107,16 @@ export default function HomePage() {
             </header>
 
             {/* Module Grid */}
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-                gap: '2rem'
-            }}>
-                {topics.map((topic) => {
-                    const progressPercent = getModuleProgress(topic.id);
-                    const estimatedTime = getEstimatedTime(topic);
-                    const badge = getBadge(topic.id);
+            {/* Adventure Map */}
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '1.5rem' }}>Your Journey Map</h2>
+            <AdventureMap locks={locks} />
 
-                    return (
-                        <div
-                            key={topic.id}
-                            className="card"
-                            style={{
-                                padding: '1.5rem',
-                                cursor: 'pointer',
-                                position: 'relative',
-                                transition: 'transform 0.2s, box-shadow 0.2s'
-                            }}
-                            onClick={() => {
-                                if (!user) {
-                                    router.push('/login');
-                                } else {
-                                    router.push(`/?topic=${topic.id}`);
-                                }
-                            }}
-                        >
-
-
-                            {/* Badge */}
-                            <div style={{
-                                display: 'inline-block',
-                                background: badge.color,
-                                color: 'white',
-                                padding: '0.25rem 0.75rem',
-                                borderRadius: '6px',
-                                fontSize: '0.75rem',
-                                fontWeight: 700,
-                                marginBottom: '1rem',
-                                textTransform: 'uppercase'
-                            }}>
-                                {badge.text}
-                            </div>
-
-                            {/* Title */}
-                            <h3 style={{
-                                fontSize: '1.1rem',
-                                fontWeight: 700,
-                                color: 'var(--text-primary)',
-                                marginBottom: '0.75rem',
-                                lineHeight: '1.3'
-                            }}>
-                                {topic.title}
-                            </h3>
-
-                            {/* Time Estimate */}
-                            <div style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '0.5rem',
-                                color: 'var(--text-secondary)',
-                                fontSize: '0.85rem',
-                                marginBottom: '1rem'
-                            }}>
-                                <span>🕐</span>
-                                <span>{estimatedTime}</span>
-                            </div>
-
-                            {/* Progress Bar */}
-                            <div style={{ marginBottom: '1rem' }}>
-                                <div style={{
-                                    width: '100%',
-                                    height: '6px',
-                                    background: '#2A2A2A',
-                                    borderRadius: '10px',
-                                    overflow: 'hidden'
-                                }}>
-                                    <div style={{
-                                        width: `${progressPercent}%`,
-                                        height: '100%',
-                                        background: 'var(--primary)',
-                                        transition: 'width 0.3s'
-                                    }} />
-                                </div>
-                                <div style={{
-                                    fontSize: '0.75rem',
-                                    color: 'var(--text-secondary)',
-                                    marginTop: '0.25rem'
-                                }}>
-                                    {progressPercent}% Complete
-                                </div>
-                            </div>
-
-                            {/* Start Lesson Button */}
-                            <button style={{
-                                width: '100%',
-                                padding: '0.75rem',
-                                background: !user ? '#3f3f46' : (progressPercent === 100 ? '#10B981' : 'var(--primary)'),
-                                color: 'white',
-                                border: 'none',
-                                borderRadius: '8px',
-                                fontSize: '0.95rem',
-                                fontWeight: 700,
-                                cursor: 'pointer',
-                                transition: 'all 0.2s',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                gap: '0.5rem'
-                            }}
-                                onMouseEnter={(e) => {
-                                    if (!user) return;
-                                    if (progressPercent !== 100) e.target.style.background = 'var(--primary-hover)'
-                                }}
-                                onMouseLeave={(e) => {
-                                    if (!user) return;
-                                    if (progressPercent !== 100) e.target.style.background = 'var(--primary)'
-                                }}
-                            >
-                                {!user ? (
-                                    <>
-                                        <span>🔒</span> Log in to Start
-                                    </>
-                                ) : progressPercent === 100 ? (
-                                    <>
-                                        <span>✅</span> Completed
-                                    </>
-                                ) : 'Start Lesson'}
-                            </button>
-                        </div>
-                    );
-                })}
+            {/* Legend / Tip */}
+            <div style={{ textAlign: 'center', marginTop: '1rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+                Click on an island to start your adventure!
             </div>
+
+            {/* Legacy List Link (Optional if they want to switch back, for now just hidden/removed as requested) */}
         </div>
     );
 }

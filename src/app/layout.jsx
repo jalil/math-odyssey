@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { UserProvider, useUser } from '../context/UserContext';
 import { Inter } from 'next/font/google';
 import SidebarSearch from '../components/SidebarSearch';
+import StreakCounter from '../components/StreakCounter';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -70,7 +71,7 @@ function Sidebar() {
         }}>
             <div style={{ marginBottom: '2rem', paddingLeft: '0.5rem' }}>
                 <span style={{ fontWeight: 700, fontSize: '1.5rem', letterSpacing: '-0.02em', color: '#FFFFFF' }}>
-                    Math<span style={{ color: 'var(--primary)' }}>Bytes</span>
+                    Math <span style={{ color: 'var(--primary)' }}>Odyssey</span>
                 </span>
             </div>
 
@@ -92,6 +93,7 @@ function Sidebar() {
 
             {user && (
                 <>
+                    {user.name.toLowerCase() !== 'admin' && <StreakCounter />}
                     <div style={{ marginTop: '1.5rem' }}>
                         <h3 style={{
                             fontSize: '0.9rem',
@@ -105,11 +107,12 @@ function Sidebar() {
                             Modules
                         </h3>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                            <NavLink topicId="bar-model-level-1" hasBadge={true}>Bar Models</NavLink>
-                            <NavLink topicId="singapore-p3">Singapore P3</NavLink>
-                            <NavLink topicId="singapore-p4">Singapore P4</NavLink>
-                            <NavLink topicId="singapore-p5">Singapore P5</NavLink>
-                            <NavLink topicId="singapore-p6">Singapore P6</NavLink>
+                            <NavLink topicId="singapore-p3">🏠 Beginner Village (P3)</NavLink>
+                            <NavLink topicId="singapore-p4">🌲 Factor Forest (P4)</NavLink>
+                            <NavLink topicId="bar-model-level-1" hasBadge={true}>🌉 Bridge of Logic (Bar Models)</NavLink>
+                            <NavLink topicId="singapore-p5">🏰 Fraction Fortress (P5)</NavLink>
+                            <NavLink topicId="singapore-p6">🏔️ Mt. Mastery (P6)</NavLink>
+                            <NavLink topicId="speed-run">🏎️ Speed Run Mode</NavLink>
                         </div>
                     </div>
 
@@ -126,8 +129,8 @@ function Sidebar() {
                             Exam Prep
                         </h3>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                            <NavLink topicId="hiroo">Hiroo Gakuen AG</NavLink>
                             <NavLink topicId="mita">Mita Intl IC</NavLink>
+                            <NavLink topicId="hiroo">Hiroo Gakuen AG</NavLink>
                             <NavLink topicId="ultimate-prep">🚀 Ultimate Prep</NavLink>
                         </div>
                     </div>

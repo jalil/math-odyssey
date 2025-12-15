@@ -11,6 +11,7 @@ import ExampleViewer from '../components/ExampleViewer';
 import ExampleCard from '../components/ExampleCard';
 import QuizViewer from '../components/QuizViewer';
 import QuizCard from '../components/QuizCard';
+import SpeedRunQuiz from '../components/SpeedRunQuiz';
 
 // Inline components moved to separate files.
 import SectionHeader from '../components/SectionHeader';
@@ -23,17 +24,28 @@ function Content() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const topicId = searchParams.get('topic');
+
     const { user, progress, saveProgress } = useUser();
 
     // State for Focus Mode
     const [currentSectionIndex, setCurrentSectionIndex] = React.useState(0);
+
+
 
     // Default to first topic to safely run hooks if topicId is missing
     const currentTopic = topics.find(t => t.id === topicId) || topics[0];
 
     // Check parameters
     const sectionParam = searchParams.get('section');
-    const isInReviewTestMode = sectionParam === 'review-test';
+
+    // Determine if we are in Review Test Mode
+    // Matches if param is 'review-test' OR if the specific section ID exists and has "Review Test" in title
+    const targetSection = React.useMemo(() =>
+        currentTopic.sections.find(s => s.id === sectionParam),
+        [currentTopic, sectionParam]);
+
+    const isInReviewTestMode = sectionParam === 'review-test' ||
+        (targetSection && targetSection.type === 'section-header' && targetSection.title && targetSection.title.includes('Review Test'));
 
     // -------------------------------------------------------------------------
     // HOOKS: Run unconditionally to adhere to Rules of Hooks
@@ -217,6 +229,15 @@ function Content() {
     // RENDER LOGIC: Conditional Returns
     // -------------------------------------------------------------------------
 
+    // Case 0: Speed Run Mode
+    if (topicId === 'speed-run') {
+        return (
+            <div style={{ padding: '2rem' }}>
+                <SpeedRunQuiz />
+            </div>
+        );
+    }
+
     // Case 1: No Topic Selected (Home)
     if (!topicId) {
         return <HomePage />;
@@ -228,7 +249,11 @@ function Content() {
         const reviewTestQuestions = [];
 
         currentTopic.sections.forEach((section, idx) => {
-            if (section.type === 'section-header' && section.title && section.title.includes('Review Test')) {
+            const isStartHeader = sectionParam === 'review-test'
+                ? (section.type === 'section-header' && section.title && section.title.includes('Review Test'))
+                : (section.id === sectionParam);
+
+            if (isStartHeader) {
                 inReviewTest = true;
             } else if (section.type === 'section-header' && inReviewTest) {
                 inReviewTest = false;
@@ -356,7 +381,7 @@ function Content() {
             const groupQuestions = currentSection.questions.map(q => {
                 const quizKey = `${currentTopic.id}-${q.originalIndex}`;
                 const itemProgress = progress[quizKey];
-                const status = itemProgress ? (itemProgress.passed ? 'correct' : 'incorrect') : null;
+                const status = itemProgress && itemProgress.passed ? 'correct' : null;
                 return {
                     ...q,
                     questionId: quizKey,

@@ -1,4 +1,6 @@
 import React from 'react';
+import { triggerConfetti, triggerPop, triggerShake } from '../utils/confetti';
+import { playCorrectSound, playIncorrectSound } from '../utils/audio';
 
 export default function QuizCard({ title, description, answer, steps = [], onResult, onReview, questionId, relatedSectionId, initialStatus, tableData, questionNumber, totalQuestions, contentStyle = {}, showTitle = true, textColor = 'var(--text-primary)' }) {
     const [showAnswer, setShowAnswer] = React.useState(false);
@@ -39,11 +41,19 @@ export default function QuizCard({ title, description, answer, steps = [], onRes
         if (normalizedUserAnswer === normalizedCorrectAnswer) {
             // Correct answer
             setIsWrong(false);
+
+            // Visual/Audio feedback
+            triggerPop(`check-btn-${questionNumber}`);
+            triggerConfetti(); // Small burst for motivation!
+            playCorrectSound();
+
             handleResult(true);
         } else {
             // Wrong answer
             setIsWrong(true);
             setAttempts(prev => prev + 1);
+            triggerShake(`input-${questionNumber}`);
+            playIncorrectSound();
             // Don't allow moving forward
         }
     };
@@ -159,6 +169,7 @@ export default function QuizCard({ title, description, answer, steps = [], onRes
                     {/* Input Field with Validation */}
                     <div style={{ position: 'relative', marginBottom: '1rem' }}>
                         <input
+                            id={`input-${questionNumber}`}
                             type="text"
                             value={userAnswer}
                             onChange={(e) => setUserAnswer(e.target.value)}
@@ -241,6 +252,7 @@ export default function QuizCard({ title, description, answer, steps = [], onRes
                         )}
 
                         <button
+                            id={`check-btn-${questionNumber}`}
                             onClick={checkUserAnswer}
                             style={{
                                 background: 'white',

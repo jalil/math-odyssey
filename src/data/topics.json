@@ -6164,6 +6164,7 @@
             {
                 "type": "example",
                 "title": "6.1 Volume of Rectangular Prism",
+                "image": "/images/volume_box_diagram.png",
                 "description": "A box is 10cm long, 5cm wide, and 3cm high. Find its volume.",
                 "steps": [
                     "Volume = length × width × height",
@@ -8612,7 +8613,7 @@
                 "title": "M.1.1 Graph Logic",
                 "relatedSectionId": "mita-data",
                 "description": "A car travels 100km in 2 hours. What is the speed in km/h?",
-                "answer": "50 km/h",
+                "answer": "50",
                 "steps": [
                     "Speed = Distance / Time.",
                     "100 / 2 = 50."
