@@ -314,7 +314,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 14: Bar Model Sum",
-                "description": "A=10, B=20, C=30. What is the total?",
+                "description": "If A is 10, B is 20, and C is 30, calculate the total sum.",
                 "answer": "60",
                 "steps": [
                     "10+20+30 = 60"
@@ -323,7 +323,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 15: Missing Addend",
-                "description": "15 + ? = 40",
+                "description": "Find the missing number in the equation: 15 + ? = 40.",
                 "answer": "25",
                 "steps": [
                     "40 - 15 = 25"
@@ -341,7 +341,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 17: Logic Coins",
-                "description": "I have 3 coins that add up to 25 cents. (10c, 5c, ?)",
+                "description": "I have 3 coins that add up to 25 cents. Two of them are 10 cents and 5 cents. What is the third coin?",
                 "answer": "10c",
                 "steps": [
                     "10+5+? = 25",
@@ -361,7 +361,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 19: Time Interval",
-                "description": "It is 3:00. What time will it be in 30 minutes?",
+                "description": "The current time is 3:00. What time will it be in 30 minutes?",
                 "answer": "3:30",
                 "steps": [
                     "Add 30 mins"
@@ -370,7 +370,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 20: Even/Odd",
-                "description": "Is the sum of 2 and 4 Even or Odd?",
+                "description": "Is the sum of 2 and 4 an Even number or an Odd number?",
                 "answer": "Even",
                 "steps": [
                     "2+4=6 (Even)"
@@ -379,7 +379,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 21: Difference Logic",
-                "description": "A is 5 more than B. B is 10. What is A?",
+                "description": "Number A is 5 more than Number B. If B is 10, what is the value of A?",
                 "answer": "15",
                 "steps": [
                     "10 + 5 = 15"
@@ -397,7 +397,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 23: Double",
-                "description": "Double of 15 is?",
+                "description": "What is the double of 15?",
                 "answer": "30",
                 "steps": [
                     "15 x 2 = 30"
@@ -406,7 +406,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 24: Tens Pattern",
-                "description": "10, 20, 30, ?",
+                "description": "Find the next number in the pattern: 10, 20, 30, ...",
                 "answer": "40",
                 "steps": [
                     "Count by 10s"
@@ -415,7 +415,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 25: Simple Division",
-                "description": "Share 20 cherries among 4 friends equally.",
+                "description": "Share 20 cherries equally among 4 friends. How many cherries does each friend get?",
                 "answer": "5",
                 "steps": [
                     "20 / 4 = 5"
@@ -424,7 +424,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 26: Length Logic",
-                "description": "A rope is 10m. Cut off 2m. How long now?",
+                "description": "A rope is 10 meters long. If you cut off 2 meters, how long is the rope now?",
                 "answer": "8",
                 "steps": [
                     "10 - 2 = 8"
@@ -433,7 +433,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 27: Place Value",
-                "description": "What is the value of digit 5 in 352?",
+                "description": "What is the value of the digit 5 in the number 352?",
                 "answer": "50",
                 "steps": [
                     "Tens place"
@@ -451,7 +451,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 29: Dozen Logic",
-                "description": "Calculate 1 dozen minus 2.",
+                "description": "Calculate the result of 1 dozen minus 2.",
                 "answer": "10",
                 "steps": [
                     "12 - 2 = 10"
@@ -460,7 +460,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 30: Final Challenge",
-                "description": "I am a number. Double me is 20. Who am I?",
+                "description": "I am a mystery number. If you double me, the answer is 20. What number am I?",
                 "answer": "10",
                 "steps": [
                     "20 / 2 = 10"
@@ -552,6 +552,15 @@
                     "1 unit = 35 ÷ 7 = 5 marbles",
                     "Tom: 3 × 5 = 15 marbles",
                     "Jerry: 4 × 5 = 20 marbles"
+                ],
+                "detailedDescription": "A ratio checks how many 'shares' or 'units' each person gets. Here, for every 3 marbles Tom gets, Jerry gets 4. This means there are 7 equal shares in total.",
+                "detailedSteps": [
+                    "Tom has 3 units, Jerry has 4 units.",
+                    "Total units = 3 + 4 = 7 units.",
+                    "We know 7 units represent 35 marbles.",
+                    "To find 1 unit, we divide: 35 ÷ 7 = 5 marbles.",
+                    "Tom's share = 3 units x 5 = 15 marbles.",
+                    "Jerry's share = 4 units x 5 = 20 marbles."
                 ]
             },
             {
@@ -563,6 +572,13 @@
                     "5 units = $60",
                     "1 unit = $60 ÷ 5 = $12",
                     "Amy gets: 2 × $12 = $24"
+                ],
+                "detailedDescription": "When sharing money in a ratio, we first find the total number of parts (units) mentioned in the ratio. Then we split the total money into that many equal parts.",
+                "detailedSteps": [
+                    "The ratio is 2:3, so Total Units = 2 + 3 = 5.",
+                    "The total money is $60, which corresponds to these 5 units.",
+                    "Value of 1 Unit = $60 ÷ 5 = $12.",
+                    "Amy has 2 units, so she gets 2 x $12 = $24."
                 ]
             },
             {
@@ -596,18 +612,33 @@
                     "Multiples of 18: 18, 36, 54...",
                     "LCM = 36 minutes",
                     "Next together: 8:36 AM"
+                ],
+                "detailedDescription": "To find when two events repeating at different speeds will happen together, we need the Least Common Multiple (LCM). This is the first number that both time intervals can divide into evenly.",
+                "detailedSteps": [
+                    "Bus A intervals: 12, 24, 36, 48, ...",
+                    "Bus B intervals: 18, 36, 54, ...",
+                    "We see that 36 is the first number that appears in both lists.",
+                    "So, the LCM is 36 minutes.",
+                    "They will meet 36 minutes after 8:00 AM, which is 8:36 AM."
                 ]
             },
             {
                 "type": "example",
                 "title": "Example: Finding GCF",
-                "description": "A teacher has 24 pencils and 36 erasers. What is the largest number of identical gift bags she can make?",
+                "description": "A teacher has 24 pencils and 36 erasers. What is the largest number of identical gift bags she can make so that no items are left over?",
                 "steps": [
                     "Find GCF of 24 and 36",
                     "Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24",
                     "Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36",
                     "GCF = 12",
                     "She can make 12 gift bags"
+                ],
+                "detailedDescription": "When we want to split different items into identical groups with nothing left over, we look for the Greatest Common Factor (GCF). This is the largest number that can divide both totals.",
+                "detailedSteps": [
+                    "List factors of 24: 1, 2, 3, 4, 6, 8, 12, 24.",
+                    "List factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36.",
+                    "The largest number in both lists is 12.",
+                    "So, she can make 12 identical gift bags."
                 ]
             },
             {
@@ -637,6 +668,14 @@
                     "10 units = 120 cm",
                     "1 unit = 120 ÷ 10 = 12 cm",
                     "Longest piece (5 units) = 5 × 12 = 60 cm"
+                ],
+                "detailedDescription": "Ratios can compare more than two things. Here we have 3 parts: A, B, and C. The method is the same: find total units and the value of 1 unit.",
+                "detailedSteps": [
+                    "The ratio is 2:3:5. Add the parts: 2 + 3 + 5 = 10 total units.",
+                    "The total length is 120 cm, which represents these 10 units.",
+                    "Value of 1 unit = 120 ÷ 10 = 12 cm.",
+                    "The longest piece corresponds to the largest number in the ratio, which is 5.",
+                    "Length of longest piece = 5 units x 12 cm = 60 cm."
                 ]
             },
             {
@@ -648,6 +687,15 @@
                     "2 units = $24",
                     "1 unit = $24 ÷ 2 = $12",
                     "Sara has 5 units = 5 × $12 = $60"
+                ],
+                "detailedDescription": "Sometimes we are given the DIFFERENCE between quantities instead of the total. We must find the difference in 'units' first, then equate that to the value given.",
+                "detailedSteps": [
+                    "Sara has 5 units, Tom has 3 units.",
+                    "The difference in units = 5 - 3 = 2 units.",
+                    "The problem says Sara has $24 more, so 2 units = $24.",
+                    "Value of 1 unit = $24 ÷ 2 = $12.",
+                    "We need to find Sara's money (5 units).",
+                    "Sara = 5 x $12 = $60."
                 ]
             },
             {
@@ -660,6 +708,14 @@
                     "Multiples of 6: 6, 12, 18, 24...",
                     "Multiples of 8: 8, 16, 24...",
                     "LCM = 24 seconds"
+                ],
+                "detailedDescription": "This is a classic LCM problem involving synchronization. We need to find a time interval that is a multiple of 4, 6, and 8.",
+                "detailedSteps": [
+                    "List multiples of 4: 4, 8, 12, 16, 20, 24...",
+                    "List multiples of 6: 6, 12, 18, 24...",
+                    "List multiples of 8: 8, 16, 24...",
+                    "The first number common to all three lists is 24.",
+                    "So, the lights will blink together again after 24 seconds."
                 ]
             },
             {
@@ -742,7 +798,7 @@
                 "type": "quiz",
                 "id": "p4-fraction-practice",
                 "title": "Practice 7: Fraction Addition",
-                "description": "What is 2/5 + 1/5?",
+                "description": "Calculate the sum of 2/5 and 1/5.",
                 "answer": "3/5",
                 "steps": [
                     "Same denominator, add numerators",
@@ -809,7 +865,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 13: Fraction Subtraction",
-                "description": "What is 4/7 - 2/7?",
+                "description": "Calculate the result of 4/7 minus 2/7.",
                 "answer": "2/7",
                 "steps": [
                     "Same denominator, subtract numerators",
@@ -851,7 +907,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 17: Area Puzzle",
-                "description": "Two identical squares with side 3cm are placed side by side. Area of new rectangle?",
+                "description": "Two identical squares, each with a side length of 3 cm, are placed side by side to form a rectangle. What is the area of this new rectangle?",
                 "answer": "18",
                 "steps": [
                     "One square = 9",
@@ -861,7 +917,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 18: Multiple Pattern",
-                "description": "Next 3 multiples of 4: 4, 8, 12, ...?",
+                "description": "Find the next three multiples of 4 after 4, 8, 12...",
                 "answer": "16, 20, 24",
                 "steps": [
                     "Add 4 each time"
@@ -870,7 +926,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 19: Perimeter Logic",
-                "description": "Perimeter of square is 20. Side length?",
+                "description": "The perimeter of a square is 20 cm. What is the length of one side?",
                 "answer": "5",
                 "steps": [
                     "20 / 4 = 5"
@@ -879,7 +935,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 20: Fraction Logic",
-                "description": "Which is larger: 1/2 or 1/3?",
+                "description": "Which fraction is larger: 1/2 or 1/3?",
                 "answer": "1/2",
                 "steps": [
                     "Smaller denominator = larger part"
@@ -888,7 +944,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 21: LCM Cycle",
-                "description": "Red light blinks every 2s. Blue every 3s. When do they blink together?",
+                "description": "A red light blinks every 2 seconds and a blue light blinks every 3 seconds. If they blink together now, when will they next blink together?",
                 "answer": "6s",
                 "steps": [
                     "LCM of 2 and 3 is 6"
@@ -897,7 +953,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 22: Unknown Side",
-                "description": "Area of rectangle is 24. Width is 4. Length?",
+                "description": "The area of a rectangle is 24 square units. If the width is 4 units, what is the length?",
                 "answer": "6",
                 "steps": [
                     "24 / 4 = 6"
@@ -906,7 +962,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 23: Mixed Num Logic",
-                "description": "How many halves in 3 wholes?",
+                "description": "How many halves are there in 3 wholes?",
                 "answer": "6",
                 "steps": [
                     "3 x 2 = 6"
@@ -915,7 +971,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 24: Simple Ratio",
-                "description": "Ratio 2:3. Total is 50. Smaller part?",
+                "description": "The ratio of two numbers is 2:3. If the total is 50, what is the value of the smaller number?",
                 "answer": "20",
                 "steps": [
                     "5 units = 50. 1 unit = 10. 2 units = 20."
@@ -924,7 +980,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 25: Composite Shape",
-                "description": "L-shape made of two 2x4 rectangles. Total Area?",
+                "description": "An L-shape is made of two rectangles, each with size 2x4. What is the total area?",
                 "answer": "16",
                 "steps": [
                     "8 + 8 = 16"
@@ -933,7 +989,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 26: GCF Grouping",
-                "description": "Max groups for 10 boys, 15 girls equal sharing?",
+                "description": "What is the maximum number of groups we can make with 10 boys and 15 girls so they are shared equally?",
                 "answer": "5",
                 "steps": [
                     "GCF of 10 and 15 is 5"
@@ -943,7 +999,7 @@
                 "type": "quiz",
                 "id": "p4-guess-check",
                 "title": "Practice 27: Guess Check",
-                "description": "2 numbers sum to 10 and multiply to 21. What are they?",
+                "description": "Find two numbers that sum to 10 and multiply to 21.",
                 "answer": "3 and 7",
                 "steps": [
                     "3+7=10, 3x7=21"
@@ -952,7 +1008,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 28: Fraction Sub",
-                "description": "1 whole - 1/4 = ?",
+                "description": "Calculate the result of 1 whole minus 1/4.",
                 "answer": "3/4",
                 "steps": [
                     "4/4 - 1/4 = 3/4"
@@ -961,7 +1017,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 29: Remainder Pattern",
-                "description": "Divide 13 by 3. Remainder?",
+                "description": "What is the remainder when you divide 13 by 3?",
                 "answer": "1",
                 "steps": [
                     "12 is divisible. 13-12=1"
@@ -970,7 +1026,7 @@
             {
                 "type": "quiz",
                 "title": "Practice 30: Final Puzzle",
-                "description": "I have 4 sides, all equal, but no right angles. Shape?",
+                "description": "I have 4 equal sides but no right angles. What shape am I?",
                 "answer": "Rhombus",
                 "steps": [
                     "Definition of Rhombus"
@@ -2650,55 +2706,90 @@
                 "type": "example",
                 "title": "1.1 Order of Operations (BODMAS)",
                 "description": "BODMAS stands for: Brackets, Orders (powers/roots), Division, Multiplication, Addition, Subtraction. This is the order you must follow when solving math problems. Calculate: 20 + 40 ÷ (5 + 3) x 2",
+                "detailedDescription": "Let's break this down step-by-step using the BODMAS rule. Just like a recipe, we must follow the order exactly to get the right answer.\n\nProblem: 20 + 40 ÷ (5 + 3) x 2\n\n1. **B**rackets: Always solve what is inside the brackets first.\n2. **O**rders: Powers or Square roots (None here).\n3. **D**ivision & **M**ultiplication: Do these next, from left to right.\n4. **A**ddition & **S**ubtraction: Do these last, from left to right.",
                 "steps": [
                     "Brackets First: (5 + 3) = 8.",
                     "Equation becomes: 20 + 40 ÷ 8 x 2.",
                     "Division (Left): 40 ÷ 8 = 5.",
                     "Multiplication: 5 x 2 = 10.",
                     "Addition last: 20 + 10 = 30."
+                ],
+                "detailedSteps": [
+                    "Step 1: Look for Brackets (). We have (5 + 3). Solve that first.\n   5 + 3 = 8.\n   Now the equation is: 20 + 40 ÷ 8 x 2",
+                    "Step 2: Look for Division or Multiplication. We do them from left to right.\n   First is Division: 40 ÷ 8 = 5.\n   Now the equation is: 20 + 5 x 2",
+                    "Step 3: Still looking for Division or Multiplication. We have 5 x 2.\n   5 x 2 = 10.\n   Now the equation is: 20 + 10",
+                    "Step 4: Finally, do Addition or Subtraction.\n   20 + 10 = 30.\n   The final answer is 30."
                 ]
             },
             {
                 "type": "example",
                 "title": "1.2 Distributive Law (Smart Calculation)",
-                "description": "Calculate 48 x 25 without a vertical column.",
+                "description": "Calculate the product of 48 and 25 using mental math strategies instead of a vertical column.",
+                "detailedDescription": "The Distributive Law lets us break difficult numbers into easier ones. Here, multiplying by 25 is hard, but multiplying by 100 and dividing by 4 is easy because 25 is a quarter of 100.",
                 "steps": [
                     "Think: 25 is 100 ÷ 4.",
                     "So 48 x 25 = 48 x (100 ÷ 4).",
                     "48 ÷ 4 = 12.",
                     "12 x 100 = 1200."
+                ],
+                "detailedSteps": [
+                    "Step 1: Recognize that 25 is a 'special number'. It is exactly 100 divided by 4.",
+                    "Step 2: Rewrite the problem. Instead of 48 x 25, think of it as 48 x (100 ÷ 4).",
+                    "Step 3: Divide 48 by 4 first used mental math. 48 ÷ 4 = 12.",
+                    "Step 4: Now multiply the result by 100. 12 x 100 = 1200."
                 ]
             },
             {
                 "type": "example",
                 "title": "1.3 Rounding & Estimation",
-                "description": "Estimate 3986 x 5.1",
+                "description": "Estimate the result of 3986 multiplied by 5.1 by rounding each number first.",
+                "detailedDescription": "Estimation is about finding an answer that is 'close enough' quickly. We round each number to its nearest simple value (like thousands or ones) to make the math easy.",
                 "steps": [
                     "Round 3986 to nearest thousand -> 4000.",
                     "Round 5.1 to nearest one -> 5.",
                     "Estimate = 4000 x 5 = 20,000."
+                ],
+                "detailedSteps": [
+                    "Step 1: Look at the first number, 3986. It is very close to 4000. So we round it to 4000.",
+                    "Step 2: Look at the second number, 5.1. The .1 is very small, so we round it down to 5.",
+                    "Step 3: Multiply your new simple numbers. 4000 x 5.",
+                    "Step 4: Calculate: 4 x 5 = 20, and adds the three zeros. Result is 20,000."
                 ]
             },
             {
                 "type": "example",
                 "title": "1.4 Multi-Step Word Problem",
-                "description": "A factory makes 5000 pens. 20 cost $1 box. Sold for $2/pen. Profit?",
+                "description": "A factory produces 5000 pens. They are packed in boxes of 20, and each box costs $1 to produce. The pens are sold for $2 each. What is the total profit?",
+                "detailedDescription": "Profit is the money you keep after paying for costs. \nProfit = Total Money Earned (Revenue) - Total Cost.\nWe need to calculate the Cost and Revenue separately first.",
                 "steps": [
                     "Wait, careful with units. Let's simplify.",
                     "Cost: 5000 pens. 20 pens/box. So 250 boxes.",
                     "Cost = 250 x $1 = $250.",
                     "Revenue: 5000 x $2 = $10,000.",
                     "Profit: 10,000 - 250 = $9,750."
+                ],
+                "detailedSteps": [
+                    "Step 1: Find the Cost. The pens are in boxes of 20. How many boxes do we need for 5000 pens?\n   5000 ÷ 20 = 250 boxes.",
+                    "Step 2: Calculate cost of boxes. Each box is $1.\n   250 boxes x $1 = $250 (Total Cost).",
+                    "Step 3: Find the Revenue (Sales). Each pen is sold for $2.\n   5000 pens x $2 = $10,000 (Total Revenue).",
+                    "Step 4: Calculate Profit. Subtract Cost from Revenue.\n   $10,000 - $250 = $9,750."
                 ]
             },
             {
                 "type": "example",
                 "title": "1.5 Place Value Logic",
-                "description": "What is the value of the digit 7 in 7,654,321?",
+                "description": "Find the value of the digit 7 in the number 7,654,321.",
+                "detailedDescription": "Place value tells us how much a digit is worth based on where it sits in the number. As we move left, each place is 10 times bigger.",
                 "steps": [
                     "Count zeros behind it.",
                     "It is in the 'Millions' place.",
                     "Value = 7,000,000."
+                ],
+                "detailedSteps": [
+                    "Step 1: Identify the digit we want. It is the '7' at the very front.",
+                    "Step 2: Count how many digits are behind it. There are 6 digits (6,5,4,3,2,1).",
+                    "Step 3: Replace all those digits with zeros to find the value.",
+                    "Step 4: The 7 followed by 6 zeros is 7,000,000 (Seven Million)."
                 ]
             },
             {
@@ -2904,7 +2995,7 @@
                 "type": "quiz",
                 "title": "P5.1.18 Word Problem Logic",
                 "relatedSectionId": "p5-whole-numbers",
-                "description": "A user manual has 300 pages. Tom reads 10 pages a day. How many days to finish?",
+                "description": "A user manual has 300 pages. Tom reads 10 pages a day. How many days will it take him to finish the book?",
                 "answer": "30",
                 "steps": [
                     "300 ÷ 10 = 30 days"
@@ -2924,7 +3015,7 @@
                 "type": "quiz",
                 "title": "P5.1.20 Multi-Step Money",
                 "relatedSectionId": "p5-whole-numbers",
-                "description": "Apples cost $2 each. Oranges cost $3. Buying 5 apples and 2 oranges costs how much?",
+                "description": "Apples cost $2 each and Oranges cost $3 each. What is the total cost of buying 5 apples and 2 oranges?",
                 "answer": "16",
                 "steps": [
                     "Apples: 5 x 2 = 10",
@@ -2936,7 +3027,7 @@
                 "type": "quiz",
                 "title": "P5.1.21 Number Pattern",
                 "relatedSectionId": "p5-whole-numbers",
-                "description": "Complete: 2, 4, 8, 16, ?",
+                "description": "Find the next number in the pattern: 2, 4, 8, 16, ...",
                 "answer": "32",
                 "steps": [
                     "Doubling pattern: 16 x 2 = 32"
@@ -3043,52 +3134,89 @@
             {
                 "type": "example",
                 "title": "2.1 Mixed Number Multiplication",
-                "description": "Calculate 2 1/2 x 1 1/3",
+                "description": "Calculate the product of 2 1/2 and 1 1/3.",
+                "detailedDescription": "To multiply mixed numbers, we MUST change them into 'Improper Fractions' first (where the top number is bigger). Then we just multiply the tops together and the bottoms together.",
                 "steps": [
                     "Convert to Improper Fractions: 5/2 and 4/3.",
                     "Multiply tops: 5 x 4 = 20.",
                     "Multiply bottoms: 2 x 3 = 6.",
                     "Result: 20/6 = 3 2/6 = 3 1/3."
+                ],
+                "detailedSteps": [
+                    "Step 1: Convert 2 1/2. \n   2 x 2 + 1 = 5. So it is 5/2.",
+                    "Step 2: Convert 1 1/3. \n   1 x 3 + 1 = 4. So it is 4/3.",
+                    "Step 3: Multiply Top x Top. \n   5 x 4 = 20.",
+                    "Step 4: Multiply Bottom x Bottom.\n   2 x 3 = 6.",
+                    "Step 5: Simplify 20/6. \n   20 ÷ 6 = 3 with remainder 2. So 3 2/6.\n   Simplify 2/6 to 1/3. Final answer: 3 1/3."
                 ]
             },
             {
                 "type": "example",
                 "title": "2.2 Fraction Division",
-                "description": "How many 1/4 liter cups can fill a 3 liter jug?",
+                "description": "How many cups of size 1/4 liter are needed to fill a 3 liter jug?",
+                "detailedDescription": "When dividing by a fraction, we use the rule 'Keep-Change-Flip'. We keep the first number, change Divide to Multiply, and Flip the second fraction upside down.",
                 "steps": [
                     "3 ÷ 1/4.",
                     "Keep-Change-Flip: 3 x 4/1.",
                     "3 x 4 = 12 cups."
+                ],
+                "detailedSteps": [
+                    "Step 1: Write equation: 3 ÷ 1/4.",
+                    "Step 2: 'Keep' the 3.",
+                    "Step 3: 'Change' ÷ to x.",
+                    "Step 4: 'Flip' 1/4 to 4/1 (which is just 4).",
+                    "Step 5: Solve: 3 x 4 = 12 cups."
                 ]
             },
             {
                 "type": "example",
                 "id": "p5-percentage-example",
                 "title": "2.3 Percentage of a Quantity",
-                "description": "There are 200 people. 40% are children. How many are NOT children?",
+                "description": "There is a group of 200 people. 40% of them are children. How many people in the group are NOT children?",
+                "detailedDescription": "Percentage means 'out of 100'. 40% means 40 out of every 100. If 40% are children, then the rest (100% - 40% = 60%) must be adults.",
                 "steps": [
                     "Method 1: 40% are children, so 60% are adults.",
                     "60% of 200 = 60/100 x 200.",
                     "Cancel zeros: 60 x 2 = 120 adults."
+                ],
+                "detailedSteps": [
+                    "Step 1: Find percentage of adults. \n   Total is 100%. Children is 40%. \n   Adults = 100% - 40% = 60%.",
+                    "Step 2: Calculate 60% of 200. \n   Write 60% as a fraction: 60/100.",
+                    "Step 3: Multiply by total (200). \n   (60/100) x 200.",
+                    "Step 4: Cancel zeros. 100 goes into 200 exactly 2 times. \n   So we just calculate 60 x 2 = 120."
                 ]
             },
             {
                 "type": "example",
                 "title": "2.4 Decimal Multiplication",
-                "description": "0.3 x 0.4",
+                "description": "Calculate the result of 0.3 multiplied by 0.4.",
+                "detailedDescription": "The secret to multiplying decimals is to ignore the dots first. Just multiply the whole numbers, then put the dots back in at the end.",
                 "steps": [
                     "Ignore decimals first: 3 x 4 = 12.",
                     "Count total decimal places: 0.3 (1) + 0.4 (1) = 2 places.",
                     "Move decimal in 12 back 2 spots -> 0.12."
+                ],
+                "detailedSteps": [
+                    "Step 1: Pretend the decimals aren't there. Treat 0.3 as 3 and 0.4 as 4.",
+                    "Step 2: Multiply: 3 x 4 = 12.",
+                    "Step 3: Count decimal places in the question. \n   0.3 has ONE decimal place.\n   0.4 has ONE decimal place.\n   Total = 2 decimal places.",
+                    "Step 4: Place the decimal point in the answer '12'. Start from the right and jump left 2 times. \n   12 -> 1.2 -> .12 \n   Add a zero in front: 0.12."
                 ]
             },
             {
                 "type": "example",
                 "title": "2.5 Percentage Increase",
-                "description": "Price is $50. Increased by 10%. New price?",
+                "description": "The original price of an item is $50. If the price is increased by 10%, what is the new price?",
+                "detailedDescription": "When a price increases, we find the extra amount (the increase) and ADD it to the original price.",
                 "steps": [
                     "Find 10%: $50 x 0.1 = $5.",
                     "Add to original: $50 + $5 = $55."
+                ],
+                "detailedSteps": [
+                    "Step 1: Convert 10% to a decimal or fraction. 10% = 0.10 or 1/10.",
+                    "Step 2: Find the increase amount. \n   10% of $50 = $5.",
+                    "Step 3: Add this increase to the original price. \n   Original ($50) + Increase ($5).",
+                    "Step 4: Final Price = $55."
                 ]
             },
             {
@@ -3208,7 +3336,7 @@
                 "type": "quiz",
                 "title": "P5.2.11 Fraction x Fraction",
                 "relatedSectionId": "p5-frac-dec",
-                "description": "Calculate 1/2 x 1/4.",
+                "description": "Calculate the product of 1/2 and 1/4.",
                 "answer": "1/8",
                 "steps": [
                     "Multiply tops: 1",
@@ -3220,7 +3348,7 @@
                 "type": "quiz",
                 "title": "P5.2.12 Mixed to Improper",
                 "relatedSectionId": "p5-frac-dec",
-                "description": "Convert 2 1/3 to improper fraction.",
+                "description": "Convert the mixed number 2 1/3 to an improper fraction.",
                 "answer": "7/3",
                 "steps": [
                     "2 x 3 + 1 = 7",
@@ -3231,7 +3359,7 @@
                 "type": "quiz",
                 "title": "P5.2.13 Decimal Divide",
                 "relatedSectionId": "p5-frac-dec",
-                "description": "Calculate 4.5 ÷ 9.",
+                "description": "Calculate the result of 4.5 divided by 9.",
                 "answer": "0.5",
                 "steps": [
                     "45 ÷ 9 = 5",
@@ -3252,7 +3380,7 @@
                 "type": "quiz",
                 "title": "P5.2.15 Fraction Word Prob",
                 "relatedSectionId": "p5-frac-dec",
-                "description": "Tom ate 1/4 of a pizza. How much is left?",
+                "description": "Tom ate 1/4 of a pizza. What fraction of the pizza is left?",
                 "answer": "3/4",
                 "steps": [
                     "1 - 1/4 = 3/4"
@@ -3262,7 +3390,7 @@
                 "type": "quiz",
                 "title": "P5.2.16 Decimal Sub",
                 "relatedSectionId": "p5-frac-dec",
-                "description": "1.0 - 0.25",
+                "description": "Calculate 1.0 minus 0.25.",
                 "answer": "0.75",
                 "steps": [
                     "1.00 - 0.25 = 0.75"
@@ -3302,7 +3430,7 @@
                 "type": "quiz",
                 "title": "P5.2.20 Decimal Word Prob",
                 "relatedSectionId": "p5-frac-dec",
-                "description": "A rope is 5.5m long. You cut off 2.2m. How much left?",
+                "description": "A rope is 5.5m long. You cut off 2.2m. How much rope is left?",
                 "answer": "3.3",
                 "steps": [
                     "5.5 - 2.2 = 3.3m"
@@ -3312,7 +3440,7 @@
                 "type": "quiz",
                 "title": "P5.2.21 Frac Addition II",
                 "relatedSectionId": "p5-frac-dec",
-                "description": "1/2 + 1/4",
+                "description": "Calculate the sum of 1/2 and 1/4.",
                 "answer": "3/4",
                 "steps": [
                     "2/4 + 1/4 = 3/4"
@@ -3322,7 +3450,7 @@
                 "type": "quiz",
                 "title": "P5.2.22 Equiv Fraction",
                 "relatedSectionId": "p5-frac-dec",
-                "description": "2/3 = ?/9",
+                "description": "Find the missing numerator: 2/3 = ?/9.",
                 "answer": "6",
                 "steps": [
                     "Multiply top and bottom by 3. 6/9"
@@ -3332,7 +3460,7 @@
                 "type": "quiz",
                 "title": "P5.2.23 Percent Increase",
                 "relatedSectionId": "p5-frac-dec",
-                "description": "Increase 100 by 10%.",
+                "description": "Calculate the result when 100 is increased by 10%.",
                 "answer": "110",
                 "steps": [
                     "10% of 100 is 10. 100 + 10 = 110."
@@ -3342,7 +3470,7 @@
                 "type": "quiz",
                 "title": "P5.2.24 Decimal x 10",
                 "relatedSectionId": "p5-frac-dec",
-                "description": "3.45 x 10",
+                "description": "Calculate 3.45 multiplied by 10.",
                 "answer": "34.5",
                 "steps": [
                     "Move decimal point one right."
@@ -3352,7 +3480,7 @@
                 "type": "quiz",
                 "title": "P5.2.25 Fraction of Remainder",
                 "relatedSectionId": "p5-frac-dec",
-                "description": "I have $20. I spend 1/2. Then I spend 1/2 of what's left. How much do I have?",
+                "description": "I have $20. I spend 1/2 of it. Then I spend 1/2 of what is left. How much money do I have remaining?",
                 "answer": "5",
                 "steps": [
                     "Spend 1/2 -> Left 10.",
@@ -3363,7 +3491,7 @@
                 "type": "quiz",
                 "title": "P5.2.26 Simplify Frac",
                 "relatedSectionId": "p5-frac-dec",
-                "description": "Simplify 5/10",
+                "description": "Simplify the fraction 5/10.",
                 "answer": "1/2",
                 "steps": [
                     "Divide by 5 -> 1/2"
@@ -4595,53 +4723,93 @@
             {
                 "type": "example",
                 "title": "1.1 Algebraic Expressions",
-                "description": "Simplify: 2a + 3 + 5a - 1",
+                "description": "Simplify the algebraic expression: 2a + 3 + 5a - 1.",
                 "steps": [
                     "Group letters: 2a + 5a = 7a.",
                     "Group numbers: 3 - 1 = 2.",
                     "Answer: 7a + 2."
+                ],
+                "detailedDescription": "To simplify an algebraic expression, we must 'group like terms'. This means we look for terms that have the same variable (like 'a') and combine them. Numbers without variables are also combined separately.",
+                "detailedSteps": [
+                    "Identify the terms with 'a': 2a and 5a.",
+                    "Add their coefficients: 2 + 5 = 7. So, 2a + 5a = 7a.",
+                    "Identify the constant numbers: 3 and -1.",
+                    "Perform the subtraction: 3 - 1 = 2.",
+                    "Combine the results to get the final expression: 7a + 2."
                 ]
             },
             {
                 "type": "example",
                 "title": "1.2 Substitution",
-                "description": "If m = 6, find value of 2m/3 + 4.",
+                "description": "If m is equal to 6, calculate the value of the expression 2m/3 + 4.",
                 "steps": [
                     "Replace m with 6: (2 x 6)/3 + 4.",
                     "12 / 3 + 4.",
                     "4 + 4 = 8."
+                ],
+                "detailedDescription": "Substitution involves replacing a variable letter (like 'm') with its given number value. Always follow the order of operations (BODMAS) after substitution.",
+                "detailedSteps": [
+                    "Substitute m with 6 in the expression: (2 x 6) / 3 + 4.",
+                    "Multiply the top part first: 2 x 6 = 12.",
+                    "Divide by 3: 12 / 3 = 4.",
+                    "Finally, add 4: 4 + 4 = 8."
                 ]
             },
             {
                 "type": "example",
                 "title": "1.3 Ratio: Repeated Identity",
-                "description": "A:B = 2:3 and B:C = 4:5. Find A:B:C.",
+                "description": "The ratio A:B is 2:3 and the ratio B:C is 4:5. Find the combined ratio A:B:C.",
                 "steps": [
                     "B is common. LCM of 3 and 4 is 12.",
                     "Multiply first ratio by 4: A:B = 8:12.",
                     "Multiply second ratio by 3: B:C = 12:15.",
                     "Combined: 8:12:15."
+                ],
+                "detailedDescription": "When we have two separate ratios with a common item (like B), we need to make B the same number in both ratios to combine them. We use the Lowest Common Multiple (LCM) for this.",
+                "detailedSteps": [
+                    "In A:B (2:3), B is 3. In B:C (4:5), B is 4.",
+                    "Find the LCM of 3 and 4, which is 12.",
+                    "To make B=12 in the first ratio, multiply by 4: A:B becomes 8:12.",
+                    "To make B=12 in the second ratio, multiply by 3: B:C becomes 12:15.",
+                    "Now that B is 12 in both, we can combine them: A:B:C = 8:12:15."
                 ]
             },
             {
                 "type": "example",
                 "title": "1.4 Word Problem (Algebra)",
-                "description": "Ali has $x. Ben has $4 more. Total is $20.",
+                "description": "Ali has $x. Ben has $4 more than Ali. If their total amount of money is $20, find the value of x.",
                 "steps": [
                     "Ali = x. Ben = x + 4.",
                     "Total = x + (x + 4) = 2x + 4.",
                     "2x + 4 = 20.",
                     "2x = 16. x = 8. Ali has $8."
+                ],
+                "detailedDescription": "We can use algebra to solve word problems by defining a variable (x) for an unknown value and building an equation.",
+                "detailedSteps": [
+                    "Let Ali's money be x.",
+                    "Since Ben has $4 more, Ben's money is (x + 4).",
+                    "The total is Ali + Ben, so the equation is: x + (x + 4) = 20.",
+                    "Combine like terms: 2x + 4 = 20.",
+                    "Subtract 4 from both sides: 2x = 16.",
+                    "Divide by 2: x = 8. So Ali has $8."
                 ]
             },
             {
                 "type": "example",
                 "title": "1.5 Ratio of Areas",
-                "description": "Two squares have sides 2cm and 3cm. Ratio of Areas?",
+                "description": "Two squares have side lengths of 2 cm and 3 cm respectively. What is the ratio of their areas?",
                 "steps": [
                     "Area 1 = 2 x 2 = 4.",
                     "Area 2 = 3 x 3 = 9.",
                     "Ratio = 4:9."
+                ],
+                "detailedDescription": "The ratio of areas is NOT the same as the ratio of side lengths. If you square the side lengths, you get the areas.",
+                "detailedSteps": [
+                    "Side length ratio is 2:3.",
+                    "Area of first square = 2 x 2 = 4.",
+                    "Area of second square = 3 x 3 = 9.",
+                    "Therefore, the ratio of their areas is 4:9.",
+                    "Note: (2:3)² = 4:9."
                 ]
             },
             {
@@ -4666,7 +4834,7 @@
                 "type": "quiz",
                 "title": "P6.1.2 Substitution",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "A taxi charges a base fare of $2 times the distance (y) minus a $3 discount. If the distance is 5km, what is the cost? (Formula: 2y - 3)",
+                "description": "A taxi charges a fare calculated by the formula 2y - 3, where y is the distance in km. If the distance is 5 km, what is the cost?",
                 "answer": "7",
                 "steps": [
                     "2(5) - 3 = 10 - 3 = 7."
@@ -4687,7 +4855,7 @@
                 "type": "quiz",
                 "title": "P6.1.4 Repeated Ratio",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Given A:B = 1:2 and B:C = 4:5, find the combined ratio A:B:C.",
+                "description": "Given that the ratio A:B is 1:2 and B:C is 4:5, find the combined ratio A:B:C.",
                 "answer": "2:4:5",
                 "steps": [
                     "LCM of B(2,4) is 4.",
@@ -4699,7 +4867,7 @@
                 "type": "quiz",
                 "title": "P6.1.5 Ratio Area",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "If the ratio of the side lengths of two similar shapes is 1:3, what is the ratio of their areas?",
+                "description": "If the ratio of the side lengths of two similar shapes is 1:3, calculate the ratio of their areas.",
                 "answer": "1:9",
                 "steps": [
                     "1x1 : 3x3 = 1:9."
@@ -4709,7 +4877,7 @@
                 "type": "quiz",
                 "title": "P6.1.6 Solve x",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Buying 3 books (3x) plus a $6 shipping fee costs $18 total. What is the cost of one book (x)?",
+                "description": "Buying 3 books (3x) plus a $6 shipping fee costs $18 in total. Calculate the cost of one book (x).",
                 "answer": "4",
                 "steps": [
                     "3x + 6 = 18.",
@@ -4721,7 +4889,7 @@
                 "type": "quiz",
                 "title": "P6.1.7 Formula",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Find the perimeter of a square with side length x.",
+                "description": "Write an expression for the perimeter of a square with a side length of x.",
                 "answer": "4x",
                 "steps": [
                     "x + x + x + x = 4x."
@@ -4731,7 +4899,7 @@
                 "type": "quiz",
                 "title": "P6.1.8 Ratio Sharing",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Share $20 between two people in the ratio 1:4.",
+                "description": "Share $20 between two people in the ratio 1:4. What are the two amounts?",
                 "answer": "$4 and $16",
                 "steps": [
                     "Total u=5.",
@@ -4753,7 +4921,7 @@
                 "type": "quiz",
                 "title": "P6.1.10 Expression",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Subtract 5 from Product of 3 and y.",
+                "description": "Subtract 5 from the product of 3 and y.",
                 "answer": "3y - 5",
                 "steps": [
                     "Product 3y.",
@@ -4775,7 +4943,7 @@
                 "type": "quiz",
                 "title": "P6.1.12 Equation Building",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Think of a number x. Multiply by 2, add 5. Result is 15. Find x.",
+                "description": "Think of a number x. When you multiply it by 2 and add 5, the result is 15. Find the value of x.",
                 "answer": "5",
                 "steps": [
                     "2x + 5 = 15",
@@ -4786,7 +4954,7 @@
                 "type": "quiz",
                 "title": "P6.1.13 Inequality Logic",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "2x < 10. What is the largest whole number x can be?",
+                "description": "Given that 2x < 10, what is the largest whole number that x can be?",
                 "answer": "4",
                 "steps": [
                     "x < 5. Largest whole number is 4."
@@ -4796,7 +4964,7 @@
                 "type": "quiz",
                 "title": "P6.1.14 Ratio Equation",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "x:y = 2:3. If x=10, find y.",
+                "description": "The ratio x:y is 2:3. If x is equal to 10, find the value of y.",
                 "answer": "15",
                 "steps": [
                     "Multiply by 5. 2x5=10, 3x5=15."
@@ -4806,7 +4974,7 @@
                 "type": "quiz",
                 "title": "P6.1.15 Simplify Terms",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Simplify: 5y - 2y + y",
+                "description": "Simplify the expression: 5y - 2y + y.",
                 "answer": "4y",
                 "steps": [
                     "3y + y = 4y"
@@ -4816,7 +4984,7 @@
                 "type": "quiz",
                 "title": "P6.1.16 Word Algebra",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "The sum of three consecutive numbers is 33. Find the smallest.",
+                "description": "The sum of three consecutive numbers is 33. Find the smallest number.",
                 "answer": "10",
                 "steps": [
                     "n, n+1, n+2. 3n+3=33. 3n=30. n=10."
@@ -4826,7 +4994,7 @@
                 "type": "quiz",
                 "title": "P6.1.17 Balance Scale",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "2 apples balance 1 melon. 1 melon balances 4 oranges. How many oranges balance 1 apple?",
+                "description": "Two apples balance one melon. One melon balances four oranges. How many oranges are needed to balance one apple?",
                 "answer": "2",
                 "steps": [
                     "2A = 1M = 4O.",
@@ -4837,7 +5005,7 @@
                 "type": "quiz",
                 "title": "P6.1.18 Age Problem",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Tom is x years old. Dad is 3 times as old. Diff is 30. Find x.",
+                "description": "Tom is x years old. His Dad is 3 times as old. The difference in their ages is 30 years. Find the value of x.",
                 "answer": "15",
                 "steps": [
                     "3x - x = 30. 2x = 30. x = 15."
@@ -4847,7 +5015,7 @@
                 "type": "quiz",
                 "title": "P6.1.19 Fraction Algebra",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Solve: x/4 = 5",
+                "description": "Solve the equation: x/4 = 5.",
                 "answer": "20",
                 "steps": [
                     "Multiply by 4. x = 20."
@@ -4857,7 +5025,7 @@
                 "type": "quiz",
                 "title": "P6.1.20 Two Unknowns",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "a + b = 10. a - b = 2. Find a.",
+                "description": "Given that a + b = 10 and a - b = 2, find the value of a.",
                 "answer": "6",
                 "steps": [
                     "2a = 12 -> a = 6."
@@ -4867,7 +5035,7 @@
                 "type": "quiz",
                 "title": "P6.1.21 Terminology",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "In 3x + 5, what is 5 called?",
+                "description": "In the expression 3x + 5, what is the number 5 called?",
                 "answer": "Constant",
                 "steps": [
                     "Number without variable."
@@ -4877,7 +5045,7 @@
                 "type": "quiz",
                 "title": "P6.1.22 Area Algebra",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Rectangle Area = 24. Length = x. Width?",
+                "description": "The area of a rectangle is 24. If the length is x, what is the width?",
                 "answer": "24/x",
                 "steps": [
                     "Area/Length."
@@ -4887,7 +5055,7 @@
                 "type": "quiz",
                 "title": "P6.1.23 Pattern Rule",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "2, 5, 8, 11. Formula for nth term?",
+                "description": "Consider the number pattern: 2, 5, 8, 11... What is the formula for the nth term?",
                 "answer": "3n-1",
                 "steps": [
                     "Gap 3. 3(1)-1=2. 3n-1."
@@ -4897,7 +5065,7 @@
                 "type": "quiz",
                 "title": "P6.1.24 Cost Formula",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Rental: $10 + $2 per hour (h). Formula?",
+                "description": "A rental shop charges $10 plus $2 per hour (h). Write a formula for the total cost.",
                 "answer": "10 + 2h",
                 "steps": [
                     "Fixed + Variable."
@@ -4907,7 +5075,7 @@
                 "type": "quiz",
                 "title": "P6.1.25 Simplify Bracket",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Simplify 2(x + 3)",
+                "description": "Simplify the expression: 2(x + 3).",
                 "answer": "2x + 6",
                 "steps": [
                     "Distribute: 2x + 6."
@@ -4917,7 +5085,7 @@
                 "type": "quiz",
                 "title": "P6.1.26 Inverse Ops",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Opposite of 'Divide by 3'?",
+                "description": "What is the opposite operation of 'Divide by 3'?",
                 "answer": "Multiply by 3",
                 "steps": [
                     "Inverse operation."
@@ -4978,6 +5146,13 @@
                 "steps": [
                     "Formula: Speed = Distance / Time.",
                     "100 / 10 = 10 m/s."
+                ],
+                "detailedDescription": "Speed tells us how fast something is moving. It is the distance traveled in 1 unit of time (like 1 second or 1 hour).",
+                "detailedSteps": [
+                    "We use the formula: Speed = Distance ÷ Time.",
+                    "Here, Distance = 100m, Time = 10s.",
+                    "Speed = 100 ÷ 10 = 10.",
+                    "The unit is meters per second (m/s)."
                 ]
             },
             {
@@ -4987,6 +5162,13 @@
                 "steps": [
                     "Distance = Speed x Time.",
                     "60 x 3 = 180 km."
+                ],
+                "detailedDescription": "To find the distance covering during a trip, we multiply the speed (how fast) by the time (how long).",
+                "detailedSteps": [
+                    "Formula: Distance = Speed × Time.",
+                    "Speed = 60 km/h.",
+                    "Time = 3 hours.",
+                    "Distance = 60 × 3 = 180 km."
                 ]
             },
             {
@@ -4997,6 +5179,13 @@
                     "Total Dist = 200km.",
                     "Total Time = 5h.",
                     "Avg Speed = 200 / 5 = 40 km/h."
+                ],
+                "detailedDescription": "Average Speed is NOT the average of the two speeds. It is the Total Distance divided by the Total Time of the entire journey.",
+                "detailedSteps": [
+                    "Total Distance = 100km + 100km = 200km.",
+                    "Total Time = 2h + 3h = 5h.",
+                    "Average Speed = Total Distance ÷ Total Time.",
+                    "Average Speed = 200 ÷ 5 = 40 km/h."
                 ]
             },
             {
@@ -5007,6 +5196,13 @@
                     "Combined Speed = 100 km/h.",
                     "Time = Distance / Combined Speed.",
                     "200 / 100 = 2 hours."
+                ],
+                "detailedDescription": "When two objects move towards each other, they close the gap faster. Their 'combined' or 'relative' speed is the sum of their individual speeds.",
+                "detailedSteps": [
+                    "Object A Speed: 60 km/h. Object B Speed: 40 km/h.",
+                    "Combined Speed = 60 + 40 = 100 km/h.",
+                    "Total gap to close = 200km.",
+                    "Time = Distance ÷ Speed = 200 ÷ 100 = 2 hours."
                 ]
             },
             {
@@ -5018,6 +5214,14 @@
                     "Relative speed (gain) = 20 - 10 = 10 km/h.",
                     "Time to close gap = 10km / 10 km/h = 1 hour.",
                     "B catches A after 1 hour."
+                ],
+                "detailedDescription": "When one object chases another, the gap closes at the 'difference' of their speeds. The faster object must make up the head start distance.",
+                "detailedSteps": [
+                    "A starts 1 hour early at 10km/h, so Head Start Distance = 10km.",
+                    "B is faster by: 20 - 10 = 10 km/h (Relative Speed).",
+                    "This means B gains 10km on A every hour.",
+                    "Time to catch up = Head Start Distance ÷ Relative Speed.",
+                    "Time = 10 ÷ 10 = 1 hour."
                 ]
             },
             {
@@ -5341,6 +5545,13 @@
                 "steps": [
                     "Formula: C = π x d.",
                     "C = 3.14 x 10 = 31.4 cm."
+                ],
+                "detailedDescription": "The circumference is the distance around the edge of the circle. We calculate it using the diameter and the constant Pi (π ≈ 3.14).",
+                "detailedSteps": [
+                    "Formula: Circumference = π × Diameter.",
+                    "π is approximately 3.14.",
+                    "Diameter is 10 cm.",
+                    "Calculation: 3.14 × 10 = 31.4 cm."
                 ]
             },
             {
@@ -5350,6 +5561,13 @@
                 "steps": [
                     "Formula: A = π x r x r.",
                     "A = 3.14 x 10 x 10 = 314 cm²."
+                ],
+                "detailedDescription": "The area is the space inside the circle. To find it, we square the radius (multiply it by itself) and then multiply by Pi.",
+                "detailedSteps": [
+                    "Formula: Area = π × radius × radius (or πr²).",
+                    "Radius (r) = 10 cm.",
+                    "r × r = 10 × 10 = 100.",
+                    "Area = 3.14 × 100 = 314 cm²."
                 ]
             },
             {
@@ -5360,6 +5578,13 @@
                     "Curved part = 1/2 x π x d = 1/2 x (22/7) x 14 = 22cm.",
                     "Straight part (diameter) = 14cm.",
                     "Total = 22 + 14 = 36cm."
+                ],
+                "detailedDescription": "The perimeter of a semi-circle includes the curved arc PLUS the straight diameter line that closes the shape. Don't forget the straight line!",
+                "detailedSteps": [
+                    "1. Find the curved length (half circumference):",
+                    "   (π × d) ÷ 2 = (22/7 × 14) ÷ 2 = 44 ÷ 2 = 22 cm.",
+                    "2. Add the straight diameter: 14 cm.",
+                    "3. Total Perimeter = 22 + 14 = 36 cm."
                 ]
             },
             {
@@ -5369,6 +5594,13 @@
                 "steps": [
                     "Full Area = π x 7 x 7 = 154.",
                     "Quadrant = 154 / 4 = 38.5 cm²."
+                ],
+                "detailedDescription": "A quadrant is exactly one-quarter (1/4) of a circle. We calculate the full area first, then divide by 4.",
+                "detailedSteps": [
+                    "1. Full Circle Area = π × r × r",
+                    "   (22/7) × 7 × 7 = 154 cm².",
+                    "2. Quadrant Area = Full Area ÷ 4",
+                    "   154 ÷ 4 = 38.5 cm²."
                 ]
             },
             {
@@ -5379,6 +5611,12 @@
                     "Big Area = 25π.",
                     "Small Area = 9π.",
                     "Ring = 25π - 9π = 16π."
+                ],
+                "detailedDescription": "To find the area of a ring (or donut shape), we calculate the area of the large outer circle and subtract the 'hole' (the small inner circle).",
+                "detailedSteps": [
+                    "1. Area of Big Circle (R=5): π × 5 × 5 = 25π.",
+                    "2. Area of Small Circle (r=3): π × 3 × 3 = 9π.",
+                    "3. Area of Ring = 25π - 9π = 16π."
                 ]
             },
             {
@@ -5701,6 +5939,12 @@
                 "steps": [
                     "A full cube has 6 faces.",
                     "Without lid = 5 faces."
+                ],
+                "detailedDescription": "A cube has 6 square faces (Top, Bottom, Front, Back, Left, Right). If we remove the 'lid' (the top face), we subtract 1 face.",
+                "detailedSteps": [
+                    "A standard cube has 6 faces.",
+                    "An 'open' cube is missing the top face.",
+                    "Number of faces = 6 - 1 = 5 faces."
                 ]
             },
             {
@@ -5711,6 +5955,13 @@
                 "steps": [
                     "50% means exactly half.",
                     "1/2 of 200 = 100."
+                ],
+                "detailedDescription": "A Pie Chart represents a 'whole' (100% or 360°). To find the value of a slice, we take its percentage of the total number.",
+                "detailedSteps": [
+                    "The blue slice is 50%. This means it is half of the circle.",
+                    "The total number of items is 200.",
+                    "We calculate 50% of 200.",
+                    "50% = 1/2. So 1/2 × 200 = 100."
                 ]
             },
             {
@@ -5720,6 +5971,13 @@
                 "steps": [
                     "Half = 500ml.",
                     "Full = 500 x 2 = 1000ml = 1 Liter."
+                ],
+                "detailedDescription": "If we know a fraction of the tank's volume, we can find the total capacity. If half is 500ml, the whole must be double that.",
+                "detailedSteps": [
+                    "1/2 of Capacity = 500ml.",
+                    "To find 1 Whole, we multiply by 2.",
+                    "Total Capacity = 500ml × 2 = 1000ml.",
+                    "Since 1000ml = 1 Liter, the capacity is 1 Liter."
                 ]
             },
             {
@@ -5730,6 +5988,13 @@
                     "Sum = 60.",
                     "Count = 3.",
                     "Mean = 20."
+                ],
+                "detailedDescription": "The 'Mean' or Average is calculated by adding all values together and dividing by the number of values. It represents the 'central' value.",
+                "detailedSteps": [
+                    "Values: 10, 20, 30.",
+                    "1. Sum them up: 10 + 20 + 30 = 60.",
+                    "2. Count the items: There are 3 numbers.",
+                    "3. Mean = Sum ÷ Count = 60 ÷ 3 = 20."
                 ]
             },
             {
@@ -5740,6 +6005,13 @@
                     "Numbers > 4 are {5, 6}.",
                     "2 chances out of 6 total.",
                     "Probability = 2/6 = 1/3."
+                ],
+                "detailedDescription": "Probability is the chance of an event happening. It is a fraction: (Number of favorable outcomes) / (Total number of possible outcomes).",
+                "detailedSteps": [
+                    "Total outcomes on a die: {1, 2, 3, 4, 5, 6} -> 6 outcomes.",
+                    "Favorable outcomes (Numbers > 4): {5, 6} -> 2 outcomes.",
+                    "Probability = 2 favorable / 6 total = 2/6.",
+                    "Simplifying the fraction: 2/6 = 1/3."
                 ]
             },
             {
@@ -5759,6 +6031,14 @@
                     "Total salt = 20g + 60g = 80g",
                     "Total solution = 200g + 300g = 500g",
                     "New concentration = (80/500) × 100% = 16%"
+                ],
+                "detailedDescription": "When mixing two solutions, we must find the TOTAL amount of solute (salt) and divide it by the TOTAL amount of solution (mixture).",
+                "detailedSteps": [
+                    "Sol 1: 10% of 200g = 20g salt.",
+                    "Sol 2: 20% of 300g = 60g salt.",
+                    "Total Salt = 20g + 60g = 80g.",
+                    "Total Mixture = 200g + 300g = 500g.",
+                    "New % = (80g / 500g) × 100% = 16%."
                 ]
             },
             {
@@ -5771,6 +6051,14 @@
                     "For 10% concentration: 100ml = 10% of total",
                     "Total = 100ml ÷ 0.1 = 1000ml",
                     "Water to add = 1000ml - 500ml = 500ml"
+                ],
+                "detailedDescription": "Adding water does NOT change the amount of acid (solute). We use the constant amount of acid to find the new total volume required for the lower concentration.",
+                "detailedSteps": [
+                    "1. Find current acid amount: 20% of 500ml = 100ml acid.",
+                    "2. This 100ml needs to be 10% of the new mixture.",
+                    "3. So, 10% -> 100ml. Then 100% -> 1000ml (New Total).",
+                    "4. Existing liquid is 500ml. Water needed = New Total - Old Total.",
+                    "5. Water = 1000ml - 500ml = 500ml."
                 ]
             },
             {
@@ -5780,6 +6068,12 @@
                 "description": "A takes 4 hours to paint a wall. Rate?",
                 "steps": [
                     "Rate = 1 Job / 4 Hours = 1/4 job per hour."
+                ],
+                "detailedDescription": "Work rate is having 1 job divided by the time taken. It tells us what fraction of the job is completed in 1 hour.",
+                "detailedSteps": [
+                    "Job Size = 1.",
+                    "Time Taken = 4 hours.",
+                    "Rate of Work = 1 ÷ 4 = 1/4 of the job per hour."
                 ]
             },
             {
@@ -5790,6 +6084,14 @@
                     "Rate A = 1/4. Rate B = 1/6.",
                     "Combined = 1/4 + 1/6 = 3/12 + 2/12 = 5/12.",
                     "Time = 1 Job / (5/12) = 12/5 = 2.4 hours."
+                ],
+                "detailedDescription": "To find how fast people work together, we ADD their individual rates (not their times).",
+                "detailedSteps": [
+                    "Rate A = 1/4 job/hr. Rate B = 1/6 job/hr.",
+                    "Combined Rate = 1/4 + 1/6.",
+                    "Common denominator is 12: 3/12 + 2/12 = 5/12 job/hr.",
+                    "Time = 1 Job ÷ Total Rate = 1 ÷ (5/12) = 12/5 hours.",
+                    "12/5 hrs = 2.4 hours."
                 ]
             },
             {
@@ -5800,6 +6102,13 @@
                     "Spent 1: 50%. Left: 50%.",
                     "Spent 2: 50% of 50% = 25%.",
                     "Total Spent = 50% + 25% = 75%."
+                ],
+                "detailedDescription": "Percent of 'Remainder' means percent of what is LEFT, not percent of the total. We must calculate the second spend based on the remaining amount.",
+                "detailedSteps": [
+                    "Start with 100%. Spend 50% -> Left with 50%.",
+                    "Now spend 50% of the REMAINDER (which is 50%).",
+                    "Calculation: 50/100 × 50% = 25%.",
+                    "Total Spent = First Spend (50%) + Second Spend (25%) = 75%."
                 ]
             },
             {
@@ -5811,6 +6120,16 @@
                     "LCM of 4 and 2 is 4. Change 1:1 to 2:2.",
                     "A goes from 1 to 2 units. Gain 1u = 10.",
                     "Total = 4u = 40."
+                ],
+                "detailedDescription": "When items are transferred internally between A and B, the TOTAL (A+B) remains unchanged. We use this constant total to equate the ratios.",
+                "detailedSteps": [
+                    "Initial Ratio A:B = 1:3. Total = 1+3 = 4 units.",
+                    "Final Ratio A:B = 1:1. Total = 1+1 = 2 units.",
+                    "Make totals equal: LCM of 4 and 2 is 4.",
+                    "Multiply Final Ratio by 2 -> 2:2. (Total is now 4).",
+                    "Compare A: Started at 1 unit, ended at 2 units. Gain = 1 unit.",
+                    "We know A gained 10. So 1 unit = 10.",
+                    "Total (4 units) = 4 × 10 = 40."
                 ]
             },
             {
@@ -5821,6 +6140,15 @@
                     "B is unchanged (3 units).",
                     "A goes 2 -> 4. Gain 2u = 10. 1u = 5.",
                     "Initial A = 2u = 10."
+                ],
+                "detailedDescription": "If only A changes, then B must remain the SAME in both ratios. We adjust the ratios to make B's units match.",
+                "detailedSteps": [
+                    "Initial A:B = 2:3. (B is 3).",
+                    "Final A:B = 4:3. (B is 3).",
+                    "B is already the same (3 units), so we can compare A directly.",
+                    "A changed from 2 units to 4 units -> Gain of 2 units.",
+                    "A gained 10. So 2 units = 10 -> 1 unit = 5.",
+                    "Initial A (2 units) = 2 × 5 = 10."
                 ]
             },
             {
@@ -5830,6 +6158,14 @@
                 "steps": [
                     "Diff is 1u for both. 3->4, 4->5.",
                     "So 1u = 10."
+                ],
+                "detailedDescription": "If the SAME amount is added to both, the DIFFERENCE between them remains constant. We use the constant difference to match ratios.",
+                "detailedSteps": [
+                    "Initial 3:4. Difference = 1 unit.",
+                    "Final 4:5. Difference = 1 unit.",
+                    "Since difference is already equal (1), we can compare directly.",
+                    "3->4 is an increase of 1 unit.",
+                    "Problem says added 10. So 1 unit = 10."
                 ]
             },
             {
@@ -5839,6 +6175,13 @@
                 "steps": [
                     "Profit = 20.",
                     "Percentage = (20/100) x 100% = 20%."
+                ],
+                "detailedDescription": "Profit percentage is always calculated based on the COST PRICE (what you bought it for), not the selling price.",
+                "detailedSteps": [
+                    "Cost Price = $100. Selling Price = $120.",
+                    "Profit = $120 - $100 = $20.",
+                    "Percentage Profit = (Profit ÷ Cost Price) × 100%.",
+                    "(20 ÷ 100) × 100% = 20%."
                 ]
             },
             {
@@ -5847,6 +6190,13 @@
                 "description": "Price $100. GST 8%. Total?",
                 "steps": [
                     "Tax = $8. Total = $108."
+                ],
+                "detailedDescription": "GST (Tax) is an extra percentage added ON TOP of the original price.",
+                "detailedSteps": [
+                    "Original Price = $100.",
+                    "GST Rate = 8%.",
+                    "Tax Amount = 8% of $100 = $8.",
+                    "Total Cost = Original + Tax = $100 + $8 = $108."
                 ]
             },
             {
@@ -6170,6 +6520,13 @@
                     "Volume = length × width × height",
                     "Volume = 10cm × 5cm × 3cm",
                     "Volume = 150 cm³"
+                ],
+                "detailedDescription": "The volume of a rectangular prism (box) is the amount of space inside it. We find it by multiplying the three dimensions: length, width, and height.",
+                "detailedSteps": [
+                    "1. Identify the dimensions: Length = 10cm, Width = 5cm, Height = 3cm.",
+                    "2. Multiply them together: 10 × 5 × 3.",
+                    "3. 10 × 5 = 50. 50 × 3 = 150.",
+                    "4. The volume is 150 cubic centimeters (cm³)."
                 ]
             },
             {
@@ -6180,6 +6537,13 @@
                     "A cube has 6 faces",
                     "Area of one face = 4cm × 4cm = 16 cm²",
                     "Total surface area = 6 × 16 cm² = 96 cm²"
+                ],
+                "detailedDescription": "Surface Area is the total area of all the outer faces of a 3D shape. A cube has 6 identical square faces.",
+                "detailedSteps": [
+                    "1. Find the area of one face: A cube face is a square.",
+                    "   Area = side × side = 4 × 4 = 16 cm².",
+                    "2. Multiply by the number of faces (6).",
+                    "   Total Surface Area = 6 × 16 = 96 cm²."
                 ]
             },
             {
@@ -6190,6 +6554,13 @@
                     "Sum of angles in a triangle = 180°",
                     "Third angle = 180° - 65° - 45°",
                     "Third angle = 70°"
+                ],
+                "detailedDescription": "The three interior angles of ANY triangle always add up to exactly 180 degrees. If we know two angles, we can find the third.",
+                "detailedSteps": [
+                    "Total sum = 180°.",
+                    "Known angles: 65° and 45°.",
+                    "Sum of known angles = 65 + 45 = 110°.",
+                    "Missing angle = 180 - 110 = 70°."
                 ]
             },
             {
@@ -6201,6 +6572,13 @@
                     "Block A: 3x2x5 = 30.",
                     "Block B: 2x2x5 = 20.",
                     "Total = 50."
+                ],
+                "detailedDescription": "For complex shapes like an 'L' shape, we can split them into simpler blocks (rectangular prisms), calculate the volume of each, and add them together.",
+                "detailedSteps": [
+                    "1. Split the L-shape into partitions Block A and Block B.",
+                    "2. Calculate Volume of A: 3 × 2 × 5 = 30.",
+                    "3. Calculate Volume of B: 2 × 2 × 5 = 20.",
+                    "4. Add the volumes: 30 + 20 = 50 units³."
                 ]
             },
             {
@@ -6210,6 +6588,13 @@
                 "steps": [
                     "Volume = 500.",
                     "H = Vol / Base = 500 / 50 = 10cm."
+                ],
+                "detailedDescription": "When liquid is poured from one container to another, its VOLUME stays the same, but the HEIGHT changes depending on the new Base Area.",
+                "detailedSteps": [
+                    "1. Identify the Volume: 500ml (from Tank A).",
+                    "2. Identify the new Base Area: 50 cm² (Tank B).",
+                    "3. Use the formula: Height = Volume ÷ Base Area.",
+                    "4. Height = 500 ÷ 50 = 10 cm."
                 ]
             },
             {
@@ -6219,6 +6604,13 @@
                 "steps": [
                     "Sum = 360.",
                     "4th = 360 - 250 = 110."
+                ],
+                "detailedDescription": "A quadrilateral determines a 4-sided shape. The sum of its four interior angles is 360 degrees (just like two triangles 180+180).",
+                "detailedSteps": [
+                    "Total sum must be 360°.",
+                    "Add the known angles: 80 + 100 + 70 = 250°.",
+                    "Subtract from total: 360 - 250 = 110°.",
+                    "The fourth angle is 110°."
                 ]
             },
             {
@@ -6228,6 +6620,12 @@
                 "steps": [
                     "Equal.",
                     "If one is 50, other is 50."
+                ],
+                "detailedDescription": "When a line crosses two parallel lines, it creates 'Alternate Interior Angles' that form a Z-shape. These angles are equal.",
+                "detailedSteps": [
+                    "Look for the 'Z' pattern between the parallel lines.",
+                    "The angles inside the corners of the Z are equal.",
+                    "Since one angle is 50°, the alternate angle is also 50°."
                 ]
             },
             {
@@ -6579,6 +6977,13 @@
                     "Second position: 2 choices",
                     "Third position: 1 choice",
                     "Total ways = 3 × 2 × 1 = 6 ways"
+                ],
+                "detailedDescription": "Permutations refer to the arrangement of items where ORDER matters. For the first spot you have 3 choices, then 2, then 1.",
+                "detailedSteps": [
+                    "Spot 1: 3 students available to choose from.",
+                    "Spot 2: 2 students left (since 1 is taken).",
+                    "Spot 3: 1 student left.",
+                    "Multiply the choices: 3 × 2 × 1 = 6 arrangements."
                 ]
             },
             {
@@ -6589,6 +6994,12 @@
                     "Possible pairs: AB, AC, AD, BC, BD, CD",
                     "Count = 6 ways",
                     "Formula: 4C2 = (4 × 3) ÷ (2 × 1) = 6"
+                ],
+                "detailedDescription": "Combinations refer to selecting items where ORDER DOES NOT MATTER. Choosing A then B is the same team as choosing B then A.",
+                "detailedSteps": [
+                    "1. Imagine order matters first: 4 choices for first person, 3 for second -> 4 × 3 = 12.",
+                    "2. Correct for duplicates: AB is same as BA (2 arrangements per pair).",
+                    "3. Divide by 2: 12 ÷ 2 = 6 unique pairs."
                 ]
             },
             {
@@ -6598,6 +7009,13 @@
                 "steps": [
                     "First place is fixed (A).",
                     "Arrange B, C. 2 choices x 1 choice = 2 ways."
+                ],
+                "detailedDescription": "If there is a constraint (like 'A must be first'), we satisfy that condition first, which removes that item from the pool of choices.",
+                "detailedSteps": [
+                    "1. Place A in the first spot. (1 choice only).",
+                    "2. Now we have 2 students (B and C) and 2 spots left.",
+                    "3. Arrange B and C: 2 choices × 1 choice = 2 ways.",
+                    "4. Total = 1 × 2 = 2 ways."
                 ]
             },
             {
@@ -6608,6 +7026,13 @@
                     "Evens: 2, 4, 6 (3 outcomes).",
                     "Total outcomes: 6.",
                     "Prob = 3/6 = 1/2."
+                ],
+                "detailedDescription": "We list the 'Favorable' outcomes (what we want) and divide by the 'Total' outcomes (all possibilities).",
+                "detailedSteps": [
+                    "A standard die has numbers: 1, 2, 3, 4, 5, 6. (Total = 6).",
+                    "Even numbers are: 2, 4, 6. (Count = 3).",
+                    "Fraction = 3 favorable / 6 total = 3/6.",
+                    "Simplify 3/6 to 1/2. There is a 50% chance."
                 ]
             },
             {
@@ -6628,6 +7053,14 @@
                     "Worst case: R, B.",
                     "Next one must match R or B.",
                     "Answer: 3 socks."
+                ],
+                "detailedDescription": "The Pigeonhole Principle helps us find the minimum number to GUARANTEE a result. We imagine the 'worst case scenario' where we pick everything EXCEPT a match first.",
+                "detailedSteps": [
+                    "1. Worst Case Pick 1: Red Sock.",
+                    "2. Worst Case Pick 2: Blue Sock. (Still no pair).",
+                    "3. Now we have one of each color.",
+                    "4. The next pick (Pick 3) MUST match either Red or Blue.",
+                    "Therefore, 3 socks guarantees a matching pair."
                 ]
             },
             {
@@ -6637,6 +7070,14 @@
                 "steps": [
                     "Formula: n(n-1)/2.",
                     "5 x 4 / 2 = 10."
+                ],
+                "detailedDescription": "If everyone shakes hands with everyone else, we multiply Number of People × (Number - 1). But this counts every handshake twice (A shaking B, and B shaking A), so we divide by 2.",
+                "detailedSteps": [
+                    "People = 5.",
+                    "Each person could shake 4 other hands.",
+                    "5 × 4 = 20 potential shakes.",
+                    "Since A-B is same as B-A, divide by 2.",
+                    "20 ÷ 2 = 10 handshakes."
                 ]
             },
             {
@@ -6989,6 +7430,14 @@
                     "Pairing method: (1+100) + (2+99)...",
                     "50 pairs of 101.",
                     "Sum = 50 x 101 = 5050."
+                ],
+                "detailedDescription": "When summing a long list of sequential numbers, we can pair the first and last numbers. Each pair has the same sum.",
+                "detailedSteps": [
+                    "Sequence: 1, 2, 3 ... 98, 99, 100.",
+                    "Pair 1: 1 + 100 = 101.",
+                    "Pair 2: 2 + 99 = 101.",
+                    "There are 100 numbers, so there are 50 pairs.",
+                    "Total Sum = 50 pairs × 101 = 5050."
                 ]
             },
             {
@@ -7000,6 +7449,14 @@
                     "Pattern: 3, 9, 7, 1 (Repeats every 4).",
                     "50 / 4 = 12 Remainder 2.",
                     "2nd number in pattern is 9."
+                ],
+                "detailedDescription": "The last digit of powers of a number often repeats in a cycle. We find the pattern cycle to predict the digit for any large power.",
+                "detailedSteps": [
+                    "Powers of 3: 3^1=3, 3^2=9, 3^3=27 (ends in 7), 3^4=81 (ends in 1).",
+                    "Next is 3^5=243 (ends in 3). The pattern repeats: 3, 9, 7, 1.",
+                    "The cycle length is 4.",
+                    "Divide exponent by cycle: 50 ÷ 4 = 12 remainder 2.",
+                    "Remainder 2 means it is the 2nd number in the pattern: 9."
                 ]
             },
             {
@@ -7011,6 +7468,14 @@
                     "Shortage: 56 - 40 = 16 legs.",
                     "Diff per animal: 4 - 2 = 2 legs.",
                     "Cows = 16 / 2 = 8 Cows."
+                ],
+                "detailedDescription": "The Assumption Method helps solve problems with two variables. We assume ALL items are of one type, calculate the total, find the error, and adjust.",
+                "detailedSteps": [
+                    "1. Assume all 20 animals are Chickens (2 legs).",
+                    "   Total legs = 20 × 2 = 40 legs.",
+                    "2. Compare with actual legs: 56 - 40 = 16 legs shortage.",
+                    "3. Each Cow has 2 more legs than a Chicken.",
+                    "4. Number of Cows = Shortage ÷ Difference = 16 ÷ 2 = 8 Cows."
                 ]
             },
             {
@@ -7021,6 +7486,13 @@
                     "End: $5.",
                     "Before 1/2 rule: $5 x 2 = $10.",
                     "Before $10 spend: $10 + $10 = $20."
+                ],
+                "detailedDescription": "For problems where a series of events happens, start from the FINAL result and reverse every step (Opposite operation) to find the start.",
+                "detailedSteps": [
+                    "Final amount: $5.",
+                    "Step 2 reversed: 'Spent 1/2' means he had double. $5 × 2 = $10.",
+                    "Step 1 reversed: 'Spent $10'. So add $10 back. $10 + $10 = $20.",
+                    "Initial Amount = $20."
                 ]
             },
             {
@@ -7031,6 +7503,14 @@
                     "Diff in Total required = 4 (left) + 2 (short) = 6.",
                     "Diff per Kid = 4 - 3 = 1.",
                     "Kids = 6 / 1 = 6."
+                ],
+                "detailedDescription": "When distributing items creates a shortage in one case and excess in another, the Total Difference divided by the Difference Per Unit gives the number of units (kids).",
+                "detailedSteps": [
+                    "Case 1 (Give 3): Left 4 (Need 4 less).",
+                    "Case 2 (Give 4): Short 2 (Need 2 more).",
+                    "Total Gap = 4 + 2 = 6 sweets.",
+                    "Difference per kid = 4 - 3 = 1 sweet.",
+                    "Number of kids = 6 sweets gap ÷ 1 sweet difference = 6 kids."
                 ]
             },
             {
@@ -7042,6 +7522,14 @@
                     "Gap: 50 - 29 = 21.",
                     "Cost of one wrong: 5 - (-2) = 7.",
                     "Wrongs = 21 / 7 = 3. Correct = 7."
+                ],
+                "detailedDescription": "This is a variation of the Assumption Method. Getting a question wrong loses the points you WOULD have got, PLUS the penalty subtracted.",
+                "detailedSteps": [
+                    "1. Assume all 10 correct: 10 × 5 = 50 points.",
+                    "2. Actual score: 29. Gap = 50 - 29 = 21 points.",
+                    "3. 'Cost' of switching Correct(+5) to Wrong(-2) is 5 - (-2) = 7 points.",
+                    "4. Number of Wrongs = 21 ÷ 7 = 3 questions.",
+                    "5. Number Correct = 10 - 3 = 7 questions."
                 ]
             },
             {
@@ -7051,6 +7539,13 @@
                 "steps": [
                     "Pattern is n x n.",
                     "10th = 10 x 10 = 100."
+                ],
+                "detailedDescription": "Square numbers form a pattern where the nth term is simply n multiplied by itself (n²).",
+                "detailedSteps": [
+                    "Term 1: 1 × 1 = 1.",
+                    "Term 2: 2 × 2 = 4.",
+                    "Term 3: 3 × 3 = 9.",
+                    "Term 10: 10 × 10 = 100."
                 ]
             },
             {
@@ -7060,6 +7555,12 @@
                 "steps": [
                     "Number of gaps = 100 / 10 = 10.",
                     "Trees = Gaps + 1 = 11."
+                ],
+                "detailedDescription": "Wait! If you plant trees in a line, the number of trees is one MORE than the number of gaps between them.",
+                "detailedSteps": [
+                    "1. Calculate number of spaces (gaps): 100m ÷ 10m = 10 gaps.",
+                    "2. For a line, Trees = Gaps + 1.",
+                    "3. Total Trees = 10 + 1 = 11."
                 ]
             },
             {
@@ -7069,6 +7570,14 @@
                 "steps": [
                     "Cycle is 5 (A-E).",
                     "103 / 5 = 20 R 3.",
+                    "3rd letter is C."
+                ],
+                "detailedDescription": "Like patterns with digits, letter sequences repeat. We use division with remainder to find the position in the pattern.",
+                "detailedSteps": [
+                    "Pattern: A, B, C, D, E. (Length 5).",
+                    "We need the 103rd letter.",
+                    "103 ÷ 5 = 20 groups with Remainder 3.",
+                    "Ideally it ends on 'E' (5th), but we have 3 remainder.",
                     "3rd letter is C."
                 ]
             },
@@ -7080,6 +7589,14 @@
                     "C is 3rd.",
                     "A not 1st -> A is 2nd.",
                     "So B is 1st. Order B, A, C."
+                ],
+                "detailedDescription": "Logic problems often work by eliminating impossible options. Make a grid or list to cross out what cannot be true.",
+                "detailedSteps": [
+                    "Known: C is last (3rd place).",
+                    "Remaining spots: 1st, 2nd.",
+                    "Clue: A is not 1st. -> A must be 2nd.",
+                    "Remaining spot: 1st -> Must be B.",
+                    "Order: 1. B, 2. A, 3. C."
                 ]
             },
             {
@@ -7255,6 +7772,14 @@
                     "3. Take Wolf. Return with Goat.",
                     "4. Take Cabbage. Return empty.",
                     "5. Take Goat."
+                ],
+                "detailedDescription": "This is a classic 'river crossing' puzzle. The constraint is that the Wolf-Goat and Goat-Cabbage pairs cannot be left alone. The Goat is the key problem.",
+                "detailedSteps": [
+                    "1. Take the Goat across. (Wolf ignores Cabbage). Return empty.",
+                    "2. Take the Wolf across. Return with the Goat! (Crucial step).",
+                    "3. Drop the Goat, take the Cabbage across. Return empty.",
+                    "4. Finally, take the Goat across.",
+                    "Result: All safe."
                 ]
             },
             {
@@ -7265,6 +7790,16 @@
                     "Weigh 3 vs 3. (3 left out).",
                     "If Balanced: Fake in last 3. Weigh 1 vs 1. If bal, it's 3rd.",
                     "If Unbalanced: Fake in lighter group. Weigh 1 vs 1."
+                ],
+                "detailedDescription": "To find a fake (light) coin efficiently, divide the pile into 3 equal groups. A balance scale gives us maximal info by comparing two groups.",
+                "detailedSteps": [
+                    "1. Split 9 coins into groups A, B, C (3 coins each).",
+                    "2. Weigh A vs B. Step 1 complete.",
+                    "   - If Balanced: Fake is in C.",
+                    "   - If Unbalanced: Fake is in the lighter side (say A).",
+                    "3. Take the 3 suspect coins. Weigh 1 vs 1. Step 2 complete.",
+                    "   - If Balanced: It's the 3rd one.",
+                    "   - If Unbalanced: It's the lighter one."
                 ]
             },
             {
@@ -7277,6 +7812,16 @@
                     "3. Empty 3L. Pour 2L into 3L.",
                     "4. Fill 5L. Pour into 3L (needs 1L).",
                     "5. 5L jug now has 4L."
+                ],
+                "detailedDescription": "We need to measure exactly 4L using only 5L and 3L containers. We do this by filling, pouring, and emptying to find the 'difference'.",
+                "detailedSteps": [
+                    "1. Fill 5L jug. Pour into 3L jug until full.",
+                    "   (5L jug now holds 2L).",
+                    "2. Empty the 3L jug. Pour the 2L from the big jug into the 3L jug.",
+                    "   (3L jug now holds 2L, has 1L space).",
+                    "3. Fill 5L jug again. Pour carefully into 3L jug to fill it.",
+                    "   (You pour exactly 1L because that's the space left).",
+                    "4. 5L - 1L = 4L. Success!"
                 ]
             },
             {
@@ -7287,6 +7832,15 @@
                     "Walk: 4 hours (No rest).",
                     "Run: 30min (5km) + 10min rest. Cycle 40min for 5km.",
                     "4 cycles = 160min = 2h 40m. Running is faster."
+                ],
+                "detailedDescription": "This is an optimization problem. We must account for the mandatory rest periods when calculating the total time for the running strategy.",
+                "detailedSteps": [
+                    "Strategy Walk: 20km ÷ 5km/h = 4 hours. (Simple).",
+                    "Strategy Run: 10km/h means 30mins covers 5km.",
+                    "Cycle: Run 30m (5km) + Rest 10m = 40 mins total for 5km.",
+                    "We need 20km, so 4 cycles.",
+                    "Total Time = 4 × 40 mins = 160 mins = 2 hours 40 mins.",
+                    "Running is faster by 1 hour 20 mins."
                 ]
             },
             {
@@ -7297,6 +7851,12 @@
                     "If True, it says it is False -> Contradiction.",
                     "If False, it says it is True -> Contradiction.",
                     "It is a paradox (undecidable)."
+                ],
+                "detailedDescription": "A paradox is a logical statement that cannot be true or false without contradicting itself. This is the famous 'Liar Paradox'.",
+                "detailedSteps": [
+                    "Assume the sentence is TRUE: It says it is false. -> Contradiction.",
+                    "Assume the sentence is FALSE: It says it is false, so it must be true. -> Contradiction.",
+                    "Therefore, the statement has no truth value."
                 ]
             },
             {
@@ -7305,6 +7865,13 @@
                 "description": "Grid 4x4. Each row/col must have 1,2,3,4. Row 1 has 1,2,x,4. x?",
                 "steps": [
                     "Missing number is 3."
+                ],
+                "detailedDescription": "Sudoku puzzles work on the rule that every number must appear exactly once in every row, column, and box.",
+                "detailedSteps": [
+                    "Rule: Numbers 1, 2, 3, 4 must appear in the row.",
+                    "Current Row: [1, 2, x, 4].",
+                    "Missing number: We have 1, 2, 4. The only missing digit is 3.",
+                    "So x = 3."
                 ]
             },
             {
@@ -7316,6 +7883,14 @@
                     "2. Big A->C.",
                     "3. Small B->C.",
                     "Total 3 moves."
+                ],
+                "detailedDescription": "The Towers of Hanoi is a puzzle where you must move a stack of disks. The Key Rule: No value can be placed on top of a smaller value.",
+                "detailedSteps": [
+                    "Goal: Move 2 disks from A to C.",
+                    "1. Move Small disk A -> B.",
+                    "2. Move Big disk A -> C.",
+                    "3. Move Small disk B -> C.",
+                    "Result: Stack is now on C. Moves = 3."
                 ]
             },
             {
@@ -7325,6 +7900,13 @@
                 "steps": [
                     "Surprisingly > 50%.",
                     "Logic: Many pairs to compare (23x22/2 = 253 pairs)."
+                ],
+                "detailedDescription": "The Birthday Paradox shows how human intuition fails with probability. In a group of just 23 people, there is a >50% chance two share a birthday.",
+                "detailedSteps": [
+                    "We don't look for a match with YOU, but a match between ANY two people.",
+                    "Number of possible pairs with 23 people is (23 × 22) ÷ 2 = 253 pairs.",
+                    "With 253 chances for a match, the probability rises very fast.",
+                    "At 23 people, probability is approx 50.7%."
                 ]
             },
             {
@@ -7334,6 +7916,15 @@
                 "steps": [
                     "Bulb 1: ON (Hot). Bulb 2: ON (Light). Bulb 3: OFF (Cold).",
                     "Identify by temp and light."
+                ],
+                "detailedDescription": "This lateral thinking puzzle uses a property often forgotten: light bulbs generate heat!",
+                "detailedSteps": [
+                    "1. Turn Switch 1 ON. Leave it for 5 minutes. Then turn OFF.",
+                    "2. Turn Switch 2 ON. Leave it ON.",
+                    "3. Enter the room.",
+                    "   - The bulb that is ON is Switch 2.",
+                    "   - The bulb that is OFF but WARM is Switch 1.",
+                    "   - The bulb that is OFF and COLD is Switch 3."
                 ]
             },
             {
@@ -7342,6 +7933,14 @@
                 "description": "3 Doors. Pick 1. Host opens goat door. Switch?",
                 "steps": [
                     "Yes. Switching doubles win chance from 1/3 to 2/3."
+                ],
+                "detailedDescription": "The Monty Hall problem is a counter-intuitive probability puzzle. Always switch doors!",
+                "detailedSteps": [
+                    "1. You pick Door 1. Chance is 1/3.",
+                    "2. Host opens Door 3 (Goat). The 'uncropped' probability of 2/3 is now concentrated on Door 2.",
+                    "3. If you stay, you win only if you were right initially (1/3).",
+                    "4. If you switch, you win if you were WRONG initially (2/3).",
+                    "Switching doubles your variance."
                 ]
             },
             {

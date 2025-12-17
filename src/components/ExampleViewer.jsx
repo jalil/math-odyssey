@@ -12,7 +12,21 @@ export default function ExampleViewer({ examples, onNextStep, onPrevStep, sectio
     // To prevent rapid clicks or hydration issues
     const [isNavigating, setIsNavigating] = React.useState(false);
 
+    if (!examples || examples.length === 0) {
+        return (
+            <StepContainer title="Error" onNext={onNextStep} onBack={onPrevStep}>
+                <div style={{ padding: '2rem', textAlign: 'center' }}>
+                    <p>No examples found.</p>
+                </div>
+            </StepContainer>
+        );
+    }
+
     const currentExample = examples[currentIndex];
+
+    if (!currentExample) {
+        return null;
+    }
 
     // Calculate total progress step based on segments
     const totalSteps = examples.length;
