@@ -25,7 +25,7 @@ function Content() {
     const router = useRouter();
     const topicId = searchParams.get('topic');
 
-    const { user, progress, saveProgress } = useUser();
+    const { user, progress, saveProgress, isLoading } = useUser();
 
     // State for Focus Mode
     const [currentSectionIndex, setCurrentSectionIndex] = React.useState(0);
@@ -229,6 +229,22 @@ function Content() {
     // RENDER LOGIC: Conditional Returns
     // -------------------------------------------------------------------------
 
+    if (isLoading) {
+        return (
+            <div style={{
+                minHeight: '100vh',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection: 'column',
+                gap: '1rem'
+            }}>
+                <div style={{ fontSize: '2rem' }}>⏳</div>
+                <div style={{ color: 'var(--text-secondary)' }}>Loading profile...</div>
+            </div>
+        );
+    }
+
     // Case 0: Speed Run Mode
     if (topicId === 'speed-run') {
         return (
@@ -405,6 +421,10 @@ function Content() {
                 }
             };
 
+            // Check if this is the last content section (followed by next-topic-card)
+            const isLastContent = (currentSectionIndex < processedSections.length - 1) &&
+                (processedSections[currentSectionIndex + 1].type === 'next-topic-card');
+
             return (
                 <QuizViewer
                     questions={groupQuestions}
@@ -415,6 +435,7 @@ function Content() {
                         saveProgress(qid, isCorrect ? 1 : 0, 1);
                     }}
                     onReview={jumpToSection}
+                    finishLabel={isLastContent ? "Complete Topic" : undefined}
                 />
             );
         }

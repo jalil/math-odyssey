@@ -1,27 +1,30 @@
 :root {
-  /* 🎨 Modern Dark Theme - Clean & Professional */
+  /* 🎨 MathQuest Dark Theme */
   --background: #0A0A0A;
-  /* Pure black background */
-  --card-background: #1A1A1A;
-  /* Dark gray cards */
+  /* Pure Black */
+  --card-background: #171717;
+  /* Neutral 900 */
   --text-primary: #FFFFFF;
-  /* White text */
-  --text-secondary: #9CA3AF;
-  /* Light gray */
-  --primary: #FF6B35;
-  /* Vibrant orange */
-  --primary-hover: #FF8555;
-  /* Lighter orange */
-  --accent: #10B981;
-  /* Green accent */
-  --border: #2A2A2A;
-  /* Subtle dark border */
+  /* White */
+  --text-secondary: #94A3B8;
+  /* Slate 400 */
+
+  --primary: #3B82F6;
+  /* Blue 500 - Lighter for Dark Mode */
+  --primary-hover: #2563EB;
+  /* Blue 600 */
+  --accent: #F59E0B;
+  /* Amber 500 */
+
+  --border: #262626;
+  /* Neutral 800 */
+
+  --sidebar-bg: #0A0A0A;
+  /* Black Sidebar */
+
   --success: #10B981;
-  /* Green */
   --error: #EF4444;
-  /* Red */
   --warning: #F59E0B;
-  /* Amber */
 
   /* Shadows - subtle for dark theme */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
@@ -109,9 +112,17 @@ button {
 
 /* Animations */
 @keyframes pop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .pop-anim {
@@ -119,9 +130,19 @@ button {
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
 }
 
 .shake-anim {

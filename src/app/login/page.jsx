@@ -80,7 +80,7 @@ export default function LoginPage() {
                                 borderRadius: '12px',
                                 border: '1px solid var(--border)',
                                 background: '#F8FAFC',
-                                color: 'var(--text-primary)',
+                                color: '#0F172A', // Hardcoded dark color because card background is white
                                 fontSize: '1.1rem',
                                 outline: 'none'
                             }}

@@ -1907,7 +1907,7 @@
                 "type": "quiz",
                 "title": "Practice 22: Ratio Difference",
                 "description": "Ratio Apples:Oranges is 4:3. There are 5 more Apples than Oranges. Find Total.",
-                "answer": "35 fruits",
+                "answer": "35",
                 "steps": [
                     "Gap is 1 unit",
                     "1 unit = 5",
@@ -1952,7 +1952,7 @@
                 "type": "quiz",
                 "title": "Practice 26: Constant Difference",
                 "description": "Dad 40, Son 10. Gap is 30. When will Dad be 4 times as old as Son?",
-                "answer": "In 0 years (Wait... 10x4=40. NOW!)",
+                "answer": "0",
                 "steps": [
                     "Gap 30. 4u - 1u = 3u.",
                     "3u = 30. 1u = 10.",
@@ -2048,7 +2048,7 @@
                 "type": "quiz",
                 "title": "Practice 35: Cost Diff",
                 "description": "2 apples and 1 orange cost $4. An apple costs $1 more than an orange. Cost of Apple?",
-                "answer": "$1.50 (Wait, 2(O+1)+O = 3O+2=4...)",
+                "answer": "$1.50",
                 "steps": [
                     "Let's simplify. 3 items.",
                     "Remove Diff: $4 - $2 (2 apples extra) = $2. Wait logic.",
@@ -2429,7 +2429,7 @@
                 "title": "Practice 41: Ratio Total Change",
                 "relatedSectionId": "advanced-intro",
                 "description": "A:B is 3:5. Both receive 10. New Ratio 2:3. Find initial A.",
-                "answer": "90",
+                "answer": "30",
                 "steps": [
                     "Diff before: 2u. Diff after: 1u. Equalize diff.",
                     "New After Ratio: 4:6 (Diff 2).",

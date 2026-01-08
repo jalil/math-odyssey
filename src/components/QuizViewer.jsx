@@ -45,9 +45,9 @@ export default function QuizViewer({ questions, onResult, progress, onNextStep, 
             subtitle={displaySubtitle}
             onNext={handleNext}
             onBack={handleBack}
-            disableNext={(isLast && !props.onNextStep) || !isSolved}
+            disableNext={!isSolved}
             disableBack={isFirst && !props.onPrevStep}
-            nextLabel={isLast ? (onNextStep ? "Continue" : "Finish") : "Next Question"}
+            nextLabel={isLast ? (props.finishLabel || (onNextStep ? "Continue" : "Finish")) : "Next Question"}
             segments={totalQuestions}
             currentSegment={currentIndex + 1}
         >

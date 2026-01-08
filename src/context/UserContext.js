@@ -102,7 +102,61 @@ export function UserProvider({ children }) {
 
         const newProgress = {
             ...progress,
-            [quizId]: { score, maxScore, timestamp: new Date().toISOString(), passed: score >= 8 }
+            [quizId]: { score, maxScore, timestamp: new Date().toISOString(), passed: (score / maxScore) >= 0.8 }
+        };
+
+        setProgress(newProgress);
+        localStorage.setItem(`math_mastery_progress_${user.name}`, JSON.stringify(newProgress));
+    };
+
+    const markTopicComplete = (topicId, sections) => {
+        if (!user) return;
+
+        const updates = {};
+        const quizzes = [];
+
+        // Recursively find all quizzes
+        const findQuizzes = (items) => {
+            items.forEach(item => {
+                if (item.type === 'quiz') quizzes.push(item);
+                if (item.sections) findQuizzes(item.sections);
+            });
+        };
+
+        findQuizzes(sections);
+
+        quizzes.forEach(q => {
+            // Logic to construct key based on how page.jsx does it.
+            // page.jsx uses: `${currentTopic.id}-${q.originalIndex}`
+            // But originalIndex is added during page render. 
+            // We need to replicate that or assume sections passed in have it?
+            // UserContext doesn't know about page.jsx's processing.
+            // Actually, topics.json structure is static. 
+            // But page.jsx flattens/processes it to assign IDs.
+            // The safest key generation is tricky without the processed structure.
+
+            // Let's rely on the fact that we can just pass the PROCESSED sections from the caller.
+        });
+
+        // Actually, let's just use the `progress` keys approach? 
+        // No, we want to mark *unattempted* ones too.
+
+        // Simpler approach:
+        // In HomePage, we have `topics` data. But we don't have the `processedSections` logic which assigns IDs.
+        // `page.jsx` logic: `const quizKey = ${currentTopic.id}-${q.originalIndex};`
+        // We know `originalIndex` comes from the index in `topic.sections`.
+
+        // So we can iterate `topic.sections` and use the index.
+        sections.forEach((s, idx) => {
+            if (s.type === 'quiz') {
+                const key = `${topicId}-${idx}`;
+                updates[key] = { score: 1, maxScore: 1, timestamp: new Date().toISOString(), passed: true };
+            }
+        });
+
+        const newProgress = {
+            ...progress,
+            ...updates
         };
 
         setProgress(newProgress);
@@ -110,7 +164,7 @@ export function UserProvider({ children }) {
     };
 
     return (
-        <UserContext.Provider value={{ user, allUsers, progress, login, logout, register, deleteUser, saveProgress, isLoading }}>
+        <UserContext.Provider value={{ user, allUsers, progress, login, logout, register, deleteUser, saveProgress, markTopicComplete, isLoading }}>
             {children}
         </UserContext.Provider>
     );

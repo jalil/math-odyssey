@@ -18,6 +18,13 @@ export default function QuizCard({ title, description, answer, steps = [], onRes
     // Use localStatus as the source of truth
     const status = localStatus;
 
+    // Fix: Sync localStatus with initialStatus when it changes (e.g. after async load)
+    React.useEffect(() => {
+        if (initialStatus && initialStatus !== localStatus) {
+            setLocalStatus(initialStatus);
+        }
+    }, [initialStatus]);
+
     // Timer effect
     React.useEffect(() => {
         if (status === 'unanswered') {
@@ -34,11 +41,31 @@ export default function QuizCard({ title, description, answer, steps = [], onRes
         return ans.toString().toLowerCase().replace(/\s+/g, '').trim();
     };
 
+    const extractNumbers = (str) => {
+        const matches = str.match(/-?\d*\.?\d+/g);
+        return matches ? matches.map(Number) : [];
+    };
+
     const checkUserAnswer = () => {
         const normalizedUserAnswer = normalizeAnswer(userAnswer);
         const normalizedCorrectAnswer = normalizeAnswer(answer);
 
+        let isCorrect = false;
+
         if (normalizedUserAnswer === normalizedCorrectAnswer) {
+            isCorrect = true;
+        } else {
+            // Fuzzy numeric match
+            const userNumbers = extractNumbers(normalizedUserAnswer);
+            const correctNumbers = extractNumbers(normalizedCorrectAnswer);
+
+            if (userNumbers.length > 0 && userNumbers.length === correctNumbers.length) {
+                // All numbers must match exactly
+                isCorrect = userNumbers.every((num, idx) => Math.abs(num - correctNumbers[idx]) < 0.000001);
+            }
+        }
+
+        if (isCorrect) {
             // Correct answer
             setIsWrong(false);
 

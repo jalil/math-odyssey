@@ -9,16 +9,37 @@ import AdminDashboard from './AdminDashboard';
 
 export default function HomePage() {
     const router = useRouter();
-    const { user, progress } = useUser();
+    const { user, progress, markTopicComplete } = useUser();
     const [showAdmin, setShowAdmin] = React.useState(false);
 
     // Calculate progress for each module
+    // Calculate progress for each module
     const getModuleProgress = (topicId) => {
         if (!progress) return 0;
-        const quizIds = Object.keys(progress).filter(id => id.startsWith(topicId));
-        if (quizIds.length === 0) return 0;
-        const passed = quizIds.filter(id => progress[id].passed).length;
-        return Math.round((passed / quizIds.length) * 100);
+
+        // Find the topic to get the actual total number of quizzes
+        const topic = topics.find(t => t.id === topicId);
+        if (!topic) return 0;
+
+        // Count total quizzes in this topic (recursive if needed, but for now flat list seems effective or we use flat map)
+        // Our data structure seems to have quizzes at top level sections mostly, but let's be safe.
+        // Actually for now let's stick to how page.jsx works - it processes the top level sections.
+
+        let validQuizCount = 0;
+        let passedCount = 0;
+
+        topic.sections.forEach((section, index) => {
+            if (section.type === 'quiz') {
+                validQuizCount++;
+                const key = `${topicId}-${index}`;
+                if (progress[key] && progress[key].passed) {
+                    passedCount++;
+                }
+            }
+        });
+
+        if (validQuizCount === 0) return 0;
+        return Math.round((passedCount / validQuizCount) * 100);
     };
 
     // Estimate time for each module (based on number of sections)
@@ -51,8 +72,10 @@ export default function HomePage() {
     const locks = {
         'singapore-p3': false, // Always unlocked
         'singapore-p4': getModuleProgress('singapore-p3') < 100,
-        'bar-model-level-1': getModuleProgress('singapore-p4') < 100,
-        'singapore-p5': getModuleProgress('bar-model-level-1') < 100,
+        'bar-model-level-1': getModuleProgress('singapore-p3') < 100, // Reduced requirement from P4 to P3
+        'bar-model-level-2': getModuleProgress('bar-model-level-1') < 100,
+        'bar-model-level-3': getModuleProgress('bar-model-level-2') < 100,
+        'singapore-p5': getModuleProgress('bar-model-level-3') < 100,
         'singapore-p6': getModuleProgress('singapore-p5') < 100,
         'hiroo': getModuleProgress('singapore-p6') < 100
     };
@@ -61,25 +84,49 @@ export default function HomePage() {
         <div style={{ padding: '4rem 2rem', maxWidth: '1400px', margin: '0 auto' }}>
             {/* Header */}
             <header style={{ marginBottom: '3rem', textAlign: 'center' }}>
-                <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center', gap: '1rem' }}>
-                    <div style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '1rem',
-                        background: 'var(--primary)',
-                        padding: '0.5rem 1.5rem',
-                        borderRadius: '50px',
-                    }}>
-                        <span style={{ fontSize: '1rem', color: 'white', fontWeight: 700 }}>View My Progress</span>
-                        <span style={{
-                            background: '#FFB800',
-                            color: '#000',
-                            padding: '0.25rem 0.75rem',
-                            borderRadius: '20px',
-                            fontSize: '0.9rem',
-                            fontWeight: 700
-                        }}>0 Coins</span>
-                    </div>
+                <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                    {user && (
+                        <>
+                            <div style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '1rem',
+                                background: 'var(--primary)',
+                                padding: '0.5rem 1.5rem',
+                                borderRadius: '50px',
+                            }}>
+                                <span style={{ fontSize: '1rem', color: 'white', fontWeight: 700 }}>View My Progress</span>
+                                <span style={{
+                                    background: '#FFB800',
+                                    color: '#000',
+                                    padding: '0.25rem 0.75rem',
+                                    borderRadius: '20px',
+                                    fontSize: '0.9rem',
+                                    fontWeight: 700
+                                }}>0 Coins</span>
+                            </div>
+
+                            <button
+                                onClick={() => {
+                                    if (confirm('Are you sure you want to skip Primary 3? This will mark all P3 content as complete.')) {
+                                        markTopicComplete('singapore-p3', topics.find(t => t.id === 'singapore-p3').sections);
+                                    }
+                                }}
+                                style={{
+                                    background: '#10B981',
+                                    color: '#fff',
+                                    border: 'none',
+                                    padding: '0.5rem 1.5rem',
+                                    borderRadius: '50px',
+                                    fontSize: '0.9rem',
+                                    fontWeight: 700,
+                                    cursor: 'pointer',
+                                }}
+                            >
+                                ✓ Complete P3 & Unlock P4
+                            </button>
+                        </>
+                    )}
 
                     {user && user.name === 'admin' && (
                         <button
@@ -99,6 +146,32 @@ export default function HomePage() {
                             }}
                         >
                             <span>🛡️</span> Admin
+                        </button>
+                    )}
+
+                    {/* Recovery Button for 'aio' or anyone stuck due to previous bug */}
+                    {user && (user.name === 'aio' || user.name === 'admin') && (
+                        <button
+                            onClick={() => {
+                                if (confirm('Restore progress for Bar Model Foundation & Intermediate?')) {
+                                    markTopicComplete('bar-model-level-1', topics.find(t => t.id === 'bar-model-level-1').sections);
+                                    markTopicComplete('bar-model-level-2', topics.find(t => t.id === 'bar-model-level-2').sections);
+                                    alert('Progress Restored! Level 3 should now be unlocked.');
+                                    window.location.reload(); // Force refresh to update locks
+                                }
+                            }}
+                            style={{
+                                background: '#8B5CF6',
+                                color: '#fff',
+                                border: 'none',
+                                padding: '0.5rem 1.5rem',
+                                borderRadius: '50px',
+                                fontSize: '0.9rem',
+                                fontWeight: 700,
+                                cursor: 'pointer',
+                            }}
+                        >
+                            🔄 Restore Bar Models
                         </button>
                     )}
                 </div>

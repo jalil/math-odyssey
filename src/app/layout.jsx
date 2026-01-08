@@ -56,7 +56,7 @@ function Sidebar() {
     return (
         <nav style={{
             width: '260px',
-            backgroundColor: '#0A0A0A',
+            backgroundColor: 'var(--sidebar-bg)',
             borderRight: '1px solid var(--border)',
             padding: '2rem',
             display: 'flex',
@@ -70,7 +70,7 @@ function Sidebar() {
             overflowY: 'auto'
         }}>
             <div style={{ marginBottom: '2rem', paddingLeft: '0.5rem' }}>
-                <span style={{ fontWeight: 700, fontSize: '1.5rem', letterSpacing: '-0.02em', color: '#FFFFFF' }}>
+                <span style={{ fontWeight: 700, fontSize: '1.5rem', letterSpacing: '-0.02em', color: 'var(--text-primary)' }}>
                     Math <span style={{ color: 'var(--primary)' }}>Odyssey</span>
                 </span>
             </div>
@@ -156,7 +156,7 @@ function Sidebar() {
                     </button>
                 )}
                 {user ? (
-                    <div style={{ marginTop: '1rem', padding: '1rem', background: '#1A1A1A', borderRadius: '8px', border: '1px solid var(--border)' }}>
+                    <div style={{ marginTop: '1rem', padding: '1rem', background: 'white', borderRadius: '8px', border: '1px solid var(--border)', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
                         <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.25rem' }}>
                             Learning as
                         </div>
@@ -164,7 +164,7 @@ function Sidebar() {
                         <button
                             onClick={logout}
                             style={{
-                                background: '#2A2A2A',
+                                background: '#F1F5F9',
                                 border: '1px solid var(--border)',
                                 color: 'var(--text-primary)',
                                 padding: '0.4rem 0.8rem',
@@ -172,7 +172,8 @@ function Sidebar() {
                                 fontSize: '0.8rem',
                                 cursor: 'pointer',
                                 width: '100%',
-                                transition: 'all 0.2s'
+                                transition: 'all 0.2s',
+                                fontWeight: 500
                             }}
                         >
                             Log Out
