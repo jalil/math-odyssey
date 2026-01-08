@@ -1,4 +1,4 @@
-"use client";
+import React, { Suspense } from 'react';
 import './globals.css';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -245,7 +245,9 @@ export default function RootLayout({ children }) {
             <body className={inter.className}>
                 <UserProvider>
                     <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: 'var(--background)' }}>
-                        <Sidebar />
+                        <Suspense fallback={<div style={{ width: '260px' }}>Loading Sidebar...</div>}>
+                            <Sidebar />
+                        </Suspense>
                         <main style={{ flex: 1, position: 'relative', overflowX: 'hidden' }}>
                             <TopNav />
                             {children}
