@@ -56,19 +56,18 @@ function Sidebar() {
 
     return (
         <nav style={{
-            width: '260px',
-            backgroundColor: 'var(--sidebar-bg)',
-            borderRight: '1px solid var(--border)',
-            padding: '2rem',
+            width: '100%',
+            height: '100%',
             display: 'flex',
             flexDirection: 'column',
             gap: '0.5rem',
-            zIndex: 50,
-            position: 'relative',
-            height: '100vh',
-            position: 'sticky',
-            top: 0,
-            overflowY: 'auto'
+            // inherited from parent wrapper: padding is now applied there? 
+            // actually, in globals.css .sidebar has padding: 2rem. 
+            // So we don't need padding here if the wrapper has it.
+            // But wait, the wrapper is the div with className='sidebar'. 
+            // The Sidebar component returns this <nav>. 
+            // If I remove padding here, the content might hit the edges if the wrapper padding applies to the *wrapper*.
+            // Let's remove conflicting structural styles.
         }}>
             <div style={{ marginBottom: '2rem', paddingLeft: '0.5rem' }}>
                 <span style={{ fontWeight: 700, fontSize: '1.5rem', letterSpacing: '-0.02em', color: 'var(--text-primary)' }}>
@@ -240,16 +239,41 @@ function TopNav() {
     );
 }
 
+// ... (TopNav stays mostly the same but maybe needs positioning tweak for mobile)
+
 export default function RootLayout({ children }) {
+    const [isMobileOpen, setIsMobileOpen] = React.useState(false);
+
     return (
         <html lang="en">
             <body className={inter.className}>
                 <UserProvider>
-                    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: 'var(--background)' }}>
+                    <div className="app-container">
+                        {/* Mobile Toggle Button */}
+                        <button
+                            className="mobile-nav-toggle"
+                            onClick={() => setIsMobileOpen(!isMobileOpen)}
+                            aria-label="Toggle Menu"
+                        >
+                            <span style={{ fontSize: '1.5rem' }}>☰</span>
+                        </button>
+
+                        {/* Sidebar */}
                         <Suspense fallback={<div style={{ width: '260px' }}>Loading Sidebar...</div>}>
-                            <Sidebar />
+                            <div className={`sidebar ${isMobileOpen ? 'open' : ''}`}>
+                                <Sidebar />
+                            </div>
                         </Suspense>
-                        <main style={{ flex: 1, position: 'relative', overflowX: 'hidden' }}>
+
+                        {/* Overlay for mobile */}
+                        {isMobileOpen && (
+                            <div
+                                className="sidebar-overlay"
+                                onClick={() => setIsMobileOpen(false)}
+                            />
+                        )}
+
+                        <main className="main-content">
                             <TopNav />
                             {children}
                         </main>

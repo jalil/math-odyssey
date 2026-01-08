@@ -81,7 +81,7 @@ export default function HomePage() {
     };
 
     return (
-        <div style={{ padding: '4rem 2rem', maxWidth: '1400px', margin: '0 auto' }}>
+        <div className="home-container">
             {/* Header */}
             <header style={{ marginBottom: '3rem', textAlign: 'center' }}>
                 <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
