@@ -7,6 +7,8 @@ import { useUser } from '../context/UserContext';
 import Link from 'next/link';
 import HomePage from '../components/HomePage';
 import QuizMode from '../components/QuizMode';
+import CheckpointCard from '../components/CheckpointCard';
+import TableOfContents from '../components/TableOfContents';
 import ExampleViewer from '../components/ExampleViewer';
 import ExampleCard from '../components/ExampleCard';
 import QuizViewer from '../components/QuizViewer';
@@ -29,6 +31,7 @@ function Content() {
 
     // State for Focus Mode
     const [currentSectionIndex, setCurrentSectionIndex] = React.useState(0);
+    const [showTOC, setShowTOC] = React.useState(false);
 
 
 
@@ -205,8 +208,11 @@ function Content() {
         if (processedSections.length > 0) {
             if (sectionParam && sectionParam !== 'review-test') {
                 const targetIndex = processedSections.findIndex(s => {
-                    // Direct match
                     if (s.id === sectionParam) return true;
+                    // Debug Log
+                    if (sectionParam.includes('intro') || sectionParam.includes('complete')) {
+                        console.log('Checking section:', s.id, 'against param:', sectionParam, 'Match:', s.id === sectionParam);
+                    }
                     // Header match
                     if (s.headerInfo && s.headerInfo.id === sectionParam) return true;
                     // Group match
@@ -286,6 +292,7 @@ function Content() {
                 <QuizMode
                     questions={reviewTestQuestions}
                     topicId={currentTopic.id}
+                    isAdmin={user && user.name.toLowerCase() === 'admin'}
                     onComplete={(results) => {
                         results.forEach((result) => {
                             const question = reviewTestQuestions[result.questionIndex];
@@ -303,6 +310,22 @@ function Content() {
     const renderSection = () => {
         const currentSection = processedSections[currentSectionIndex];
         if (!currentSection) return <div>Finished!</div>;
+
+        if (currentSection.type === 'checkpoint') {
+            const isCompleted = progress && progress[`${currentSection.id}-complete`];
+            return (
+                <div style={{ padding: '2rem 0' }}>
+                    <CheckpointCard
+                        title={currentSection.title}
+                        description={currentSection.content || "Great job completing this section!"}
+                        isCompleted={!!isCompleted}
+                        onComplete={() => {
+                            if (currentSection.id) saveProgress(`${currentSection.id}-complete`, 1, 1);
+                        }}
+                    />
+                </div>
+            );
+        }
 
         const idx = currentSection.originalIndex;
         const headerIdx = currentSection.headerInfo ? currentSection.headerInfo.originalIndex : null;
@@ -429,7 +452,9 @@ function Content() {
                 <QuizViewer
                     questions={groupQuestions}
                     sectionTitle={sectionTitle}
+                    isAdmin={user && user.name.toLowerCase() === 'admin'}
                     onNextStep={goNext}
+
                     onPrevStep={goBack}
                     onResult={(qid, isCorrect) => {
                         saveProgress(qid, isCorrect ? 1 : 0, 1);
@@ -478,55 +503,160 @@ function Content() {
     };
 
     return (
-        <div style={{ padding: '3rem 4rem', maxWidth: '1000px', margin: '0 auto' }}>
-            <header style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div>
-                    <span style={{
-                        display: 'block',
-                        fontSize: '0.85rem',
-                        color: 'var(--text-secondary)',
-                        marginBottom: '0.5rem',
-                        textTransform: 'uppercase',
-                        letterSpacing: '1px',
-                        fontWeight: 700
-                    }}>
-                        Current Topic
-                    </span>
-                    <h1 style={{ fontSize: '2rem', color: 'var(--text-primary)', margin: 0, fontWeight: 800 }}>
-                        {currentTopic.title}
-                    </h1>
+        <main className="min-h-screen bg-black text-white selection:bg-purple-500/30">
+            {/* Header / Nav */}
+            <div style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                padding: '1rem',
+                background: 'rgba(0,0,0,0.8)',
+                backdropFilter: 'blur(10px)',
+                zIndex: 50,
+                borderBottom: '1px solid #333',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+            }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <button
+                        onClick={() => router.push('/')}
+                        style={{ background: 'none', border: 'none', color: '#ccc', cursor: 'pointer', fontSize: '1.2rem' }}
+                    >
+                        ← Home
+                    </button>
+                    <div>
+                        <div style={{ fontSize: '0.7rem', color: '#888', textTransform: 'uppercase', letterSpacing: '1px' }}>Current Topic</div>
+                        <div style={{ fontWeight: 700, fontSize: '1.1rem' }}>{currentTopic.title}</div>
+                    </div>
                 </div>
 
-                {!user ? (
-                    <div style={{ padding: '0.5rem 1rem', background: '#FEF9C3', border: '1px solid #FDE047', borderRadius: '8px', color: '#854D0E', fontSize: '0.9rem' }}>
-                        Guest Mode
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <button
+                        onClick={() => setShowTOC(true)}
+                        style={{
+                            background: '#3f3f46',
+                            color: 'white',
+                            border: '1px solid #52525b',
+                            padding: '0.5rem 1rem',
+                            borderRadius: '50px',
+                            cursor: 'pointer',
+                            fontSize: '0.9rem',
+                            fontWeight: 600,
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.5rem'
+                        }}
+                    >
+                        <span>🗺️</span> Menu
+                    </button>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: '#222', padding: '0.5rem 1rem', borderRadius: '50px' }}>
+                        <span style={{ fontSize: '1.2rem' }}>👤</span>
+                        <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>{user?.name || 'Guest'}</span>
                     </div>
-                ) : (
-                    <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                        👤 {user.name}
-                    </div>
-                )}
-            </header>
-
-            {/* Global Progress Bar for Topic Sections */}
-            <div style={{ marginBottom: '2rem', width: '100%', height: '6px', background: '#e4e4e7', borderRadius: '3px', overflow: 'hidden' }}>
-                <div style={{
-                    width: `${((currentSectionIndex + 1) / processedSections.length) * 100}%`,
-                    height: '100%',
-                    background: 'var(--primary)',
-                    transition: 'width 0.3s ease'
-                }} />
+                </div>
             </div>
 
-            {/* Dynamic Content with Key to Force Remount */}
-            <div key={currentSectionIndex} style={{ minHeight: '500px' }}>
+            <div style={{ maxWidth: '800px', margin: '0 auto', paddingTop: '6rem', paddingBottom: '8rem', paddingLeft: '1rem', paddingRight: '1rem' }}>
                 {renderSection()}
             </div>
 
-            <div style={{ textAlign: 'center', marginTop: '2rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-                Step {currentSectionIndex + 1} of {processedSections.length}
+            {/* Bottom Navigation */}
+            <div style={{
+                position: 'fixed',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                padding: '1.5rem',
+                background: 'linear-gradient(to top, black, transparent)',
+                zIndex: 40,
+                display: 'flex',
+                justifyContent: 'space-between',
+                maxWidth: '900px',
+                margin: '0 auto',
+                pointerEvents: 'none' // Let clicks pass through gradient area
+            }}>
+                <button
+                    onClick={goBack}
+                    disabled={currentSectionIndex === 0}
+                    style={{
+                        pointerEvents: 'auto',
+                        background: '#333',
+                        color: 'white',
+                        border: 'none',
+                        padding: '1rem 2rem',
+                        borderRadius: '12px',
+                        cursor: currentSectionIndex === 0 ? 'not-allowed' : 'pointer',
+                        fontWeight: 600,
+                        opacity: currentSectionIndex === 0 ? 0 : 1, // Hide if first
+                        transition: 'opacity 0.2s',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem'
+                    }}
+                >
+                    ← Back
+                </button>
+
+                {(processedSections[currentSectionIndex] && processedSections[currentSectionIndex].type === 'checkpoint') && (
+                    <button
+                        onClick={goNext}
+                        style={{
+                            pointerEvents: 'auto',
+                            background: '#333',
+                            color: 'white',
+                            border: '1px solid #555',
+                            padding: '1rem 2rem',
+                            borderRadius: '12px',
+                            cursor: 'pointer',
+                            fontWeight: 600,
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.5rem'
+                        }}
+                    >
+                        Next Topic →
+                    </button>
+                )}
+
+                {(!processedSections[currentSectionIndex] || (processedSections[currentSectionIndex].type !== 'quiz' && !processedSections[currentSectionIndex].type.includes('quiz') && processedSections[currentSectionIndex].type !== 'checkpoint')) && (
+                    <button
+                        onClick={goNext}
+                        disabled={currentSectionIndex >= processedSections.length - 1} // No global checkLock here, rely on checkLock function
+                        style={{
+                            pointerEvents: 'auto',
+                            background: 'var(--primary)',
+                            color: 'white',
+                            border: 'none',
+                            padding: '1rem 2rem',
+                            borderRadius: '12px',
+                            cursor: 'pointer',
+                            fontWeight: 700,
+                            boxShadow: '0 4px 12px rgba(37, 99, 235, 0.4)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.5rem'
+                        }}
+                    >
+                        Next →
+                    </button>
+                )}
             </div>
-        </div>
+
+            {showTOC && (
+                <TableOfContents
+                    sections={processedSections}
+                    onClose={() => setShowTOC(false)}
+                    progress={progress || {}}
+                    onNavigate={(index) => {
+                        setCurrentSectionIndex(index);
+                        setShowTOC(false);
+                        window.scrollTo(0, 0);
+                    }}
+                />
+            )}
+        </main>
     );
 }
 

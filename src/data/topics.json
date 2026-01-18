@@ -2673,12 +2673,16 @@
                         "icon": "📚",
                         "items": [
                             {
+                                "text": "Whole Numbers: Order of Operations and Estimation",
+                                "targetId": "p5-whole-numbers"
+                            },
+                            {
                                 "text": "Ratios, Fractions, and Percentages conversions",
-                                "targetId": "p5-frac-dec"
+                                "targetId": "p5-whole-numbers-complete"
                             },
                             {
                                 "text": "Model Method for complex ratio and fraction problems",
-                                "targetId": "p5-ratio"
+                                "targetId": "p5-ratio-intro"
                             },
                             {
                                 "text": "Percentage applications: profit, loss, and discounts",
@@ -2686,7 +2690,7 @@
                             },
                             {
                                 "text": "Angles, perimeter, area, and volume calculations",
-                                "targetId": "p5-geometry"
+                                "targetId": "p5-geometry-intro"
                             },
                             {
                                 "text": "Combinations and permutations introduction",
@@ -2706,7 +2710,7 @@
                 "type": "example",
                 "title": "1.1 Order of Operations (BODMAS)",
                 "description": "BODMAS stands for: Brackets, Orders (powers/roots), Division, Multiplication, Addition, Subtraction. This is the order you must follow when solving math problems. Calculate: 20 + 40 ÷ (5 + 3) x 2",
-                "detailedDescription": "Let's break this down step-by-step using the BODMAS rule. Just like a recipe, we must follow the order exactly to get the right answer.\n\nProblem: 20 + 40 ÷ (5 + 3) x 2\n\n1. **B**rackets: Always solve what is inside the brackets first.\n2. **O**rders: Powers or Square roots (None here).\n3. **D**ivision & **M**ultiplication: Do these next, from left to right.\n4. **A**ddition & **S**ubtraction: Do these last, from left to right.",
+                "detailedDescription": "Problem: 20 + 40 ÷ (5 + 3) x 2\n\nLet's break this down step-by-step using the BODMAS rule. Just like a recipe, we must follow the order exactly to get the right answer.\n\n1. **B**rackets: Always solve what is inside the brackets first.\n2. **O**rders: Powers or Square roots (None here).\n3. **D**ivision & **M**ultiplication: Do these next, from left to right.\n4. **A**ddition & **S**ubtraction: Do these last, from left to right.",
                 "steps": [
                     "Brackets First: (5 + 3) = 8.",
                     "Equation becomes: 20 + 40 ÷ 8 x 2.",
@@ -2725,7 +2729,7 @@
                 "type": "example",
                 "title": "1.2 Distributive Law (Smart Calculation)",
                 "description": "Calculate the product of 48 and 25 using mental math strategies instead of a vertical column.",
-                "detailedDescription": "The Distributive Law lets us break difficult numbers into easier ones. Here, multiplying by 25 is hard, but multiplying by 100 and dividing by 4 is easy because 25 is a quarter of 100.",
+                "detailedDescription": "Problem: Calculate 48 x 25 using mental math.\n\nThe Distributive Law lets us break difficult numbers into easier ones. Here, multiplying by 25 is hard, but multiplying by 100 and dividing by 4 is easy because 25 is a quarter of 100.",
                 "steps": [
                     "Think: 25 is 100 ÷ 4.",
                     "So 48 x 25 = 48 x (100 ÷ 4).",
@@ -2743,7 +2747,7 @@
                 "type": "example",
                 "title": "1.3 Rounding & Estimation",
                 "description": "Estimate the result of 3986 multiplied by 5.1 by rounding each number first.",
-                "detailedDescription": "Estimation is about finding an answer that is 'close enough' quickly. We round each number to its nearest simple value (like thousands or ones) to make the math easy.",
+                "detailedDescription": "Problem: Estimate 3986 x 5.1\n\nEstimation is about finding an answer that is 'close enough' quickly. We round each number to its nearest simple value (like thousands or ones) to make the math easy.",
                 "steps": [
                     "Round 3986 to nearest thousand -> 4000.",
                     "Round 5.1 to nearest one -> 5.",
@@ -2760,7 +2764,7 @@
                 "type": "example",
                 "title": "1.4 Multi-Step Word Problem",
                 "description": "A factory produces 5000 pens. They are packed in boxes of 20, and each box costs $1 to produce. The pens are sold for $2 each. What is the total profit?",
-                "detailedDescription": "Profit is the money you keep after paying for costs. \nProfit = Total Money Earned (Revenue) - Total Cost.\nWe need to calculate the Cost and Revenue separately first.",
+                "detailedDescription": "Problem: A factory produces 5000 pens (packed in boxes of 20, $1/box to produce). Pens sell for $2 each. What is the total profit?\n\nProfit = Revenue - Cost. We need to calculate the Cost and Revenue separately first.",
                 "steps": [
                     "Wait, careful with units. Let's simplify.",
                     "Cost: 5000 pens. 20 pens/box. So 250 boxes.",
@@ -2779,7 +2783,7 @@
                 "type": "example",
                 "title": "1.5 Place Value Logic",
                 "description": "Find the value of the digit 7 in the number 7,654,321.",
-                "detailedDescription": "Place value tells us how much a digit is worth based on where it sits in the number. As we move left, each place is 10 times bigger.",
+                "detailedDescription": "Problem: Find the value of the digit 7 in 7,654,321.\n\nPlace value tells us how much a digit is worth based on where it sits in the number. As we move left, each place is 10 times bigger.",
                 "steps": [
                     "Count zeros behind it.",
                     "It is in the 'Millions' place.",
@@ -3126,6 +3130,12 @@
                 ]
             },
             {
+                "id": "p5-whole-numbers-complete",
+                "type": "checkpoint",
+                "title": "Level Up! 🚀",
+                "content": "Great job mastering Whole Numbers! Take a deep breath. 🌬️ Now, let's slice things up and dive into the world of Fractions! Ready?"
+            },
+            {
                 "id": "p5-frac-dec",
                 "type": "section-header",
                 "title": "2. Fractions, Decimals & Percent",
@@ -3135,26 +3145,27 @@
                 "type": "example",
                 "title": "2.1 Mixed Number Multiplication",
                 "description": "Calculate the product of 2 1/2 and 1 1/3.",
-                "detailedDescription": "To multiply mixed numbers, we MUST change them into 'Improper Fractions' first (where the top number is bigger). Then we just multiply the tops together and the bottoms together.",
+                "detailedDescription": "Problem: Calculate 2 1/2 x 1 1/3\n\nOkay, so multiplying Mixed Numbers (like 2 1/2) can be tricky because of the whole number part. But don't worry! We have a secret weapon: \n\n**Improper Fractions!** (Those value-packed fractions where the top is bigger than the bottom).\n\nIf we turn our mixed numbers into improper fractions first, the multiplication becomes super easy. Let's try it together step-by-step!",
                 "steps": [
-                    "Convert to Improper Fractions: 5/2 and 4/3.",
-                    "Multiply tops: 5 x 4 = 20.",
-                    "Multiply bottoms: 2 x 3 = 6.",
-                    "Result: 20/6 = 3 2/6 = 3 1/3."
+                    "Step 1: Change 2 1/2 into 5/2.",
+                    "Step 2: Change 1 1/3 into 4/3.",
+                    "Step 3: Multiply the tops (5x4=20).",
+                    "Step 4: Multiply the bottoms (2x3=6).",
+                    "Step 5: Simplify 20/6 back to 3 1/3."
                 ],
                 "detailedSteps": [
-                    "Step 1: Convert 2 1/2. \n   2 x 2 + 1 = 5. So it is 5/2.",
-                    "Step 2: Convert 1 1/3. \n   1 x 3 + 1 = 4. So it is 4/3.",
-                    "Step 3: Multiply Top x Top. \n   5 x 4 = 20.",
-                    "Step 4: Multiply Bottom x Bottom.\n   2 x 3 = 6.",
-                    "Step 5: Simplify 20/6. \n   20 ÷ 6 = 3 with remainder 2. So 3 2/6.\n   Simplify 2/6 to 1/3. Final answer: 3 1/3."
+                    "Step 1: First, let's transform 2 1/2. \n   Imagine 2 whole pizzas cut into halves. That's 4 halves. Plus the 1/2 we already have... that makes 5 halves! So, 5/2.",
+                    "Step 2: Now for 1 1/3.\n   One whole pizza cut into thirds is 3 slices. Add the extra 1/3... that's 4 thirds! So, 4/3.",
+                    "Step 3: Now the easy part! multiplied the tops together.\n   5 x 4 = 20.",
+                    "Step 4: Multiply the bottoms together.\n   2 x 3 = 6. \n   So we have 20/6.",
+                    "Step 5: Clean up time! How many 6s fit into 20?\n   6, 12, 18. That's 3 times! (3 wholes).\n   We have 2 left over (20-18=2). So 3 and 2/6.\n   We can make 2/6 simpler by dividing top and bottom by 2 -> 1/3.\n   Final Answer: 3 1/3. You did it! 🎉"
                 ]
             },
             {
                 "type": "example",
                 "title": "2.2 Fraction Division",
                 "description": "How many cups of size 1/4 liter are needed to fill a 3 liter jug?",
-                "detailedDescription": "When dividing by a fraction, we use the rule 'Keep-Change-Flip'. We keep the first number, change Divide to Multiply, and Flip the second fraction upside down.",
+                "detailedDescription": "Problem: How many 1/4 liter cups fill a 3 liter jug?\n\nWhen dividing by a fraction, we use the rule 'Keep-Change-Flip'. We keep the first number, change Divide to Multiply, and Flip the second fraction upside down.",
                 "steps": [
                     "3 ÷ 1/4.",
                     "Keep-Change-Flip: 3 x 4/1.",
@@ -3173,7 +3184,7 @@
                 "id": "p5-percentage-example",
                 "title": "2.3 Percentage of a Quantity",
                 "description": "There is a group of 200 people. 40% of them are children. How many people in the group are NOT children?",
-                "detailedDescription": "Percentage means 'out of 100'. 40% means 40 out of every 100. If 40% are children, then the rest (100% - 40% = 60%) must be adults.",
+                "detailedDescription": "Problem: In a group of 200 people, 40% are children. How many are NOT children?\n\nPercentage means 'out of 100'. 40% means 40 out of every 100. If 40% are children, then the rest (100% - 40% = 60%) must be adults.",
                 "steps": [
                     "Method 1: 40% are children, so 60% are adults.",
                     "60% of 200 = 60/100 x 200.",
@@ -3190,7 +3201,7 @@
                 "type": "example",
                 "title": "2.4 Decimal Multiplication",
                 "description": "Calculate the result of 0.3 multiplied by 0.4.",
-                "detailedDescription": "The secret to multiplying decimals is to ignore the dots first. Just multiply the whole numbers, then put the dots back in at the end.",
+                "detailedDescription": "Problem: Calculate 0.3 x 0.4\n\nThe secret to multiplying decimals is to ignore the dots first. Just multiply the whole numbers, then put the dots back in at the end.",
                 "steps": [
                     "Ignore decimals first: 3 x 4 = 12.",
                     "Count total decimal places: 0.3 (1) + 0.4 (1) = 2 places.",
@@ -3207,7 +3218,7 @@
                 "type": "example",
                 "title": "2.5 Percentage Increase",
                 "description": "The original price of an item is $50. If the price is increased by 10%, what is the new price?",
-                "detailedDescription": "When a price increases, we find the extra amount (the increase) and ADD it to the original price.",
+                "detailedDescription": "Problem: A $50 item has its price increased by 10%. What is the new price?\n\nWhen a price increases, we find the extra amount (the increase) and ADD it to the original price.",
                 "steps": [
                     "Find 10%: $50 x 0.1 = $5.",
                     "Add to original: $50 + $5 = $55."
@@ -3538,6 +3549,12 @@
                 ]
             },
             {
+                "id": "p5-ratio-intro",
+                "type": "checkpoint",
+                "title": "Next Level Unlocked! 🔓",
+                "content": "You've mastered Fractions! Amazing work. 🌟 Now, let's explore **Ratio**—the secret to comparing quantities perfectly. Ready to level up?"
+            },
+            {
                 "id": "p5-ratio",
                 "type": "section-header",
                 "title": "3. Ratio",
@@ -3547,6 +3564,7 @@
                 "type": "example",
                 "title": "3.1 Finding Total from Ratio",
                 "description": "Ratio of flour to sugar is 5:2. Total weight is 700g. Find sugar.",
+                "detailedDescription": "Problem: Flour to sugar ratio is 5:2. Total weight is 700g. How much is sugar?\n\nRatios tell us how to share things in 'units'. Add the units together to find the total, then figure out what 1 unit equals.",
                 "steps": [
                     "Total units = 5 + 2 = 7 units.",
                     "7 units = 700g. So 1 unit = 100g.",
@@ -3557,6 +3575,7 @@
                 "type": "example",
                 "title": "3.2 Missing Term",
                 "description": "2:5 = 6:?",
+                "detailedDescription": "Problem: Find the missing number: 2:5 = 6:?\n\nWhatever you do to one side, do to the other! Find the multiplier by comparing the known numbers.",
                 "steps": [
                     "Compare left side: 2 -> 6 (Multiplied by 3).",
                     "Do same to right side: 5 x 3 = 15.",
@@ -3567,6 +3586,7 @@
                 "type": "example",
                 "title": "3.3 Ratio Difference",
                 "description": "Boys:Girls = 3:4. There are 5 more Girls than Boys. Find Total.",
+                "detailedDescription": "Problem: Boys to Girls = 3:4. There are 5 more girls. Find total students.\n\nThe 'difference' in ratio units tells us what the 'extra' students represent.",
                 "steps": [
                     "Difference in units: 4 - 3 = 1 unit.",
                     "1 unit = 5 students.",
@@ -3578,6 +3598,7 @@
                 "type": "example",
                 "title": "3.4 Three-Part Ratio",
                 "description": "A:B = 2:3. B:C = 3:5. Find A:B:C.",
+                "detailedDescription": "Problem: A:B = 2:3 and B:C = 3:5. Find A:B:C.\n\nWe need a 'bridge' to connect the ratios. The bridge is the common element (B).",
                 "steps": [
                     "The 'bridge' is B. Is B the same in both? Yes (it is 3).",
                     "Simply combine: 2:3:5."
@@ -3587,6 +3608,7 @@
                 "type": "example",
                 "title": "3.5 Ratio Word Problem",
                 "description": "Mix Juice and Water in ratio 1:4. If you have 200ml Juice, how much water?",
+                "detailedDescription": "Problem: Juice:Water = 1:4. You have 200ml juice. How much water?\n\nIf we know one 'unit', we can find all the other parts of the ratio.",
                 "steps": [
                     "Juice is 1 unit. Water is 4 units.",
                     "1 unit = 200ml.",
@@ -3915,6 +3937,12 @@
                 ]
             },
             {
+                "id": "p5-geometry-intro",
+                "type": "checkpoint",
+                "title": "Geometry Awaits! 📐",
+                "content": "Ratios? Crushed it! 💥 Now, enter the world of **Geometry**. Angles, triangles, and area are waiting for you. Let's shape up!"
+            },
+            {
                 "id": "p5-geometry",
                 "type": "section-header",
                 "title": "4. Geometry: Angles & Area",
@@ -3925,6 +3953,7 @@
                 "title": "4.1 Area of a Triangle",
                 "image": "/images/triangle_area.png",
                 "description": "Triangle has base 10cm and height 6cm. Find area.",
+                "detailedDescription": "Problem: A triangle has base 10cm and height 6cm. Find the area.\n\nTriangle area is half the area of a rectangle with the same base and height.",
                 "steps": [
                     "Formula: 1/2 x Base x Height.",
                     "1/2 x 10 x 6.",
@@ -3936,6 +3965,7 @@
                 "title": "4.2 Unknown Angles (Isosceles)",
                 "image": "/images/isosceles.png",
                 "description": "In triangle ABC, AB=AC. Angle A is 40°. Find Angle B.",
+                "detailedDescription": "Problem: In isosceles triangle ABC (AB=AC), Angle A = 40°. Find Angle B.\n\nIn an isosceles triangle, the two base angles are equal. All angles add up to 180°.",
                 "steps": [
                     "Sum of angles = 180°.",
                     "Remaining sum = 180 - 40 = 140°.",
@@ -3947,6 +3977,7 @@
                 "type": "example",
                 "title": "4.3 Volume of Cuboid",
                 "description": "A tank is 10cm x 10cm x 5cm. How many liters of water can it hold?",
+                "detailedDescription": "Problem: A tank is 10cm x 10cm x 5cm. How many liters of water can it hold?\n\nVolume = Length x Breadth x Height. Remember: 1000 cm³ = 1 Liter.",
                 "steps": [
                     "Volume = L x B x H = 10 x 10 x 5 = 500 cm³.",
                     "Convert to Liters: 1000 cm³ = 1 Liter.",
@@ -3957,6 +3988,7 @@
                 "type": "example",
                 "title": "4.4 Vertically Opposite Angles",
                 "description": "Two straight lines cross. One angle is 50°. Find the opposite angle.",
+                "detailedDescription": "Problem: Two lines cross. One angle is 50°. What is the angle directly opposite?\n\nVertically opposite angles are always equal.",
                 "steps": [
                     "Rule: Vertically Opposite angles are EQUAL.",
                     "Answer: 50°."

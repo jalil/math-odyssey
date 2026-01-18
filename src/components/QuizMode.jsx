@@ -5,7 +5,7 @@ import BarModelDiagram from './BarModelDiagram';
 import { triggerConfetti, triggerPop, triggerShake } from '../utils/confetti';
 import { playCorrectSound, playIncorrectSound, playBossHit, playFanfare } from '../utils/audio';
 
-export default function QuizMode({ questions, topicId, onComplete }) {
+export default function QuizMode({ questions, topicId, onComplete, isAdmin }) {
     const router = useRouter();
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [userAnswer, setUserAnswer] = useState('');
@@ -683,17 +683,17 @@ export default function QuizMode({ questions, topicId, onComplete }) {
                 <button
                     id="next-btn"
                     onClick={goToNext}
-                    disabled={!isCorrect}
+                    disabled={!isCorrect && !isAdmin}
                     style={{
-                        background: isCorrect ? 'var(--primary)' : '#2A2A2A',
+                        background: (isCorrect || isAdmin) ? 'var(--primary)' : '#2A2A2A',
                         color: 'white',
                         border: 'none',
                         padding: '1rem 2rem',
                         borderRadius: '12px',
-                        cursor: isCorrect ? 'pointer' : 'not-allowed',
+                        cursor: (isCorrect || isAdmin) ? 'pointer' : 'not-allowed',
                         fontWeight: 700,
                         fontSize: '1rem',
-                        opacity: isCorrect ? 1 : 0.5,
+                        opacity: (isCorrect || isAdmin) ? 1 : 0.5,
                         display: 'flex',
                         alignItems: 'center',
                         gap: '0.5rem'
