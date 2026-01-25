@@ -58,9 +58,9 @@ export default function QuizViewer({ questions, onResult, progress, onNextStep, 
                 totalQuestions={totalQuestions}
                 onResult={(questionId, isCorrect) => {
                     // Update local state for immediate feedback
-                    if (isCorrect) {
-                        setSolvedIndices(prev => ({ ...prev, [currentIndex]: true }));
-                    }
+                    // Treat any result (correct or skipped/incorrect) as "solved" to allow navigation
+                    setSolvedIndices(prev => ({ ...prev, [currentIndex]: true }));
+
                     // Pass result up
                     if (onResult) onResult(questionId, isCorrect);
                 }}

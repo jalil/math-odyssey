@@ -105,6 +105,10 @@ export default function QuizCard({ title, description, answer, steps = [], onRes
         setUserAnswer('');
     };
 
+    const handleSkip = () => {
+        handleResult(false);
+    };
+
     return (
         <div className="card" style={{
             padding: '2rem',
@@ -159,6 +163,23 @@ export default function QuizCard({ title, description, answer, steps = [], onRes
                             }}
                         >
                             ✗ Try Again
+                        </button>
+                    )}
+                    {status === 'unanswered' && (
+                        <button
+                            onClick={handleSkip}
+                            style={{
+                                background: 'transparent',
+                                border: '1px solid var(--border)',
+                                color: 'var(--text-secondary)',
+                                fontWeight: 600,
+                                cursor: 'pointer',
+                                fontSize: '0.8rem',
+                                padding: '2px 8px',
+                                borderRadius: '6px'
+                            }}
+                        >
+                            Skip ⏩
                         </button>
                     )}
                     <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', background: '#2A2A2A', padding: '2px 8px', borderRadius: '6px', fontWeight: 600 }}>PRACTICE</span>

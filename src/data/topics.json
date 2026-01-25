@@ -3412,7 +3412,11 @@
                 "title": "P5.2.17 Hundredths",
                 "relatedSectionId": "p5-frac-dec",
                 "description": "What is the value of 3 in 0.03?",
-                "answer": "3 hundredths",
+                "answer": [
+                    "0.03",
+                    "3 hundredths",
+                    "3/100"
+                ],
                 "steps": [
                     "Second decimal place is hundredths"
                 ]

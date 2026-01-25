@@ -66,9 +66,17 @@ export default function QuizMode({ questions, topicId, onComplete, isAdmin }) {
         }
 
         const normalizedUserAnswer = normalizeAnswer(userAnswer);
-        const normalizedCorrectAnswer = normalizeAnswer(currentQuestion.answer);
 
-        if (normalizedUserAnswer === normalizedCorrectAnswer) {
+        const correctAnswer = currentQuestion.answer;
+        let isAnswerCorrect = false;
+
+        if (Array.isArray(correctAnswer)) {
+            isAnswerCorrect = correctAnswer.some(ans => normalizeAnswer(ans) === normalizedUserAnswer);
+        } else {
+            isAnswerCorrect = normalizeAnswer(correctAnswer) === normalizedUserAnswer;
+        }
+
+        if (isAnswerCorrect) {
             // Correct!
             setIsCorrect(true);
             setIsWrong(false);
@@ -138,6 +146,24 @@ export default function QuizMode({ questions, topicId, onComplete, isAdmin }) {
             setCurrentQuestionIndex(prev => prev - 1);
             resetQuestion();
         }
+    };
+
+    const handleSkip = () => {
+        // Mark as incorrect and skipped
+        setAnsweredQuestions(prev => {
+            // Check if already answered (unlikely if button is only shown when !isCorrect, but good safety)
+            if (prev.some(q => q.questionIndex === currentQuestionIndex)) return prev;
+
+            return [...prev, {
+                questionIndex: currentQuestionIndex,
+                correct: false,
+                skipped: true,
+                timeUsed: 120 - timeRemaining
+            }];
+        });
+
+        // Move to next question immediately
+        goToNext();
     };
 
     const resetQuestion = () => {
@@ -574,7 +600,9 @@ export default function QuizMode({ questions, topicId, onComplete, isAdmin }) {
                         {hintCount > maxHints && (
                             <div>
                                 <p style={{ fontWeight: 700, color: 'var(--text-primary)', marginBottom: '1rem' }}>
-                                    Answer: <span style={{ color: 'var(--success)' }}>{currentQuestion.answer}</span>
+                                    Answer: <span style={{ color: 'var(--success)' }}>
+                                        {Array.isArray(currentQuestion.answer) ? currentQuestion.answer[0] : currentQuestion.answer}
+                                    </span>
                                 </p>
                                 {currentQuestion.steps && (
                                     <div>
@@ -633,6 +661,21 @@ export default function QuizMode({ questions, topicId, onComplete, isAdmin }) {
                             }}
                         >
                             💡 {hintCount > maxHints ? 'No More Hints' : `Hint (${hintCount}/${maxHints})`}
+                        </button>
+                        <button
+                            onClick={handleSkip}
+                            style={{
+                                background: 'transparent',
+                                color: 'var(--text-secondary)',
+                                border: '1px solid var(--border)',
+                                padding: '1rem 1.5rem',
+                                borderRadius: '12px',
+                                cursor: 'pointer',
+                                fontWeight: 600,
+                                fontSize: '1rem'
+                            }}
+                        >
+                            Skip ⏩
                         </button>
                         <button
                             onClick={checkAnswer}
