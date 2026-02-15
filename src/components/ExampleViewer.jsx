@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import ExampleCard from './ExampleCard';
 import StepContainer from './StepContainer';
 
-export default function ExampleViewer({ examples, onNextStep, onPrevStep, sectionTitle }) {
-    const [currentIndex, setCurrentIndex] = React.useState(0);
+export default function ExampleViewer({ examples, onNextStep, onPrevStep, sectionTitle, initialIndex = 0 }) {
+    const [currentIndex, setCurrentIndex] = React.useState(initialIndex);
     // Assuming useUser is defined elsewhere or will be added.
     // For now, commenting it out to avoid compilation errors if not present.
     // const { user, progress, saveProgress } = useUser();

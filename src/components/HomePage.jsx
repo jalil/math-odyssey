@@ -71,14 +71,40 @@ export default function HomePage() {
     // Calculate locks based on progress
     const locks = {
         'singapore-p3': false, // Always unlocked
-        'singapore-p4': getModuleProgress('singapore-p3') < 100,
-        'bar-model-level-1': getModuleProgress('singapore-p3') < 100, // Reduced requirement from P4 to P3
-        'bar-model-level-2': getModuleProgress('bar-model-level-1') < 100,
-        'bar-model-level-3': getModuleProgress('bar-model-level-2') < 100,
-        'singapore-p5': getModuleProgress('bar-model-level-3') < 100,
-        'singapore-p6': getModuleProgress('singapore-p5') < 100,
-        'hiroo': getModuleProgress('singapore-p6') < 100
+        'singapore-p4': false, // UNLOCKED
+        'bar-model-level-1': false, // UNLOCKED
+        'bar-model-level-2': false, // UNLOCKED
+        'bar-model-level-3': false, // UNLOCKED
+        'singapore-p5': false, // UNLOCKED
+        'singapore-p6': false, // UNLOCKED
+        'elite-prep': getModuleProgress('singapore-p6') < 100, // Locked until P6 is 100% complete
+        'hiroo': false // UNLOCKED
     };
+
+    // Module Order for Recommendations
+    const MODULE_ORDER = [
+        'singapore-p3',
+        'singapore-p4',
+        'bar-model-level-1',
+        'bar-model-level-2',
+        'bar-model-level-3',
+        'singapore-p5',
+        'singapore-p6',
+        'advanced-word-problems',
+        'elite-prep',
+        'hiroo'
+    ];
+
+    const getNextRecommendedModule = () => {
+        for (const moduleId of MODULE_ORDER) {
+            if (getModuleProgress(moduleId) < 100) {
+                return topics.find(t => t.id === moduleId);
+            }
+        }
+        return null; // All done!
+    };
+
+    const nextModule = getNextRecommendedModule();
 
     return (
         <div className="home-container">
@@ -178,6 +204,52 @@ export default function HomePage() {
 
                 {showAdmin && <AdminDashboard onClose={() => setShowAdmin(false)} />}
             </header>
+
+            {/* Recommended Next Step Banner */}
+            {nextModule && (
+                <div style={{
+                    background: 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)',
+                    borderRadius: '16px',
+                    padding: '1.5rem',
+                    marginBottom: '2rem',
+                    color: 'white',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
+                }}>
+                    <div>
+                        <div style={{ textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.875rem', fontWeight: 600, opacity: 0.9, marginBottom: '0.5rem' }}>
+                            Current Objective
+                        </div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 800, margin: 0 }}>
+                            {nextModule.title}
+                        </h2>
+                        <div style={{ marginTop: '0.5rem', opacity: 0.9 }}>
+                            {getModuleProgress(nextModule.id)}% Complete
+                        </div>
+                    </div>
+                    <button
+                        onClick={() => router.push(`/?topic=${nextModule.id}`)}
+                        style={{
+                            background: 'white',
+                            color: '#6366F1',
+                            border: 'none',
+                            padding: '0.75rem 1.5rem',
+                            borderRadius: '12px',
+                            fontWeight: 700,
+                            fontSize: '1rem',
+                            cursor: 'pointer',
+                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                            transition: 'transform 0.2s',
+                        }}
+                        onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                        onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                    >
+                        Continue Adventure →
+                    </button>
+                </div>
+            )}
 
             {/* Module Grid */}
             {/* Adventure Map */}

@@ -1,41 +1,104 @@
-:root {
-  /* 🎨 MathQuest Dark Theme */
-  --background: #0A0A0A;
-  /* Pure Black */
-  --card-background: #171717;
-  /* Neutral 900 */
-  --text-primary: #FFFFFF;
-  /* White */
-  --text-secondary: #94A3B8;
-  /* Slate 400 */
+@import "tailwindcss";
 
+:root {
+  /* 🗺️ Quest Map Theme (Light Mode) */
+  --background: #F0F9FF;
+  /* Sky Blue 50 */
+  --card-background: #FFFFFF;
+  --text-primary: #1E293B;
+  /* Slate 800 */
+  --text-secondary: #64748B;
+  /* Slate 500 */
+
+  /* Vibrant Accents */
   --primary: #3B82F6;
-  /* Blue 500 - Lighter for Dark Mode */
+  /* Blue 500 */
   --primary-hover: #2563EB;
   /* Blue 600 */
-  --accent: #F59E0B;
-  /* Amber 500 */
+  --secondary: #F97316;
+  /* Orange 500 */
+  --accent: #8B5CF6;
+  /* Violet 500 */
+  --success: #22C55E;
+  /* Green 500 */
 
-  --border: #262626;
-  /* Neutral 800 */
+  /* Soft Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  --shadow-float: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
-  --sidebar-bg: #0A0A0A;
-  /* Black Sidebar */
+  /* Border Radius */
+  --radius-lg: 1.5rem;
+  /* Rounded 24px */
+  --radius-xl: 2rem;
+  /* Rounded 32px */
+}
 
-  --success: #10B981;
-  --error: #EF4444;
-  --warning: #F59E0B;
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Rounder font if available */
+  min-height: 100vh;
+}
 
-  /* Shadows - subtle for dark theme */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+/* Island Card Utility */
+.island-card {
+  background: var(--card-background);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border: 2px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  /* Border Radius - modern and clean */
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.25rem;
+.island-card:hover {
+  transform: translateY(-8px);
+  /* Anti-gravity lift */
+  box-shadow: var(--shadow-float);
+  border-color: var(--primary);
+}
+
+/* Quest Button */
+.btn-quest {
+  background: var(--primary);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+  transition: all 0.2s ease;
+}
+
+.btn-quest:hover {
+  background: var(--primary-hover);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(59, 130, 246, 0.4);
+}
+
+.btn-quest-secondary {
+  background: white;
+  color: var(--text-primary);
+  border: 2px solid #E2E8F0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.btn-quest-secondary:hover {
+  border-color: var(--text-secondary);
+  background: #F8FAFC;
+}
+
+/* Typography Helpers */
+.text-display {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
 }
 
 * {
@@ -44,11 +107,7 @@
   margin: 0;
 }
 
-body {
-  background: var(--background);
-  color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
+/* Old body text removed */
 
 /* Card Utility Class - Central to the design */
 .card {
@@ -147,6 +206,225 @@ button {
 
 .shake-anim {
   animation: shake 0.4s ease-in-out;
+}
+
+/* ============================================
+   🔥 PUNCHY ANIMATIONS
+   ============================================ */
+
+/* — Slide-in-up entrance for cards — */
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.005);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* — Fade-in-up (used by StepContainer) — */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.45s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+/* — Rainbow gradient shimmer for accent bars — */
+@keyframes gradientShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-shimmer {
+  background-size: 200% 200%;
+  animation: gradientShimmer 3s ease infinite;
+}
+
+/* — Badge pulse glow — */
+@keyframes badgePulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.6), 0 0 40px rgba(118, 75, 162, 0.2);
+  }
+}
+
+.badge-glow {
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+/* — Step reveal cascade — */
+@keyframes stepReveal {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.step-reveal {
+  animation: stepReveal 0.4s ease-out both;
+}
+
+/* — Floating bob — */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* — Problem callout border shimmer — */
+@keyframes borderPulse {
+
+  0%,
+  100% {
+    border-left-color: #667eea;
+  }
+
+  33% {
+    border-left-color: #764ba2;
+  }
+
+  66% {
+    border-left-color: #f5576c;
+  }
+}
+
+.border-shimmer {
+  animation: borderPulse 4s ease-in-out infinite;
+}
+
+/* — Scale pop on mount — */
+@keyframes scalePop {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-pop {
+  animation: scalePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* — Number circle bounce — */
+@keyframes circleBounce {
+  0% {
+    transform: scale(0);
+  }
+
+  60% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.circle-bounce {
+  animation: circleBounce 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* — Emoji wiggle — */
+@keyframes wiggle {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-8deg);
+  }
+
+  75% {
+    transform: rotate(8deg);
+  }
+}
+
+.emoji-wiggle:hover {
+  animation: wiggle 0.5s ease-in-out;
+  display: inline-block;
+}
+
+/* — Glow ring for hero elements — */
+@keyframes glowRing {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.15);
+  }
+}
+
+.glow-ring {
+  animation: glowRing 2.5s ease-in-out infinite;
 }
 
 /* --- Responsive Layout --- */

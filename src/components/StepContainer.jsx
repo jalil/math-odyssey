@@ -1,6 +1,4 @@
 "use client";
-import React from 'react';
-
 export default function StepContainer({
     children,
     title,
@@ -11,123 +9,95 @@ export default function StepContainer({
     showBack = true,
     disableNext = false,
     disableBack = false,
-    nextLabel = "Next →",
-    backLabel = "← Back",
+    nextLabel = "Next",
+    backLabel = "Back",
     segments = 1,
     currentSegment = 0
 }) {
     return (
-        <div style={{
-            marginBottom: '3rem',
-            background: '#09090b', // Deep dark background
-            borderRadius: '24px',
-            padding: '2rem',
-            border: '1px solid #27272a',
-            color: '#fff',
-            position: 'relative',
-            overflow: 'hidden',
-            minHeight: '500px', // Ensure consistent height
-            display: 'flex',
-            flexDirection: 'column'
-        }}>
-            {/* Header Area */}
-            <div style={{ marginBottom: '2rem' }}>
+        <div className="flex flex-col min-h-[600px] w-full max-w-6xl mx-auto relative animate-fade-in-up items-center">
+
+            {/* Header Area - PUNCHY */}
+            <div className="mb-8 text-center">
                 <h3 style={{
-                    margin: 0,
-                    fontSize: '1.5rem',
-                    fontWeight: 700,
-                    color: '#fff'
+                    fontSize: 'clamp(1.8rem, 5vw, 3rem)',
+                    fontWeight: 900,
+                    letterSpacing: '-0.03em',
+                    lineHeight: 1.15,
+                    marginBottom: '0.5rem',
+                    background: 'linear-gradient(135deg, #1e293b 0%, #334155 40%, #667eea 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
                 }}>
                     {title}
                 </h3>
+                {/* Animated accent bar under title */}
+                <div className="gradient-shimmer" style={{
+                    width: '60px',
+                    height: '4px',
+                    borderRadius: '2px',
+                    background: 'linear-gradient(90deg, #667eea, #764ba2, #f5576c, #667eea)',
+                    backgroundSize: '200% 200%',
+                    margin: '0 auto 0.75rem',
+                }} />
                 {subtitle && (
-                    <span style={{
-                        display: 'inline-block',
-                        marginTop: '0.5rem',
-                        fontSize: '0.9rem',
-                        color: '#a1a1aa'
-                    }}>
+                    <span className="glow-ring inline-block text-lg text-slate-500 font-bold bg-white px-4 py-1 rounded-full shadow-sm border border-slate-100">
                         {subtitle}
                     </span>
                 )}
             </div>
 
             {/* Content Area */}
-            <div style={{ flex: 1, position: 'relative' }}>
+            <div className="flex-1 relative z-10 w-full">
                 {children}
             </div>
 
-            {/* Bottom Navigation Control Bar */}
-            <div style={{
-                marginTop: 'auto', // Push to bottom
-                paddingTop: '1.5rem',
-                borderTop: '1px solid #27272a',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center'
-            }}>
-                {/* Back Button */}
-                {showBack ? (
-                    <button
-                        type="button"
-                        onClick={onBack}
-                        disabled={disableBack}
-                        style={{
-                            background: 'transparent',
-                            color: disableBack ? '#52525b' : '#a1a1aa',
-                            border: '1px solid #27272a',
-                            padding: '0.8rem 1.5rem',
-                            borderRadius: '12px',
-                            cursor: disableBack ? 'not-allowed' : 'pointer',
-                            fontSize: '0.95rem',
-                            fontWeight: 600,
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.5rem',
-                            transition: 'all 0.2s',
-                            opacity: disableBack ? 0.5 : 1
-                        }}
-                    >
-                        {backLabel}
-                    </button>
-                ) : <div />}
+            {/* Navigation Control Bar - Floating Pill */}
+            <div className="sticky bottom-6 mt-12 z-40 w-full flex justify-center">
+                <div className="mx-auto max-w-2xl bg-white/90 backdrop-blur-md px-4 py-3 flex justify-between items-center shadow-float border border-slate-200 rounded-full">
 
-                {/* Segmented Progress Bar - REMOVED per user request */}
-                {/* 
-                {segments > 1 && (
-                    <div style={{ display: 'flex', gap: '6px' }}>
-                        ...
+                    {/* Back Button */}
+                    <div className="w-1/3 flex justify-start">
+                        {showBack ? (
+                            <button
+                                type="button"
+                                onClick={onBack}
+                                disabled={disableBack}
+                                className={`
+                                    btn-quest-secondary text-sm flex items-center gap-2 border-none bg-transparent hover:bg-slate-100 text-slate-500
+                                    ${disableBack ? 'opacity-30 cursor-not-allowed' : ''}
+                                `}
+                            >
+                                <span>←</span> {backLabel}
+                            </button>
+                        ) : <div />}
                     </div>
-                )}
-                */}
-                <div style={{ flex: 1 }} /> {/* Spacer to keep buttons apart */}
 
+                    {/* Progress Dots (Optional visualization) */}
+                    <div className="w-1/3 flex justify-center gap-2">
+                        {[...Array(Math.min(5, segments || 1))].map((_, i) => (
+                            <div key={i} className={`w-2 h-2 rounded-full ${i <= currentSegment ? 'bg-blue-500' : 'bg-slate-200'}`} />
+                        ))}
+                    </div>
 
-                {/* Next Button */}
-                {showNext ? (
-                    <button
-                        type="button"
-                        onClick={onNext}
-                        disabled={disableNext}
-                        style={{
-                            background: disableNext ? '#27272a' : '#f97316', // Orange
-                            color: disableNext ? '#71717a' : 'white',
-                            border: 'none',
-                            padding: '0.8rem 2rem',
-                            borderRadius: '12px',
-                            cursor: disableNext ? 'not-allowed' : 'pointer',
-                            fontSize: '0.95rem',
-                            fontWeight: 700,
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.5rem',
-                            transition: 'all 0.2s',
-                            boxShadow: disableNext ? 'none' : '0 4px 12px rgba(249, 115, 22, 0.2)'
-                        }}
-                    >
-                        {nextLabel}
-                    </button>
-                ) : <div />}
+                    {/* Next Button */}
+                    <div className="w-1/3 flex justify-end">
+                        {showNext ? (
+                            <button
+                                type="button"
+                                onClick={onNext}
+                                disabled={disableNext}
+                                className={`
+                                    btn-quest flex items-center gap-2 shadow-lg
+                                    ${disableNext ? 'bg-slate-300 shadow-none cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'}
+                                `}
+                            >
+                                {nextLabel} <span className="text-xl">→</span>
+                            </button>
+                        ) : <div />}
+                    </div>
+                </div>
             </div>
         </div>
     );

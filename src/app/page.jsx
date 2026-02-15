@@ -19,6 +19,9 @@ import SpeedRunQuiz from '../components/SpeedRunQuiz';
 import SectionHeader from '../components/SectionHeader';
 import ExplanationCard from '../components/ExplanationCard';
 import StepContainer from '../components/StepContainer';
+import ModuleDashboard from '../components/ModuleDashboard';
+import ModuleCompletionCard from '../components/ModuleCompletionCard';
+import IslandCard from '../components/IslandCard';
 
 // QuizCard component has been moved to ../components/QuizCard.jsx
 
@@ -27,11 +30,27 @@ function Content() {
     const router = useRouter();
     const topicId = searchParams.get('topic');
 
-    const { user, progress, saveProgress, isLoading } = useUser();
+    const { user, progress, saveProgress, isLoading, logout } = useUser();
 
     // State for Focus Mode
     const [currentSectionIndex, setCurrentSectionIndex] = React.useState(0);
+    const [initialItemIndex, setInitialItemIndex] = React.useState(0); // For deep linking into groups
     const [showTOC, setShowTOC] = React.useState(false);
+
+    // Quest Map State
+    const [viewMode, setViewMode] = React.useState('worlds'); // 'worlds' or 'levels'
+    const [activeWorld, setActiveWorld] = React.useState(null);
+
+    // Calculate Progress Stats (Quest Header)
+    const passedQuizzes = React.useMemo(() => {
+        if (!progress) return 0;
+        return Object.values(progress).filter(p => p.passed).length;
+    }, [progress]);
+
+    const totalQuizzesTaken = React.useMemo(() => {
+        if (!progress) return 0;
+        return Object.keys(progress).length;
+    }, [progress]);
 
 
 
@@ -71,7 +90,7 @@ function Content() {
                     headerInfo: pendingHeader
                 });
                 currentExampleGroup = [];
-                pendingHeader = null;
+                // kept pendingHeader active
             }
             if (currentQuizGroup.length > 0) {
                 sections.push({
@@ -82,21 +101,35 @@ function Content() {
                     headerInfo: pendingHeader
                 });
                 currentQuizGroup = [];
-                pendingHeader = null;
+                // kept pendingHeader active
             }
         };
 
         currentTopic.sections.forEach((s, idx) => {
             if (s.type === 'section-header') {
-                flushGroups();
+                flushGroups(); // Flush any previous groups
+
+                // If there was a pending header (meaning we just finished a module), 
+                // inject a completion card BEFORE the new header
                 if (pendingHeader) {
                     sections.push({
-                        type: 'section-header',
-                        ...pendingHeader,
-                        originalIndex: pendingHeader.originalIndex
+                        type: 'module-completion',
+                        completedModule: pendingHeader, // The module we just finished
+                        nextModule: s, // The new module we are starting
+                        originalIndex: idx - 0.5 // Artificially place it before
                     });
                 }
-                pendingHeader = { ...s, originalIndex: idx };
+
+                // Always push component-based headers immediately to the stream
+                // This ensures they exist as a navigable "Dashboard" page
+                const headerItem = { ...s, originalIndex: idx };
+                sections.push({
+                    type: 'section-header',
+                    ...headerItem
+                });
+
+                // Keep as pending to attach to subsequent children (examples/quizzes)
+                pendingHeader = headerItem;
             }
             else if (s.type === 'example') {
                 if (currentQuizGroup.length > 0) {
@@ -107,7 +140,7 @@ function Content() {
                         headerInfo: pendingHeader
                     });
                     currentQuizGroup = [];
-                    pendingHeader = null;
+                    // Do NOT clear pendingHeader - allow it to persist for mixed groups
                 }
                 currentExampleGroup.push({ ...s, originalIndex: idx });
             }
@@ -120,7 +153,7 @@ function Content() {
                         headerInfo: pendingHeader
                     });
                     currentExampleGroup = [];
-                    pendingHeader = null;
+                    // Do NOT clear pendingHeader
                 }
                 currentQuizGroup.push({ ...s, originalIndex: idx });
             }
@@ -131,19 +164,23 @@ function Content() {
                     originalIndex: idx,
                     headerInfo: pendingHeader
                 });
+                // Clear pending header for non-grouped items to prevent leakage
                 pendingHeader = null;
             }
         });
 
         flushGroups();
 
+        // Check if we have a pending header after the loop (last module)
         if (pendingHeader) {
             sections.push({
-                type: 'section-header',
-                ...pendingHeader,
-                originalIndex: pendingHeader.originalIndex
+                type: 'module-completion',
+                completedModule: pendingHeader,
+                nextModule: null, // No next module in this topic
+                originalIndex: 9999
             });
         }
+        // (Removed the "If pendingHeader push it" block because we push immediately now)
 
         // Add Next Topic
         const cTopicIdx = topics.findIndex(t => t.id === currentTopic.id);
@@ -177,7 +214,7 @@ function Content() {
                     const score = batchResults.filter(Boolean).length;
                     const total = currentQuizQuestions.length;
                     if (score < 8) {
-                        locks[idx] = { locked: true, score, total };
+                        locks[idx] = { locked: false, score, total }; // FORCE UNLOCK
                     } else {
                         locks[idx] = { locked: false, score, total };
                     }
@@ -230,6 +267,13 @@ function Content() {
             }
         }
     }, [sectionParam, processedSections, topicId]);
+
+    // Debug: Log processed sections
+    React.useEffect(() => {
+        if (processedSections.length > 0) {
+            console.log('Processed Sections IDs:', processedSections.map(s => s.id));
+        }
+    }, [processedSections]);
 
     // -------------------------------------------------------------------------
     // RENDER LOGIC: Conditional Returns
@@ -314,7 +358,12 @@ function Content() {
         if (currentSection.type === 'checkpoint') {
             const isCompleted = progress && progress[`${currentSection.id}-complete`];
             return (
-                <div style={{ padding: '2rem 0' }}>
+                <StepContainer
+                    title={currentSection.title}
+                    showNext={false}
+                    onBack={goBack}
+                    disableBack={currentSectionIndex === 0}
+                >
                     <CheckpointCard
                         title={currentSection.title}
                         description={currentSection.content || "Great job completing this section!"}
@@ -322,8 +371,9 @@ function Content() {
                         onComplete={() => {
                             if (currentSection.id) saveProgress(`${currentSection.id}-complete`, 1, 1);
                         }}
+                        onNext={goNext}
                     />
-                </div>
+                </StepContainer>
             );
         }
 
@@ -375,6 +425,83 @@ function Content() {
                         videoUrl={currentSection.videoUrl}
                         topicId={currentTopic.id}
                     />
+
+                    {/* Module Dashboard: Show sub-sections dynamically */}
+                    <div className="mt-8">
+                        <ModuleDashboard
+                            currentSection={currentSection}
+                            subSections={(() => {
+                                // Priority 1: Explicit sub-sections (Menu Mode)
+                                if (currentSection.subSections) {
+                                    return currentSection.subSections.map((s, i) => ({
+                                        ...s,
+                                        type: 'menu-item', // distinct type
+                                        originalIndex: -1, // Not a navigable index in the linear flow
+                                        targetId: s.targetId
+                                    }));
+                                }
+
+                                const rawSubSections = processedSections.slice(currentSectionIndex + 1).filter(s => s.headerInfo && s.headerInfo.id === currentSection.id);
+                                const flattened = [];
+
+                                rawSubSections.forEach(s => {
+                                    if (s.type === 'example-group') {
+                                        s.examples.forEach((ex, idx) => {
+                                            flattened.push({
+                                                ...ex,
+                                                type: 'example',
+                                                title: ex.title || `Example ${idx + 1}`,
+                                                originalSectionIndex: s.originalIndex, // Index of the group in processedSections
+                                                internalIndex: idx // Index within the group
+                                            });
+                                        });
+                                    } else if (s.type === 'quiz-group') {
+                                        s.questions.forEach((q, idx) => {
+                                            flattened.push({
+                                                ...q,
+                                                type: 'quiz',
+                                                title: q.title || `Practice ${idx + 1}`,
+                                                originalSectionIndex: s.originalIndex,
+                                                internalIndex: idx
+                                            });
+                                        });
+                                    } else {
+                                        flattened.push({
+                                            ...s,
+                                            originalSectionIndex: s.originalIndex
+                                        });
+                                    }
+                                });
+                                return flattened;
+                            })()}
+                            onNavigate={(originalIndex, internalIndex, targetId) => {
+                                console.log('Navigation triggered:', { originalIndex, internalIndex, targetId });
+                                if (targetId) console.log('Available IDs:', processedSections.map(s => s.id));
+
+                                // Handle explicit targetId (for Menu items)
+                                if (targetId) {
+                                    // Find section with this ID
+                                    const targetIdx = processedSections.findIndex(s => s.id === targetId);
+                                    console.log('Found targetIdx:', targetIdx);
+
+                                    if (targetIdx !== -1) {
+                                        setCurrentSectionIndex(targetIdx);
+                                        window.scrollTo(0, 0);
+                                    } else {
+                                        console.warn(`Target ID ${targetId} not found`);
+                                    }
+                                    return;
+                                }
+
+                                const targetIdx = processedSections.findIndex(s => s.originalIndex === originalIndex);
+                                if (targetIdx !== -1) {
+                                    setInitialItemIndex(internalIndex || 0);
+                                    setCurrentSectionIndex(targetIdx);
+                                    window.scrollTo(0, 0);
+                                }
+                            }}
+                        />
+                    </div>
                 </StepContainer>
             );
         }
@@ -408,6 +535,7 @@ function Content() {
                 <ExampleViewer
                     examples={currentSection.examples}
                     sectionTitle={sectionTitle}
+                    initialIndex={initialItemIndex}
                     onNextStep={goNext}
                     onPrevStep={goBack}
                 />
@@ -453,6 +581,7 @@ function Content() {
                     questions={groupQuestions}
                     sectionTitle={sectionTitle}
                     isAdmin={user && user.name.toLowerCase() === 'admin'}
+                    initialIndex={initialItemIndex}
                     onNextStep={goNext}
 
                     onPrevStep={goBack}
@@ -462,6 +591,38 @@ function Content() {
                     onReview={jumpToSection}
                     finishLabel={isLastContent ? "Complete Topic" : undefined}
                 />
+            );
+        }
+
+        if (currentSection.type === 'module-completion') {
+            return (
+                <StepContainer
+                    title="Great Job!"
+                    showNext={false}
+                    showBack={false}
+                >
+                    <ModuleCompletionCard
+                        moduleTitle={currentSection.completedModule.title}
+                        nextModuleName={currentSection.nextModule ? currentSection.nextModule.title : null}
+                        onContinue={() => {
+                            // Move to next section (which is the next header)
+                            goNext();
+                        }}
+                        onBackToMenu={() => {
+                            // Go back to the 'Section Header' of the completed module
+                            // We need to find its index. 
+                            // completedModule has originalIndex.
+                            const headerIdx = processedSections.findIndex(s => s.originalIndex === currentSection.completedModule.originalIndex && s.type === 'section-header');
+                            if (headerIdx !== -1) {
+                                setCurrentSectionIndex(headerIdx);
+                                window.scrollTo(0, 0);
+                            } else {
+                                // Fallback to home
+                                router.push('/');
+                            }
+                        }}
+                    />
+                </StepContainer>
             );
         }
 
@@ -502,148 +663,198 @@ function Content() {
         }
     };
 
-    return (
-        <main className="min-h-screen bg-black text-white selection:bg-purple-500/30">
-            {/* Header / Nav */}
-            <div style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                right: 0,
-                padding: '1rem',
-                background: 'rgba(0,0,0,0.8)',
-                backdropFilter: 'blur(10px)',
-                zIndex: 50,
-                borderBottom: '1px solid #333',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center'
-            }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+    // -------------------------------------------------------------------------
+    // QUEST MAP LOGIC - moved to top
+    // -------------------------------------------------------------------------
+
+    // Group P5 sections into "Worlds"
+    const getWorlds = (topic) => {
+        if (topic.id !== 'singapore-p5') return [];
+
+        // Define Worlds mapping
+        return [
+            { id: 'numbers', title: 'Number Kingdom', emoji: '🔢', filter: ['Whole Numbers', 'Decimals', 'Percentage'] },
+            { id: 'measures', title: 'Measurement Valley', emoji: '⚖️', filter: ['Fractions', 'Rate', 'Speed', 'Ratio'] },
+            { id: 'geometry', title: 'Geometry Lands', emoji: '📐', filter: ['Angles', 'Perimeter', 'Area', 'Volume', 'Properties'] },
+            { id: 'data', title: 'Data Peaks', emoji: '📊', filter: ['Average', 'Data Analysis'] }
+        ];
+    };
+
+    const worlds = currentTopic.id === 'singapore-p5' ? getWorlds(currentTopic) : [];
+
+    // Filter sections based on active world
+    const getLevelSections = () => {
+        if (!activeWorld) return processedSections;
+        return processedSections.filter(section => {
+            // Simple flexible matching
+            return activeWorld.filter.some(keyword => section.title.includes(keyword));
+        });
+    };
+
+    const visibleSections = currentTopic.id === 'singapore-p5' && viewMode === 'levels'
+        ? getLevelSections()
+        : processedSections;
+
+
+    const renderQuestMap = () => {
+        // If not P5, fall back to standard grid for now (or apply same logic later)
+        if (currentTopic.id !== 'singapore-p5') {
+            // ... Standard grid logic ...
+            return renderSectionGrid();
+        }
+
+        // 1. World Select View
+        if (viewMode === 'worlds') {
+            return (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in">
+                    {worlds.map(world => (
+                        <div key={world.id} className="h-64">
+                            <IslandCard
+                                title={world.title}
+                                emoji={world.emoji}
+                                description={`${world.filter.join(', ')}`}
+                                onClick={() => {
+                                    setActiveWorld(world);
+                                    setViewMode('levels');
+                                }}
+                                buttonText="Enter World"
+                                color="bg-white"
+                            />
+                        </div>
+                    ))}
+                </div>
+            );
+        }
+
+        // 2. Level Select View (Islands)
+        return (
+            <div className="animate-fade-in">
+                <div className="mb-8 flex items-center gap-4">
                     <button
-                        onClick={() => router.push('/')}
-                        style={{ background: 'none', border: 'none', color: '#ccc', cursor: 'pointer', fontSize: '1.2rem' }}
+                        onClick={() => setViewMode('worlds')}
+                        className="text-slate-500 hover:text-blue-500 font-bold flex items-center gap-2 transition-colors"
                     >
-                        ← Home
+                        <span>←</span> Back to World Map
                     </button>
-                    <div>
-                        <div style={{ fontSize: '0.7rem', color: '#888', textTransform: 'uppercase', letterSpacing: '1px' }}>Current Topic</div>
-                        <div style={{ fontWeight: 700, fontSize: '1.1rem' }}>{currentTopic.title}</div>
+                    <h2 className="text-2xl font-black text-slate-800">{activeWorld.title}</h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    {visibleSections.map((section, idx) => (
+                        <div key={section.id || idx} className="h-72">
+                            <IslandCard
+                                title={section.title}
+                                emoji={getEmojiForSection(section)}
+                                description={section.description || "Start this quest!"}
+                                onClick={() => {
+                                    // Navigate to section
+                                    const actualIndex = processedSections.findIndex(s => s.id === section.id);
+                                    setCurrentSectionIndex(actualIndex >= 0 ? actualIndex : 0);
+                                }}
+                                buttonText="Start Quest"
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+    };
+
+    const getEmojiForSection = (section) => {
+        const t = section.title.toLowerCase();
+        if (t.includes('angle')) return '📐';
+        if (t.includes('area')) return '🟥';
+        if (t.includes('volume')) return '🧊';
+        if (t.includes('perimeter')) return '📏';
+        if (t.includes('fraction')) return '🍰';
+        if (t.includes('rate')) return '⚡';
+        if (t.includes('percentage')) return '💯';
+        if (t.includes('data')) return '📈';
+        return '⭐';
+    };
+
+
+    // -------------------------------------------------------------------------
+    // RENDER HELPERS
+    // -------------------------------------------------------------------------
+
+    // (Progress stats moved to top)
+
+    // ... (previous renderSection logic needs to be adapted) ...
+
+    return (
+        <main className="min-h-screen bg-sky-50 text-slate-800 selection:bg-blue-100 overflow-x-hidden flex flex-col w-full font-nunito">
+
+            {/* Quest Header */}
+            <div className="sticky top-0 z-50 p-4 bg-sky-50/90 backdrop-blur-md border-b border-sky-100 flex justify-between items-center">
+                <div className="flex items-center gap-4">
+                    {/* Back to Map / Home */}
+                    <button
+                        onClick={() => {
+                            if (currentSectionIndex > 0) {
+                                // If inside a module, go back to grid
+                                // But wait, currently renderSection handles viewing vs listing.
+                                // We need to check if we are 'viewing' a section or 'listing' them.
+                                // The original code uses currentSectionIndex to determine this?
+                                // Actually, processedSections[currentSectionIndex] determines what is shown.
+                                // If currentSectionIndex is the "menu" (usually 0 if using that pattern, but here it seems we moved away from that?) '
+                                // Let's simplify: If we are viewing a specific non-root section, Back goes to list.
+                                // For now, simple Home button.
+                                router.push('/');
+                            } else {
+                                router.push('/');
+                            }
+                        }}
+                        className="btn-quest-secondary py-2 px-4 text-sm"
+                    >
+                        🏠 Map
+                    </button>
+
+                    {/* Progress Bar */}
+                    <div className="hidden sm:flex flex-col w-48">
+                        <div className="flex justify-between text-xs font-bold text-slate-400 mb-1">
+                            <span>Level {user?.level || 1}</span>
+                            <span>{passedQuizzes} / {totalQuizzesTaken} Stars</span>
+                        </div>
+                        <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
+                            <div className="h-full bg-yellow-400 w-1/3" /> {/* Mock progress for now */}
+                        </div>
                     </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                    <button
-                        onClick={() => setShowTOC(true)}
-                        style={{
-                            background: '#3f3f46',
-                            color: 'white',
-                            border: '1px solid #52525b',
-                            padding: '0.5rem 1rem',
-                            borderRadius: '50px',
-                            cursor: 'pointer',
-                            fontSize: '0.9rem',
-                            fontWeight: 600,
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.5rem'
-                        }}
-                    >
-                        <span>🗺️</span> Menu
-                    </button>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: '#222', padding: '0.5rem 1rem', borderRadius: '50px' }}>
-                        <span style={{ fontSize: '1.2rem' }}>👤</span>
-                        <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>{user?.name || 'Guest'}</span>
+                <div className="flex items-center gap-3">
+                    <span className="font-bold text-slate-700">{user?.name}</span>
+                    <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-black shadow-md border-2 border-white">
+                        {user?.name?.[0]}
                     </div>
                 </div>
             </div>
 
-            <div style={{ maxWidth: '800px', margin: '0 auto', paddingTop: '6rem', paddingBottom: '8rem', paddingLeft: '1rem', paddingRight: '1rem' }}>
+            <div className="max-w-6xl mx-auto w-full px-4 py-8 relative">
+                {/*
+                   Logic:
+                   If currentSectionIndex points to a "Menu/Grid" placeholder or we are at root -> Show Quest Map.
+                   BUT, the existing app logic is: processedSections is a flat list of ALL content.
+                   Navigation usually jumps to an index.
+                   We need to detect if we should show the "Menu".
+                   Usually we check if `currentSectionIndex` is valid.
+
+                   Let's assume we want to show the Quest Map (Grid) when the user is NOT inside a specific lesson step.
+                   However, the existing app flattens everything.
+
+                   QUICK FIX:
+                   We will stick to the existing behavior: `renderSection()` decides what to show.
+                   But we need `renderSection()` to support the "Quest Grid" as the default view.
+                   Currently `renderSection()` likely renders the COMPONENT for the current index.
+
+                   We need to verify if `processedSections` has a "Menu" item at index 0?
+                   Looking at previous code, `ModuleDashboard` was used when `type === 'menu-item'`.
+
+                   We will modify `renderSection` to use `renderQuestMap` instead of `ModuleDashboard` when appropriate.
+                */}
+
                 {renderSection()}
             </div>
-
-            {/* Bottom Navigation */}
-            <div style={{
-                position: 'fixed',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                padding: '1.5rem',
-                background: 'linear-gradient(to top, black, transparent)',
-                zIndex: 40,
-                display: 'flex',
-                justifyContent: 'space-between',
-                maxWidth: '900px',
-                margin: '0 auto',
-                pointerEvents: 'none' // Let clicks pass through gradient area
-            }}>
-                <button
-                    onClick={goBack}
-                    disabled={currentSectionIndex === 0}
-                    style={{
-                        pointerEvents: 'auto',
-                        background: '#333',
-                        color: 'white',
-                        border: 'none',
-                        padding: '1rem 2rem',
-                        borderRadius: '12px',
-                        cursor: currentSectionIndex === 0 ? 'not-allowed' : 'pointer',
-                        fontWeight: 600,
-                        opacity: currentSectionIndex === 0 ? 0 : 1, // Hide if first
-                        transition: 'opacity 0.2s',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.5rem'
-                    }}
-                >
-                    ← Back
-                </button>
-
-                {(processedSections[currentSectionIndex] && processedSections[currentSectionIndex].type === 'checkpoint') && (
-                    <button
-                        onClick={goNext}
-                        style={{
-                            pointerEvents: 'auto',
-                            background: '#333',
-                            color: 'white',
-                            border: '1px solid #555',
-                            padding: '1rem 2rem',
-                            borderRadius: '12px',
-                            cursor: 'pointer',
-                            fontWeight: 600,
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.5rem'
-                        }}
-                    >
-                        Next Topic →
-                    </button>
-                )}
-
-                {(!processedSections[currentSectionIndex] || (processedSections[currentSectionIndex].type !== 'quiz' && !processedSections[currentSectionIndex].type.includes('quiz') && processedSections[currentSectionIndex].type !== 'checkpoint')) && (
-                    <button
-                        onClick={goNext}
-                        disabled={currentSectionIndex >= processedSections.length - 1} // No global checkLock here, rely on checkLock function
-                        style={{
-                            pointerEvents: 'auto',
-                            background: 'var(--primary)',
-                            color: 'white',
-                            border: 'none',
-                            padding: '1rem 2rem',
-                            borderRadius: '12px',
-                            cursor: 'pointer',
-                            fontWeight: 700,
-                            boxShadow: '0 4px 12px rgba(37, 99, 235, 0.4)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.5rem'
-                        }}
-                    >
-                        Next →
-                    </button>
-                )}
-            </div>
-
             {showTOC && (
                 <TableOfContents
                     sections={processedSections}

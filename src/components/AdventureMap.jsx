@@ -2,14 +2,16 @@ import React from 'react';
 import Link from 'next/link';
 
 const nodes = [
-    { id: 'singapore-p3', label: 'Beginner Village (P3)', icon: '🏠', x: 15, y: 90, color: '#4ADE80' },
-    { id: 'singapore-p4', label: 'Factor Forest (P4)', icon: '🌲', x: 45, y: 80, color: '#22C55E' },
-    { id: 'bar-model-level-1', label: 'Logic Bridge (Foundation)', icon: '🌉', x: 75, y: 70, color: '#F59E0B' },
-    { id: 'bar-model-level-2', label: 'Ratio Ridge (Intermediate)', icon: '⚖️', x: 80, y: 50, color: '#F97316' },
-    { id: 'bar-model-level-3', label: 'Complexity Canyon (Advanced)', icon: '🏜️', x: 55, y: 40, color: '#EF4444' },
-    { id: 'singapore-p5', label: 'Fraction Fortress (P5)', icon: '🏰', x: 30, y: 30, color: '#6366F1' },
-    { id: 'singapore-p6', label: 'Mt. Mastery (P6)', icon: '🏔️', x: 20, y: 15, color: '#EC4899' },
-    { id: 'hiroo', label: "Dragon's Peak (Exam Prep)", icon: '🐉', x: 60, y: 10, color: '#EF4444', isBoss: true },
+    { id: 'singapore-p3', label: '1. Beginner Village (P3)', icon: '🏠', x: 15, y: 90, color: '#4ADE80' },
+    { id: 'singapore-p4', label: '2. Factor Forest (P4)', icon: '🌲', x: 45, y: 80, color: '#22C55E' },
+    { id: 'bar-model-level-1', label: '3. Logic Bridge (Foundation)', icon: '🌉', x: 75, y: 70, color: '#F59E0B' },
+    { id: 'bar-model-level-2', label: '4. Ratio Ridge (Intermediate)', icon: '⚖️', x: 80, y: 50, color: '#F97316' },
+    { id: 'bar-model-level-3', label: '5. Complexity Canyon (Advanced)', icon: '🏜️', x: 55, y: 40, color: '#EF4444' },
+    { id: 'singapore-p5', label: '6. Fraction Fortress (P5)', icon: '🏰', x: 30, y: 30, color: '#6366F1' },
+    { id: 'singapore-p6', label: '7. Mt. Mastery (P6)', icon: '🏔️', x: 20, y: 15, color: '#EC4899' },
+    { id: 'advanced-word-problems', label: '8. Rates Rapids (Adv. Speed)', icon: '🛶', x: 35, y: 50, color: '#0EA5E9' },
+    { id: 'elite-prep', label: '9. Elite Prep (Ratios/Geo/Logic)', icon: '💎', x: 40, y: 25, color: '#FACC15' },
+    { id: 'hiroo', label: "10. Dragon's Peak (Exam Prep)", icon: '🐉', x: 60, y: 10, color: '#EF4444', isBoss: true },
 ];
 
 export default function AdventureMap({ locks = {} }) {

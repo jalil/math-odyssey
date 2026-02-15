@@ -29,7 +29,7 @@ export default function SectionHeader({ title, description, id, videoUrl, topicI
             */}
 
             {isReviewTest && (
-                <div style={{ marginBottom: '1.5rem' }}>
+                <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
                     <button
                         onClick={() => router.push(`/?topic=${topicId}&section=review-test`)}
                         style={{
@@ -52,7 +52,7 @@ export default function SectionHeader({ title, description, id, videoUrl, topicI
             )}
 
             {videoUrl && (
-                <div style={{ marginBottom: '1.5rem' }}>
+                <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
                     <a
                         href={videoUrl}
                         target="_blank"
@@ -77,10 +77,13 @@ export default function SectionHeader({ title, description, id, videoUrl, topicI
 
             {description && (
                 <p style={{
-                    color: '#a1a1aa', // Zinc-400 for dark mode compatibility 
+                    color: '#64748b', // Updated to slate-500 from zinc-400
                     fontSize: '1.1rem',
                     marginTop: '0.5rem',
-                    lineHeight: '1.6'
+                    lineHeight: '1.6',
+                    textAlign: 'center',
+                    maxWidth: '800px',
+                    margin: '0.5rem auto'
                 }}>
                     {description}
                 </p>

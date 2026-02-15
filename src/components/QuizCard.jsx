@@ -1,6 +1,7 @@
 import React from 'react';
 import { triggerConfetti, triggerPop, triggerShake } from '../utils/confetti';
 import { playCorrectSound, playIncorrectSound } from '../utils/audio';
+import GeometryVisual from './GeometryVisual';
 
 export default function QuizCard({ title, description, answer, steps = [], onResult, onReview, questionId, relatedSectionId, initialStatus, tableData, questionNumber, totalQuestions, contentStyle = {}, showTitle = true, textColor = 'var(--text-primary)' }) {
     const [showAnswer, setShowAnswer] = React.useState(false);
@@ -186,7 +187,8 @@ export default function QuizCard({ title, description, answer, steps = [], onRes
                 </div>
             </div>
 
-            <p style={{ marginBottom: '2rem', fontSize: '1.25rem', lineHeight: '1.6', color: '#f97316', fontWeight: 500 }}>{description}</p>
+            <p style={{ marginBottom: '1rem', fontSize: '1.25rem', lineHeight: '1.6', color: '#f97316', fontWeight: 500 }}>{description}</p>
+            <GeometryVisual description={description} title={title} />
             {tableData && (
                 <div style={{ overflowX: 'auto', marginBottom: '2rem', border: '1px solid var(--border)', borderRadius: '8px' }}>
                     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.95rem' }}>
@@ -226,12 +228,25 @@ export default function QuizCard({ title, description, answer, steps = [], onRes
                                 width: '100%',
                                 padding: '1rem 3rem 1rem 1rem',
                                 fontSize: '1.1rem',
-                                borderRadius: '12px',
-                                border: `2px solid ${isWrong ? 'var(--error)' : 'var(--border)'}`,
-                                background: 'var(--card-bg)',
-                                color: 'var(--text-primary)',
+                                borderRadius: '14px',
+                                border: `2px solid ${isWrong ? '#ef4444' : '#cbd5e1'}`,
+                                background: '#f8fafc',
+                                color: '#1e293b',
                                 outline: 'none',
-                                transition: 'border-color 0.2s'
+                                transition: 'border-color 0.2s, box-shadow 0.2s',
+                                boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                            }}
+                            onFocus={(e) => {
+                                if (!isWrong) {
+                                    e.target.style.borderColor = '#3b82f6';
+                                    e.target.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.15)';
+                                }
+                            }}
+                            onBlur={(e) => {
+                                if (!isWrong) {
+                                    e.target.style.borderColor = '#cbd5e1';
+                                    e.target.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04)';
+                                }
                             }}
                             onKeyPress={(e) => {
                                 if (e.key === 'Enter') {
@@ -246,7 +261,7 @@ export default function QuizCard({ title, description, answer, steps = [], onRes
                                 right: '1rem',
                                 top: '50%',
                                 transform: 'translateY(-50%)',
-                                color: 'var(--error)',
+                                color: '#ef4444',
                                 fontSize: '1.5rem',
                                 fontWeight: 'bold'
                             }}>
@@ -259,8 +274,9 @@ export default function QuizCard({ title, description, answer, steps = [], onRes
                     {attempts > 0 && (
                         <div style={{
                             display: 'inline-block',
-                            background: 'var(--error)',
-                            color: 'white',
+                            background: '#fef2f2',
+                            color: '#ef4444',
+                            border: '1px solid #fecaca',
                             padding: '0.5rem 1rem',
                             borderRadius: '8px',
                             fontSize: '0.9rem',
@@ -278,22 +294,22 @@ export default function QuizCard({ title, description, answer, steps = [], onRes
                                 onClick={handleHint}
                                 disabled={hintCount >= steps.length && !showAnswer}
                                 style={{
-                                    background: '#2A2A2A',
-                                    color: 'var(--text-primary)',
-                                    border: '1px solid var(--border)',
+                                    background: '#fef3c7',
+                                    color: '#92400e',
+                                    border: '2px solid #fbbf24',
                                     padding: '0.8rem 1.5rem',
                                     borderRadius: '12px',
                                     cursor: 'pointer',
-                                    fontWeight: 600,
+                                    fontWeight: 700,
                                     fontSize: '1rem',
                                     display: 'flex',
                                     alignItems: 'center',
                                     gap: '0.5rem',
-                                    transition: 'background 0.2s',
+                                    transition: 'all 0.2s',
                                     opacity: (hintCount >= steps.length && !showSolution) ? 0.5 : 1
                                 }}
-                                onMouseEnter={(e) => e.target.style.background = '#3A3A3A'}
-                                onMouseLeave={(e) => e.target.style.background = '#2A2A2A'}
+                                onMouseEnter={(e) => e.target.style.background = '#fde68a'}
+                                onMouseLeave={(e) => e.target.style.background = '#fef3c7'}
                             >
                                 💡 {hintCount >= steps.length ? 'Show Answer' : `Hint (${steps.length - hintCount})`}
                             </button>
@@ -303,8 +319,8 @@ export default function QuizCard({ title, description, answer, steps = [], onRes
                             id={`check-btn-${questionNumber}`}
                             onClick={checkUserAnswer}
                             style={{
-                                background: 'white',
-                                color: '#000',
+                                background: 'linear-gradient(135deg, #3b82f6, #2563eb)',
+                                color: 'white',
                                 border: 'none',
                                 padding: '0.8rem 2rem',
                                 borderRadius: '12px',
@@ -312,10 +328,17 @@ export default function QuizCard({ title, description, answer, steps = [], onRes
                                 fontWeight: 700,
                                 fontSize: '1rem',
                                 flex: 1,
-                                transition: 'transform 0.1s, background 0.2s'
+                                transition: 'transform 0.1s, box-shadow 0.2s',
+                                boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
                             }}
-                            onMouseEnter={(e) => e.target.style.background = '#F0F0F0'}
-                            onMouseLeave={(e) => e.target.style.background = 'white'}
+                            onMouseEnter={(e) => {
+                                e.target.style.transform = 'translateY(-1px)';
+                                e.target.style.boxShadow = '0 6px 16px rgba(37, 99, 235, 0.4)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.target.style.transform = 'translateY(0)';
+                                e.target.style.boxShadow = '0 4px 12px rgba(37, 99, 235, 0.3)';
+                            }}
                         >
                             Check Answer
                         </button>

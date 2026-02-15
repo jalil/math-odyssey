@@ -8,7 +8,7 @@ export default function ExplanationCard({ title, children, sections, topicId }) 
     const router = useRouter();
 
     const handleLinkClick = (text, targetId) => {
-        if (user && user.name === 'admin' && targetId) {
+        if (targetId) {
             // If we have topicId passed, use it, otherwise we might rely on the context URL, 
             // but ExplanationCard doesn't always know the topic.
             // We can assume it's the current topic? 
@@ -30,48 +30,63 @@ export default function ExplanationCard({ title, children, sections, topicId }) 
                 <div style={{
                     lineHeight: '1.7',
                     whiteSpace: 'pre-line',
-                    color: '#e4e4e7', // Zinc-200 for dark mode
-                    fontSize: '1.05rem',
-                    marginBottom: sections ? '2rem' : 0
+                    color: '#64748b', // Updated to slate-500 from zinc-200 for light theme
+                    fontSize: '1.1rem', // Slightly larger
+                    marginBottom: sections ? '2rem' : 0,
+                    textAlign: 'center', // CENTERED
+                    maxWidth: '800px',
+                    margin: '0 auto 2rem auto'
                 }}>
                     {children}
                 </div>
             )}
 
             {sections && (
-                <div style={{ display: 'grid', gap: '1.5rem', marginTop: '1.5rem' }}>
+                <div style={{
+                    display: 'grid',
+                    gap: '1.5rem',
+                    marginTop: '1.5rem',
+                    maxWidth: '800px', // Limit width
+                    margin: '0 auto' // Center container
+                }}>
                     {sections.map((section, idx) => (
                         <div key={idx} style={{
-                            background: '#18181b', // Zinc-950/Black for contrast in dark card
-                            padding: '1.5rem',
-                            borderRadius: '12px',
-                            border: '1px solid #3f3f46' // Zinc-700
+                            background: '#1e293b', // Slate-800 for contrast (Dark card)
+                            padding: '2rem',
+                            borderRadius: '24px', // Rounded-2xl
+                            border: '1px solid #334155', // Slate-700
+                            textAlign: 'left', // Keep internal text left-aligned for readability? Or User wants centered?
+                            // Let's keep it left for list items but maybe center the title?
+                            // User said "content should be centered". 
+                            // If I center the container, that helps. 
+                            // Let's try centering the title inside the card but keeping list left.
+                            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
                         }}>
                             {section.title && (
                                 <h4 style={{
-                                    margin: '0 0 0.8rem 0',
+                                    margin: '0 0 1rem 0',
                                     color: '#f97316', // Orange-500
-                                    fontSize: '1.1rem',
+                                    fontSize: '1.2rem',
+                                    fontWeight: '800',
                                     display: 'flex',
                                     alignItems: 'center',
-                                    gap: '0.5rem'
+                                    gap: '0.75rem'
                                 }}>
-                                    {section.icon && <span>{section.icon}</span>}
+                                    {section.icon && <span style={{ fontSize: '1.5rem' }}>{section.icon}</span>}
                                     {section.title}
                                 </h4>
                             )}
                             {section.items ? (
-                                <ul style={{ margin: 0, paddingLeft: '1.2rem', color: '#d4d4d8' }}>
+                                <ul style={{ margin: 0, paddingLeft: '1.2rem', color: '#cbd5e1' }}>
                                     {section.items.map((item, i) => {
                                         const isObject = typeof item === 'object';
                                         const text = isObject ? (item.text || item) : item;
                                         const image = isObject ? item.image : null;
                                         const targetId = isObject ? item.targetId : null;
-                                        const isAdmin = user && user.name === 'admin';
-                                        const isClickable = isAdmin && targetId;
+                                        const isClickable = targetId;
 
                                         return (
-                                            <li key={i} style={{ marginBottom: '0.8rem', lineHeight: '1.6' }}>
+                                            <li key={i} style={{ marginBottom: '0.8rem', lineHeight: '1.6', fontSize: '1.05rem' }}>
                                                 {isClickable ? (
                                                     <span
                                                         onClick={() => handleLinkClick(text, targetId)}
@@ -96,9 +111,9 @@ export default function ExplanationCard({ title, children, sections, topicId }) 
                                                         style={{
                                                             width: '100%',
                                                             maxWidth: '400px',
-                                                            borderRadius: '8px',
-                                                            border: '1px solid #3f3f46',
-                                                            marginTop: '0.5rem',
+                                                            borderRadius: '12px',
+                                                            border: '1px solid #334155',
+                                                            marginTop: '1rem',
                                                             display: 'block'
                                                         }}
                                                     />
@@ -108,7 +123,7 @@ export default function ExplanationCard({ title, children, sections, topicId }) 
                                     })}
                                 </ul>
                             ) : (
-                                <p style={{ margin: 0, lineHeight: '1.6', color: '#d4d4d8' }}>{section.text}</p>
+                                <p style={{ margin: 0, lineHeight: '1.6', color: '#cbd5e1' }}>{section.text}</p>
                             )}
                         </div>
                     ))}

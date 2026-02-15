@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import QuizCard from './QuizCard';
 import StepContainer from './StepContainer';
 
-export default function QuizViewer({ questions, onResult, progress, onNextStep, onPrevStep, sectionTitle, isAdmin, ...props }) {
-    const [currentIndex, setCurrentIndex] = useState(0);
+export default function QuizViewer({ questions, onResult, progress, onNextStep, onPrevStep, sectionTitle, isAdmin, initialIndex = 0, ...props }) {
+    const [currentIndex, setCurrentIndex] = useState(initialIndex);
     // Track locally solved questions to enable "Next" immediately without waiting for parent/context update
     const [solvedIndices, setSolvedIndices] = useState({});
 
