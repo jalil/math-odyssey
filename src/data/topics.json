@@ -6488,7 +6488,8 @@
                             },
                             {
                                 "text": "Logic & Combinatorics: permutations, circular arrangements, probability, pigeonhole principle",
-                                "targetId": "elite-combinations"
+                                "targetId": "elite-combinations",
+                                "targetTopicId": "elite-prep"
                             },
                             {
                                 "text": "Heuristics & Number Patterns: Gauss summation, working backwards, assumption method",
