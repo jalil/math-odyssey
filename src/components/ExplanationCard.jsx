@@ -7,14 +7,15 @@ export default function ExplanationCard({ title, children, sections, topicId }) 
     const { user } = useUser();
     const router = useRouter();
 
-    const handleLinkClick = (text, targetId) => {
+    const handleLinkClick = (text, targetId, targetTopicId) => {
         if (targetId) {
             // If we have topicId passed, use it, otherwise we might rely on the context URL, 
             // but ExplanationCard doesn't always know the topic.
             // We can assume it's the current topic? 
             // Best to pass topicId.
-            if (topicId) {
-                router.push(`/?topic=${topicId}&section=${targetId}`);
+            const finalTopicId = targetTopicId || topicId;
+            if (finalTopicId) {
+                router.push(`/?topic=${finalTopicId}&section=${targetId}`);
             } else {
                 console.warn("Topic ID missing for quick navigation");
             }
@@ -83,13 +84,14 @@ export default function ExplanationCard({ title, children, sections, topicId }) 
                                         const text = isObject ? (item.text || item) : item;
                                         const image = isObject ? item.image : null;
                                         const targetId = isObject ? item.targetId : null;
+                                        const targetTopicId = isObject ? item.targetTopicId : null;
                                         const isClickable = targetId;
 
                                         return (
                                             <li key={i} style={{ marginBottom: '0.8rem', lineHeight: '1.6', fontSize: '1.05rem' }}>
                                                 {isClickable ? (
                                                     <span
-                                                        onClick={() => handleLinkClick(text, targetId)}
+                                                        onClick={() => handleLinkClick(text, targetId, targetTopicId)}
                                                         style={{
                                                             cursor: 'pointer',
                                                             color: '#60A5FA', // Blue link color

@@ -6478,11 +6478,13 @@
                             },
                             {
                                 "text": "Advanced Ratios and Percentages: mixtures, concentrations, work rate",
-                                "targetId": "p6-work-rate-individual"
+                                "targetId": "elite-ratios",
+                                "targetTopicId": "elite-prep"
                             },
                             {
                                 "text": "Complex Geometry: composite figures, volume, spatial visualization (cube/nets)",
-                                "targetId": "elite-geometry"
+                                "targetId": "elite-geometry",
+                                "targetTopicId": "elite-prep"
                             },
                             {
                                 "text": "Logic & Combinatorics: permutations, circular arrangements, probability, pigeonhole principle",
@@ -7921,7 +7923,8 @@
                     "Time = 20 ÷ 2 = 10."
                 ]
             },
-            { "id": "p6-heuristics",
+            {
+                "id": "p6-heuristics",
                 "type": "section-header",
                 "title": "8. Heuristics & Number Patterns",
                 "description": "Master advanced problem-solving strategies."
@@ -14265,8 +14268,13 @@
                 "steps": [
                     "(5-2)x180."
                 ]
-            }
-,
+            },
+            {
+                "id": "elite-combinations",
+                "type": "section-header",
+                "title": "7. Logic & Combinatorics",
+                "description": "Permutations, probability, and advanced problem-solving."
+            },
             {
                 "type": "example",
                 "title": "7.1 Simple Permutations",
