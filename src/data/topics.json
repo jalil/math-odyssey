@@ -6605,80 +6605,57 @@
                 "id": "p6-algebra-quiz",
                 "type": "section-header",
                 "title": "Topic 1: Review Test - Algebra & Ratio",
-                "description": "Test your algebra and ratio skills with 10 questions. Score 8/10 to unlock Topic 2."
+                "description": "15 questions: 5 Easy → 5 Medium → 5 Hard. Test your algebra and ratio skills."
             },
             {
                 "type": "quiz",
-                "title": "P6.1.1 Algebra Simplify",
+                "title": "P6.1.1 (Easy) Simplify Expression",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "A fruit stand has 3 baskets of apples (3x) and 4 loose apples. If 2 baskets are sold but 10 loose apples are added, simplify the expression for the remaining apples.",
-                "answer": "x + 14",
+                "description": "Simplify: 4a + 3 + 2a - 1.",
+                "answer": "6a + 2",
                 "steps": [
-                    "Baskets: 3x - 2x = x.",
-                    "Loose apples: 4 + 10 = 14.",
-                    "Total: x + 14."
+                    "Group like terms: 4a + 2a = 6a.",
+                    "Constants: 3 - 1 = 2.",
+                    "Answer: 6a + 2."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.1.2 Substitution",
+                "title": "P6.1.2 (Easy) Substitution",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "A taxi fare is calculated using the formula 2y - 3, where y is the distance in km. Calculate the fare for a distance of 5 km.",
-                "answer": "7",
+                "description": "Given p = 5, find the value of 3p + 2.",
+                "answer": "17",
                 "steps": [
-                    "2(5) - 3 = 10 - 3 = 7."
+                    "3(5) + 2 = 15 + 2 = 17."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.1.3 Algebra Word Problem",
+                "title": "P6.1.3 (Easy) Algebra Word Problem",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Person A has n cards. Person B has twice as many cards. Determine the total number of cards in terms of n.",
+                "description": "Person A has n cards. Person B has twice as many. What is the total in terms of n?",
                 "answer": "3n",
                 "steps": [
-                    "A=n, B=2n.",
-                    "Total = n+2n = 3n."
+                    "A = n, B = 2n.",
+                    "Total = n + 2n = 3n."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.1.4 Repeated Ratio",
+                "title": "P6.1.4 (Easy) Ratio Sharing",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Given that the ratio of A to B is 1:2 and B to C is 4:5, calculate the combined ratio A:B:C.",
-                "answer": "2:4:5",
+                "description": "Share $20 between two people in the ratio 1:4. How much does each receive?",
+                "answer": "$4 and $16",
                 "steps": [
-                    "LCM of B(2,4) is 4.",
-                    "Scale A:B -> 2:4.",
-                    "Result 2:4:5."
+                    "Total parts = 5. 1 part = $4.",
+                    "$4 and $16."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.1.5 Ratio Area",
+                "title": "P6.1.5 (Easy) Write Expression",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "If the ratio of the side lengths of two similar shapes is 1:3, calculate the ratio of their areas.",
-                "answer": "1:9",
-                "steps": [
-                    "1x1 : 3x3 = 1:9."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.6 Solve x",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "Buying 3 items (3x) plus a $6 shipping fee costs $18 in total. Calculate the cost of one item (x).",
-                "answer": "4",
-                "steps": [
-                    "3x + 6 = 18.",
-                    "3x = 12.",
-                    "x = 4."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.7 Formula",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "Write an algebraic expression for the perimeter of a square with a side length of x.",
+                "description": "Write an algebraic expression for the perimeter of a square with side length x.",
                 "answer": "4x",
                 "steps": [
                     "x + x + x + x = 4x."
@@ -6686,235 +6663,107 @@
             },
             {
                 "type": "quiz",
-                "title": "P6.1.8 Ratio Sharing",
+                "title": "P6.1.6 (Medium) Solve for x",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Share $20 between two people in the ratio 1:4. Calculate the two amounts.",
-                "answer": "$4 and $16",
-                "steps": [
-                    "Total u=5.",
-                    "1u = 4."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.9 Algebra Fraction",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "If half of a number (x/2) equals 10, determine the value of x.",
-                "answer": "20",
-                "steps": [
-                    "x/2 = 10.",
-                    "x = 10 * 2 = 20."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.10 Expression",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "Write an expression for 'subtract 5 from the product of 3 and y'.",
-                "answer": "3y - 5",
-                "steps": [
-                    "Product 3y.",
-                    "Subtract 5 -> 3y-5."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.11 Symbolic Logic",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "Given that □ + □ = 10 and □ + △ = 12, determine the value of △.",
-                "answer": "7",
-                "steps": [
-                    "2□ = 10 -> □ = 5.",
-                    "5 + △ = 12 -> △ = 7."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.12 Equation Building",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "Think of a number x. When multiplied by 2 and then 5 is added, the result is 15. Find the value of x.",
-                "answer": "5",
-                "steps": [
-                    "2x + 5 = 15",
-                    "2x = 10 -> x = 5"
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.13 Inequality Logic",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "Given that 2x is less than 10, calculate the largest whole number that x can represent.",
+                "description": "Buying 3 items (3x) plus a $6 shipping fee costs $18 in total. Find x.",
                 "answer": "4",
                 "steps": [
-                    "x < 5. Largest whole number is 4."
+                    "3x + 6 = 18.",
+                    "3x = 12. x = 4."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.1.14 Ratio Equation",
+                "title": "P6.1.7 (Medium) Repeated Ratio",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "The ratio of x to y is 2:3. If x is equal to 10, find the value of y.",
+                "description": "The ratio of A to B is 1:2 and B to C is 4:5. Find the combined ratio A:B:C.",
+                "answer": "2:4:5",
+                "steps": [
+                    "LCM of B (2, 4) is 4.",
+                    "Scale A:B → 2:4. Result: 2:4:5."
+                ]
+            },
+            {
+                "type": "quiz",
+                "title": "P6.1.8 (Medium) Ratio Area",
+                "relatedSectionId": "p6-algebra-ratio",
+                "description": "The ratio of side lengths of two similar shapes is 1:3. What is the ratio of their areas?",
+                "answer": "1:9",
+                "steps": [
+                    "1 × 1 : 3 × 3 = 1:9."
+                ]
+            },
+            {
+                "type": "quiz",
+                "title": "P6.1.9 (Medium) Equation Building",
+                "relatedSectionId": "p6-algebra-ratio",
+                "description": "Think of a number x. When multiplied by 2 and then 5 is added, the result is 15. Find x.",
+                "answer": "5",
+                "steps": [
+                    "2x + 5 = 15.",
+                    "2x = 10. x = 5."
+                ]
+            },
+            {
+                "type": "quiz",
+                "title": "P6.1.10 (Medium) Symbolic Logic",
+                "relatedSectionId": "p6-algebra-ratio",
+                "description": "Given that □ + □ = 10 and □ + △ = 12, find the value of △.",
+                "answer": "7",
+                "steps": [
+                    "2□ = 10 → □ = 5.",
+                    "5 + △ = 12 → △ = 7."
+                ]
+            },
+            {
+                "type": "quiz",
+                "title": "P6.1.11 (Hard) Age Problem",
+                "relatedSectionId": "p6-algebra-ratio",
+                "description": "Tom is x years old. His Dad is 3 times as old. The difference in their ages is 30 years. Find x.",
                 "answer": "15",
                 "steps": [
-                    "Multiply by 5. 2x5=10, 3x5=15."
+                    "3x - x = 30.",
+                    "2x = 30. x = 15."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.1.15 Simplify Terms",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "Simplify the expression: 5y - 2y + y.",
-                "answer": "4y",
-                "steps": [
-                    "3y + y = 4y"
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.16 Word Algebra",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "The sum of three consecutive numbers is 33. Determine the value of the smallest number.",
-                "answer": "10",
-                "steps": [
-                    "n, n+1, n+2. 3n+3=33. 3n=30. n=10."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.17 Balance Scale",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "Two apples balance one melon. One melon balances four oranges. Calculate how many oranges are needed to balance one apple.",
-                "answer": "2",
-                "steps": [
-                    "2A = 1M = 4O.",
-                    "2A = 4O -> 1A = 2O."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.18 Age Problem",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "Tom is x years old. His Dad is 3 times as old. The difference in their ages is 30 years. Find the value of x.",
-                "answer": "15",
-                "steps": [
-                    "3x - x = 30. 2x = 30. x = 15."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.19 Fraction Algebra",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "Solve the equation: x/4 = 5.",
-                "answer": "20",
-                "steps": [
-                    "Multiply by 4. x = 20."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.20 Two Unknowns",
+                "title": "P6.1.12 (Hard) Two Unknowns",
                 "relatedSectionId": "p6-algebra-ratio",
                 "description": "Given that a + b = 10 and a - b = 2, find the value of a.",
                 "answer": "6",
                 "steps": [
-                    "2a = 12 -> a = 6."
+                    "Add the equations: 2a = 12.",
+                    "a = 6."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.1.21 Terminology",
+                "title": "P6.1.13 (Hard) Consecutive Numbers",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "In the expression 3x + 5, what is the number 5 called?",
-                "answer": "Constant",
-                "steps": [
-                    "Number without variable."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.22 Area Algebra",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "The area of a rectangle is 24. If the length is x, write an expression for the width.",
-                "answer": "24/x",
-                "steps": [
-                    "Area/Length."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.23 Pattern Rule",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "Consider the number pattern: 2, 5, 8, 11... Write the formula for the nth term.",
-                "answer": "3n-1",
-                "steps": [
-                    "Gap 3. 3(1)-1=2. 3n-1."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.24 Cost Formula",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "A rental shop charges a base fee of $10 plus $2 for every hour (h) of rental. Write a formula for the total cost.",
-                "answer": "10 + 2h",
-                "steps": [
-                    "Fixed + Variable."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.25 Simplify Bracket",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "Expand and simplify the expression: 2(x + 3).",
-                "answer": "2x + 6",
-                "steps": [
-                    "Distribute: 2x + 6."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.26 Inverse Ops",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "Identify the inverse operation of 'Divide by 3'.",
-                "answer": "Multiply by 3",
-                "steps": [
-                    "Inverse operation."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.27 Variable Product",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "Simplify the expression: a x a.",
-                "answer": "a²",
-                "steps": [
-                    "Squared."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.28 Perimeter Algebra",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "An equilateral triangle has a side length of y. Write an expression for its perimeter.",
-                "answer": "3y",
-                "steps": [
-                    "y+y+y."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.1.29 Value Match",
-                "relatedSectionId": "p6-algebra-ratio",
-                "description": "Given that 4m = 20, determine the value of 2m.",
+                "description": "The sum of three consecutive numbers is 33. Find the smallest number.",
                 "answer": "10",
                 "steps": [
-                    "Half of 4m."
+                    "n + (n+1) + (n+2) = 33.",
+                    "3n + 3 = 33. 3n = 30. n = 10."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.1.30 Challenge Eq",
+                "title": "P6.1.14 (Hard) Tax Formula",
                 "relatedSectionId": "p6-algebra-ratio",
-                "description": "Solve the equation for x: 3x + 2 = 2x + 10.",
+                "description": "A shop charges $10 base fee plus $2 per hour (h). If the bill is $28, how many hours were charged?",
+                "answer": "9",
+                "steps": [
+                    "10 + 2h = 28.",
+                    "2h = 18. h = 9."
+                ]
+            },
+            {
+                "type": "quiz",
+                "title": "P6.1.15 (Hard) Challenge Equation",
+                "relatedSectionId": "p6-algebra-ratio",
+                "description": "Solve: 3x + 2 = 2x + 10.",
                 "answer": "8",
                 "steps": [
                     "Subtract 2x: x + 2 = 10.",
@@ -7017,307 +6866,171 @@
                 "id": "p6-speed-quiz",
                 "type": "section-header",
                 "title": "Topic 2 Review: Speed",
-                "description": "Score 8/10 to unlock Topic 3."
+                "description": "15 questions: 5 Easy → 5 Medium → 5 Hard. Test your Speed, Distance & Time skills."
             },
             {
                 "type": "quiz",
-                "title": "P6.2.1 Calculate Speed",
+                "title": "P6.2.1 (Easy) Calculate Speed",
                 "relatedSectionId": "p6-speed",
-                "description": "Calculate the average speed if a car travels 120 km in 2 hours.",
+                "description": "A car travels 120 km in 2 hours. What is its average speed?",
                 "answer": "60 km/h",
                 "steps": [
-                    "120 / 2 = 60."
+                    "Speed = Distance ÷ Time.",
+                    "120 ÷ 2 = 60 km/h."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.2.2 Calculate Distance",
+                "title": "P6.2.2 (Easy) Calculate Distance",
                 "relatedSectionId": "p6-speed",
-                "description": "Calculate the distance traveled if an object moves at 50 m/s for 10 seconds.",
-                "answer": "500m",
+                "description": "An object moves at 50 m/s for 10 seconds. What distance does it cover?",
+                "answer": "500 m",
                 "steps": [
-                    "50 x 10 = 500."
+                    "Distance = Speed × Time.",
+                    "50 × 10 = 500 m."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.2.3 Calculate Time",
+                "title": "P6.2.3 (Easy) Calculate Time",
                 "relatedSectionId": "p6-speed",
-                "description": "Calculate the time taken to travel 100 km at a speed of 50 km/h.",
+                "description": "How long does it take to travel 100 km at 50 km/h?",
                 "answer": "2 hours",
                 "steps": [
-                    "100 / 50 = 2."
+                    "Time = Distance ÷ Speed.",
+                    "100 ÷ 50 = 2 hours."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.2.4 Conversion",
-                "relatedSectionId": "p6-speed",
-                "description": "How many minutes are in 1 hour?",
-                "answer": "60 mins",
-                "steps": [
-                    "Basic fact."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.2.5 Average Speed",
-                "relatedSectionId": "p6-speed",
-                "description": "Calculate the average speed if you travel 50 km in the first hour and another 50 km in the second hour.",
-                "answer": "50 km/h",
-                "steps": [
-                    "Total Dist 100. Total Time 2h. 100/2 = 50."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.2.6 Meeting",
-                "relatedSectionId": "p6-speed",
-                "description": "If two cars are 100 km apart and moving towards each other at a combined speed of 100 km/h, how long until they meet?",
-                "answer": "1 hour",
-                "steps": [
-                    "100/100 = 1."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.2.7 Relative Speed",
-                "relatedSectionId": "p6-speed",
-                "description": "If Car A travels at 60 km/h chasing Car B at 50 km/h, what is the relative speed (gain)?",
-                "answer": "10 km/h",
-                "steps": [
-                    "60 - 50 = 10."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.2.8 Minutes to Hours",
+                "title": "P6.2.4 (Easy) Convert Minutes",
                 "relatedSectionId": "p6-speed",
                 "description": "Convert 30 minutes into hours.",
                 "answer": "0.5 hours",
                 "steps": [
-                    "30 / 60 = 1/2."
+                    "30 ÷ 60 = 0.5."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.2.9 Distance Sum",
+                "title": "P6.2.5 (Easy) Relative Speed",
                 "relatedSectionId": "p6-speed",
-                "description": "Calculate the total distance covered if a person walks 3 m and then runs 4 m.",
-                "answer": "7m",
+                "description": "Car A chases Car B. Car A travels at 60 km/h and Car B at 50 km/h. What is the relative speed of gain?",
+                "answer": "10 km/h",
                 "steps": [
-                    "3+4=7."
+                    "Relative speed = 60 - 50 = 10 km/h."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.2.10 Speed Units",
+                "title": "P6.2.6 (Medium) Average Speed",
                 "relatedSectionId": "p6-speed",
-                "description": "What does the abbreviation 'm/s' stand for?",
-                "answer": "Meters per second",
+                "description": "A driver travels 90 km in 1.5 hours, then 60 km in 1 hour. What is the average speed for the whole journey?",
+                "answer": "60 km/h",
                 "steps": [
-                    "Definition."
+                    "Total Distance = 90 + 60 = 150 km.",
+                    "Total Time = 1.5 + 1 = 2.5 hours.",
+                    "Average Speed = 150 ÷ 2.5 = 60 km/h."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.2.11 Catch Up Time",
+                "title": "P6.2.7 (Medium) Meeting Point",
                 "relatedSectionId": "p6-speed",
-                "description": "The gap between two runners is 20 km. If the relative speed is 5 km/h, calculate the time required to catch up.",
-                "answer": "4h",
+                "description": "Two cars are 200 km apart and move towards each other at 60 km/h and 40 km/h. How long until they meet?",
+                "answer": "2 hours",
                 "steps": [
-                    "20 / 5 = 4."
+                    "Combined speed = 60 + 40 = 100 km/h.",
+                    "Time = 200 ÷ 100 = 2 hours."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.2.12 Average Speed 2",
+                "title": "P6.2.8 (Medium) Round Trip Speed",
                 "relatedSectionId": "p6-speed",
-                "description": "A car travels to town at 60 km/h and returns at 40 km/h. If the distance is 120 km each way, calculate the average speed for the round trip.",
+                "description": "A car travels 120 km at 60 km/h and returns the same distance at 40 km/h. What is the average speed for the round trip?",
                 "answer": "48 km/h",
                 "steps": [
-                    "Time1 = 2h. Time2 = 3h. Total T = 5h.",
-                    "Total D = 240km. 240/5 = 48."
+                    "Time going = 120 ÷ 60 = 2h. Time returning = 120 ÷ 40 = 3h.",
+                    "Total Distance = 240 km. Total Time = 5h.",
+                    "Average Speed = 240 ÷ 5 = 48 km/h."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.2.13 Train Passing",
+                "title": "P6.2.9 (Medium) Train Passing",
                 "relatedSectionId": "p6-speed",
-                "description": "A train 100 m long passes a pole in 5 seconds. Calculate the speed of the train.",
+                "description": "A train 100 m long passes a pole in 5 seconds. What is the speed of the train in m/s?",
                 "answer": "20 m/s",
                 "steps": [
-                    "100 / 5 = 20."
+                    "Speed = Distance ÷ Time = 100 ÷ 5 = 20 m/s."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.2.14 Delayed Start",
+                "title": "P6.2.10 (Medium) Distance Gap",
                 "relatedSectionId": "p6-speed",
-                "description": "Person A leaves at 1 PM. Person B leaves at 2 PM at the same speed. Will Person B ever catch up to Person A?",
-                "answer": "No",
-                "steps": [
-                    "Parallel movement."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.2.15 Speed Ratio",
-                "relatedSectionId": "p6-speed",
-                "description": "The ratio of speeds of A to B is 2:3. Determine the ratio of time taken to cover the same distance.",
-                "answer": "3:2",
-                "steps": [
-                    "Inverse relationship."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.2.16 Km/min",
-                "relatedSectionId": "p6-speed",
-                "description": "Convert a speed of 60 km/h into km/min.",
-                "answer": "1 km/min",
-                "steps": [
-                    "60km in 60mins -> 1km in 1min."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.2.17 M/min to Km/h",
-                "relatedSectionId": "p6-speed",
-                "description": "Convert a speed of 500 m/min into km/h.",
-                "answer": "30 km/h",
-                "steps": [
-                    "500m x 60 = 30000m = 30km."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.2.18 Distance Gap",
-                "relatedSectionId": "p6-speed",
-                "description": "Car A travels at 50 km/h and Car B travels at 60 km/h in opposite directions. At what speed is the gap between them increasing?",
+                "description": "Car A travels at 50 km/h and Car B at 60 km/h in opposite directions. At what rate does the gap between them increase?",
                 "answer": "110 km/h",
                 "steps": [
-                    "50 + 60 = 110."
+                    "50 + 60 = 110 km/h."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.2.19 Meeting Point",
+                "title": "P6.2.11 (Hard) Catch Up Time",
                 "relatedSectionId": "p6-speed",
-                "description": "Car A (40 km/h) and Car B (60 km/h) meet after 2 hours. Calculate the total distance between them initially.",
-                "answer": "200km",
+                "description": "Person A starts walking at 4 km/h. 1 hour later, Person B starts cycling at 12 km/h in the same direction. How long does it take for B to catch A?",
+                "answer": "30 minutes",
                 "steps": [
-                    "Combined 100km/h. 2 x 100 = 200."
+                    "Head start = 4 × 1 = 4 km.",
+                    "Relative speed = 12 - 4 = 8 km/h.",
+                    "Time = 4 ÷ 8 = 0.5 hours = 30 minutes."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.2.20 Time Diff",
+                "title": "P6.2.12 (Hard) Overtake Distance",
                 "relatedSectionId": "p6-speed",
-                "description": "Calculate the number of minutes between 1:45 PM and 2:15 PM.",
-                "answer": "30",
+                "description": "Car A is 10 km ahead of Car B. Car B travels 2 km/h faster than Car A. How long will it take Car B to overtake Car A?",
+                "answer": "5 hours",
                 "steps": [
-                    "15 to hour + 15 after."
+                    "Time = Head Start ÷ Relative Speed.",
+                    "10 ÷ 2 = 5 hours."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.2.21 Late Arrival",
+                "title": "P6.2.13 (Hard) Sound Echo",
                 "relatedSectionId": "p6-speed",
-                "description": "A journey was scheduled to take 2 hours but took 2.5 hours. Calculate how late the arrival was in minutes.",
-                "answer": "30 mins",
+                "description": "Sound travels at 300 m/s. How long does it take to hear an echo from a cliff 600 m away?",
+                "answer": "4 s",
                 "steps": [
-                    "0.5h = 30mins."
+                    "Sound travels there AND back: 600 × 2 = 1200 m.",
+                    "Time = 1200 ÷ 300 = 4 seconds."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.2.22 Distance Logic",
+                "title": "P6.2.14 (Hard) Speed Ratio",
                 "relatedSectionId": "p6-speed",
-                "description": "If you double your speed while traveling for the same amount of time, what happens to the distance covered?",
-                "answer": "Doubles",
+                "description": "The ratio of speeds of A to B is 2:3. What is the ratio of the time each takes to cover the same distance?",
+                "answer": "3:2",
                 "steps": [
-                    "Proportional."
+                    "Time is inversely proportional to speed.",
+                    "Ratio of times = 3:2."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.2.23 Rest Stop",
+                "title": "P6.2.15 (Hard) Walk and Run",
                 "relatedSectionId": "p6-speed",
-                "description": "A traveler drives for 1 hour, rests for 30 minutes, and then drives for another 1 hour. Calculate the total time taken in hours.",
-                "answer": "2.5h",
+                "description": "A person walks at 3 km/h for 2 hours, then runs at 10 km/h for 1 hour. What is the total distance covered?",
+                "answer": "16 km",
                 "steps": [
-                    "1 + 0.5 + 1."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.2.24 Halfway",
-                "relatedSectionId": "p6-speed",
-                "description": "A journey is 100 km in total. Calculate the distance at the halfway mark.",
-                "answer": "50km",
-                "steps": [
-                    "100 / 2."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.2.25 Overtake",
-                "relatedSectionId": "p6-speed",
-                "description": "Car A is 10 km ahead of Car B. If Car B travels 2 km/h faster than Car A, calculate the time it will take for Car B to overtake Car A.",
-                "answer": "5h",
-                "steps": [
-                    "10 / 2 = 5."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.2.26 Walk Run",
-                "relatedSectionId": "p6-speed",
-                "description": "A person walks at 3 km/h for 2 hours and then runs at 10 km/h for 1 hour. Calculate the total distance covered.",
-                "answer": "16km",
-                "steps": [
-                    "6 + 10 = 16."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.2.27 Sound Speed",
-                "relatedSectionId": "p6-speed",
-                "description": "Sound travels at 300 m/s. Calculate the time taken to hear an echo from a cliff 600 m away.",
-                "answer": "4s",
-                "steps": [
-                    "Total dist 1200m (there/back). 1200/300 = 4."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.2.28 Escalator",
-                "relatedSectionId": "p6-speed",
-                "description": "A person walks at 1 m/s on an escalator moving at 2 m/s. Calculate their total speed.",
-                "answer": "3 m/s",
-                "steps": [
-                    "Add speeds."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.2.29 Journey Fraction",
-                "relatedSectionId": "p6-speed",
-                "description": "A traveler has completed 3/4 of a 100 km journey. Calculate the remaining distance.",
-                "answer": "25km",
-                "steps": [
-                    "1/4 left. 25."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.2.30 Final Speed",
-                "relatedSectionId": "p6-speed",
-                "description": "Write the formula for speed in terms of distance (d) and time (t).",
-                "answer": "d/t",
-                "steps": [
-                    "Definition."
+                    "Walking: 3 × 2 = 6 km.",
+                    "Running: 10 × 1 = 10 km.",
+                    "Total: 6 + 10 = 16 km."
                 ]
             },
             {
@@ -7412,11 +7125,11 @@
                 "id": "p6-geometry-quiz",
                 "type": "section-header",
                 "title": "Topic 3 Review: Circles",
-                "description": "Score 8/10 to unlock Topic 4."
+                "description": "15 questions: 5 Easy → 5 Medium → 5 Hard. Test your circle geometry skills."
             },
             {
                 "type": "quiz",
-                "title": "P6.3.1 Pi Value",
+                "title": "P6.3.1 (Easy) Pi Value",
                 "relatedSectionId": "p6-circles",
                 "description": "State the approximate value of pi (π).",
                 "answer": "3.14 or 22/7",
@@ -7426,292 +7139,154 @@
             },
             {
                 "type": "quiz",
-                "title": "P6.3.2 Diameter",
+                "title": "P6.3.2 (Easy) Diameter from Radius",
                 "relatedSectionId": "p6-circles",
-                "description": "If the radius of a circle is 5 units, calculate its diameter.",
-                "answer": "10",
+                "description": "If the radius of a circle is 5 cm, what is its diameter?",
+                "answer": "10 cm",
                 "steps": [
-                    "5 x 2 = 10."
+                    "Diameter = 2 × radius = 2 × 5 = 10 cm."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.3.3 Circumference",
+                "title": "P6.3.3 (Easy) Circumference",
                 "relatedSectionId": "p6-circles",
-                "description": "If the diameter of a circle is 10 units, calculate its circumference. (Use π = 3.14).",
-                "answer": "31.4",
+                "description": "A circle has a diameter of 10 cm. Calculate its circumference. (Use π = 3.14)",
+                "answer": "31.4 cm",
                 "steps": [
-                    "C = pi x D = 3.14 x 10."
+                    "C = π × d = 3.14 × 10 = 31.4 cm."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.3.4 Area Formula",
+                "title": "P6.3.4 (Easy) Area Formula",
                 "relatedSectionId": "p6-circles",
                 "description": "State the formula for calculating the area of a circle.",
-                "answer": "pi x r x r",
+                "answer": "π × r × r",
                 "steps": [
-                    "Definition."
+                    "Area = π × r²."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.3.5 Area Calc",
+                "title": "P6.3.5 (Easy) Area Calculation",
                 "relatedSectionId": "p6-circles",
-                "description": "If the radius of a circle is 10 units, calculate its area. (Use π = 3.14)",
-                "answer": "314",
+                "description": "A circle has a radius of 7 cm. Calculate its area. (Use π = 22/7)",
+                "answer": "154 cm²",
                 "steps": [
-                    "3.14 x 100 = 314."
+                    "Area = (22/7) × 7 × 7 = 22 × 7 = 154 cm²."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.3.6 Semi-Circle Area",
+                "title": "P6.3.6 (Medium) Semi-Circle Perimeter",
                 "relatedSectionId": "p6-circles",
-                "description": "If the area of a full circle is 100 cm², calculate the area of its semi-circle.",
-                "answer": "50",
+                "description": "A semi-circle has a diameter of 14 cm. Calculate its total perimeter. (Use π = 22/7)",
+                "answer": "36 cm",
                 "steps": [
-                    "Half of 100."
+                    "Curved arc = (π × d) ÷ 2 = (22/7 × 14) ÷ 2 = 22 cm.",
+                    "Add diameter: 22 + 14 = 36 cm."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.3.7 Quadrant",
+                "title": "P6.3.7 (Medium) Quadrant Area",
                 "relatedSectionId": "p6-circles",
-                "description": "State the measure of the central angle of a quadrant.",
-                "answer": "90 degrees",
+                "description": "Calculate the area of a quadrant (quarter circle) with a radius of 7 cm. (Use π = 22/7)",
+                "answer": "38.5 cm²",
                 "steps": [
-                    "360 / 4 = 90."
+                    "Full Area = (22/7) × 49 = 154 cm².",
+                    "Quadrant = 154 ÷ 4 = 38.5 cm²."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.3.8 Perimeter Semi-Circle",
+                "title": "P6.3.8 (Medium) Radius from Circumference",
                 "relatedSectionId": "p6-circles",
-                "description": "The perimeter of a semi-circle is calculated by adding the curve length and the diameter. True or False?",
-                "answer": "True",
+                "description": "The circumference of a circle is 31.4 cm. What is the radius? (Use π = 3.14)",
+                "answer": "5 cm",
                 "steps": [
-                    "Must include straight edge."
+                    "C = π × d. d = 31.4 ÷ 3.14 = 10 cm.",
+                    "r = d ÷ 2 = 5 cm."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.3.9 Annulus",
+                "title": "P6.3.9 (Medium) Ring Area",
                 "relatedSectionId": "p6-circles",
-                "description": "What is the name of the shape formed between two concentric circles?",
-                "answer": "Ring",
+                "description": "A ring has an outer radius of 5 cm and inner radius of 3 cm. Find the area of the ring. (Leave answer in terms of π)",
+                "answer": "16π cm²",
                 "steps": [
-                    "Also called Annulus/Ring."
+                    "Big area = 25π. Small area = 9π.",
+                    "Ring = 25π - 9π = 16π cm²."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.3.10 Radius vs Diameter",
+                "title": "P6.3.10 (Medium) Wheel Revolutions",
                 "relatedSectionId": "p6-circles",
-                "description": "If the circumference of a circle is 31.4 cm, calculate the radius. (Use π = 3.14)",
-                "answer": "5",
-                "steps": [
-                    "D = 31.4/3.14 = 10. r = 5."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.3.11 Wheel Revolutions",
-                "relatedSectionId": "p6-circles",
-                "description": "A wheel has a circumference of 2 m. Calculate the number of turns required to travel 1 km.",
+                "description": "A wheel has a circumference of 2 m. How many full turns does it make to travel 1 km?",
                 "answer": "500",
                 "steps": [
-                    "1km = 1000m. 1000/2 = 500."
+                    "1 km = 1000 m.",
+                    "Turns = 1000 ÷ 2 = 500."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.3.12 Overlapping Area",
+                "title": "P6.3.11 (Hard) Composite Shape",
                 "relatedSectionId": "p6-circles",
-                "description": "Area A is 10 and Area B is 20. If the overlap area is 5, calculate the total combined area.",
-                "answer": "25",
+                "description": "A square has side 14 cm. A circle of diameter 14 cm is cut from its centre. What is the remaining area? (Use π = 22/7)",
+                "answer": "42 cm²",
                 "steps": [
-                    "10 + 20 - 5 = 25."
+                    "Square area = 14 × 14 = 196 cm².",
+                    "Circle area = (22/7) × 7 × 7 = 154 cm².",
+                    "Remaining = 196 - 154 = 42 cm²."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.3.13 Square in Circle",
+                "title": "P6.3.12 (Hard) Circle in Square Shaded",
                 "relatedSectionId": "p6-circles",
-                "description": "A square fits exactly inside a circle with a diameter of 10 cm. State the length of the square's diagonal.",
-                "answer": "10",
+                "description": "A circle of radius 5 cm fits inside a square of side 10 cm. Calculate the approximate area of the corners outside the circle. (Use π = 3.14)",
+                "answer": "21.5 cm²",
                 "steps": [
-                    "Diameter = Diagonal."
+                    "Square = 10 × 10 = 100 cm².",
+                    "Circle = 3.14 × 5 × 5 = 78.5 cm².",
+                    "Shaded corners = 100 - 78.5 = 21.5 cm²."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.3.14 Spiral Path",
+                "title": "P6.3.13 (Hard) Area Ratio",
                 "relatedSectionId": "p6-circles",
-                "description": "A path is made of two semi-circles with diameters 10 cm and 20 cm. Calculate the total length in terms of π.",
-                "answer": "15π",
-                "steps": [
-                    "5π + 10π = 15π."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.3.15 Track Perimeter",
-                "relatedSectionId": "p6-circles",
-                "description": "A stadium track has 2 straights of 100 m each and 2 semi-circles with diameter 60 m. Calculate the total distance around the track.",
-                "answer": "200 + 60π",
-                "steps": [
-                    "200 + Circumference(60)."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.3.16 Quarter Circle Area",
-                "relatedSectionId": "p6-circles",
-                "description": "Calculate the area of a quadrant with a radius of 4 units. (Leave answer in terms of π)",
-                "answer": "4π",
-                "steps": [
-                    "16π / 4 = 4π."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.3.17 Clock Hand",
-                "relatedSectionId": "p6-circles",
-                "description": "The minute hand of a clock is 10 cm long. Calculate how far the tip travels in 1 hour. (Leave answer in terms of π)",
-                "answer": "20π",
-                "steps": [
-                    "Full circle. D=20."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.3.18 Circle ratio",
-                "relatedSectionId": "p6-circles",
-                "description": "Two circles have a radius ratio of 1:2. Determine the ratio of their areas.",
+                "description": "Two circles have radii in the ratio 1:2. What is the ratio of their areas?",
                 "answer": "1:4",
                 "steps": [
-                    "Square the ratio."
+                    "Area ∝ r². Ratio of areas = 1² : 2² = 1:4."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.3.19 Shaded Region",
+                "title": "P6.3.14 (Hard) Wire Bending",
                 "relatedSectionId": "p6-circles",
-                "description": "A circle of radius 5 fits inside a square of side 10. Calculate the approximate area of the shaded corners outside the circle.",
-                "answer": "21.5",
+                "description": "A wire forms a square with side 11 cm (perimeter = 44 cm). The wire is bent into a circle. Find the diameter. (Use π = 22/7)",
+                "answer": "14 cm",
                 "steps": [
-                    "100 - 25π(78.5) = 21.5"
+                    "Circumference = 44 cm.",
+                    "44 = (22/7) × d. d = 44 × 7 ÷ 22 = 14 cm."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "P6.3.20 Sector Perimeter",
+                "title": "P6.3.15 (Hard) Pizza Slices",
                 "relatedSectionId": "p6-circles",
-                "description": "Calculate the perimeter of a quadrant with a radius of 10. (Leave answer in terms of π)",
-                "answer": "5π + 20",
+                "description": "A pizza with diameter 20 cm is cut into 8 equal slices. What is the area of 2 slices? (Leave answer in terms of π)",
+                "answer": "25π cm²",
                 "steps": [
-                    "Arc 5π + 2 radius (20)."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.3.21 Double Radius",
-                "relatedSectionId": "p6-circles",
-                "description": "If the radius of a circle doubles, what happens to its circumference?",
-                "answer": "Doubles",
-                "steps": [
-                    "Linear relationship."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.3.22 Paper Roll",
-                "relatedSectionId": "p6-circles",
-                "description": "Identify the shape formed when the side surface of a cylinder is unrolled.",
-                "answer": "Rectangle",
-                "steps": [
-                    "Geometry net."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.3.23 Arc Angle",
-                "relatedSectionId": "p6-circles",
-                "description": "State the measure of the central angle of a semi-circle.",
-                "answer": "180",
-                "steps": [
-                    "Half of 360."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.3.24 Ring Area",
-                "relatedSectionId": "p6-circles",
-                "description": "A ring has an outer radius of 10 and an inner radius of 8. Calculate its area.",
-                "answer": "36π",
-                "steps": [
-                    "100π - 64π."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.3.25 Bike Distance",
-                "relatedSectionId": "p6-circles",
-                "description": "A bicycle wheel with diameter 1 m makes 100 full turns. Calculate the total distance covered.",
-                "answer": "100π",
-                "steps": [
-                    "100 x π x 1."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.3.26 Quarter Perimeter",
-                "relatedSectionId": "p6-circles",
-                "description": "Calculate the arc length of a quadrant with a radius of 7.",
-                "answer": "3.5π",
-                "steps": [
-                    "14π / 4 = 3.5π"
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.3.27 Composite Figure",
-                "relatedSectionId": "p6-circles",
-                "description": "A shape consists of a square with side 10 and a semi-circle on top. Calculate the total area.",
-                "answer": "100 + 12.5π",
-                "steps": [
-                    "Sq 100. Semi (25π)/2."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.3.28 Wire Bending",
-                "relatedSectionId": "p6-circles",
-                "description": "A wire forming a square of side 11 (Perimeter = 44) is re-bent into a circle. Calculate the diameter of the circle.",
-                "answer": "14",
-                "steps": [
-                    "44 = 22/7 x d -> d=14."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.3.29 Pizza Slice",
-                "relatedSectionId": "p6-circles",
-                "description": "A pizza with a diameter of 20 cm is cut into 8 equal slices. Calculate the area of 2 slices.",
-                "answer": "25π",
-                "steps": [
-                    "Total 100π. 1/4 is 25π."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "P6.3.30 Max Circle",
-                "relatedSectionId": "p6-circles",
-                "description": "A circle is cut from a square sheet of side length 6. Determine the radius of the largest possible circle.",
-                "answer": "3",
-                "steps": [
-                    "Diameter = Side."
+                    "Radius = 10. Total area = 100π.",
+                    "2 slices = 2/8 = 1/4 of total.",
+                    "1/4 × 100π = 25π cm²."
                 ]
             },
             {
