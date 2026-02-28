@@ -7687,7 +7687,7 @@
                 "id": "p6-heuristics-quiz",
                 "type": "section-header",
                 "title": "Topic 8 Review: Heuristics",
-                "description": "Test your problem-solving skills."
+                "description": "Master heuristics and number patterns with 15 questions. (5 easy, 5 medium, 5 hard)"
             },
             {
                 "type": "quiz",
@@ -8031,7 +8031,7 @@
                 "id": "p6-logic-quiz",
                 "type": "section-header",
                 "title": "Topic 9 Review: Logic",
-                "description": "Test your reasoning power."
+                "description": "Master integrated logic and puzzles with 15 questions. (5 easy, 5 medium, 5 hard)"
             },
             {
                 "type": "quiz",
@@ -13543,7 +13543,7 @@
                 "id": "elite-geometry-quiz",
                 "type": "section-header",
                 "title": "Topic 6 Review: Complex Geo",
-                "description": "Master geometry with 30 questions."
+                "description": "Master geometry with 15 questions. (5 easy, 5 medium, 5 hard)"
             },
             {
                 "type": "quiz",
@@ -13697,152 +13697,57 @@
             },
             {
                 "type": "quiz",
-                "title": "6.16 Cubes Paint",
+                "difficulty": "hard",
+                "title": "6.16 Composite Vol",
                 "relatedSectionId": "elite-geometry",
-                "description": "Corner cube faces painted?",
-                "answer": "3",
+                "description": "L-shaped prism. Top block 4×3×2, bottom block 6×3×2. Total vol?",
+                "answer": "60",
                 "steps": [
-                    "Visual."
+                    "Top: 4×3×2=24. Bottom: 6×3×2=36. 24+36=60."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "6.17 Net Check",
+                "difficulty": "hard",
+                "title": "6.17 Water Transfer",
                 "relatedSectionId": "elite-geometry",
-                "description": "6 squares in a cross. Cube net?",
-                "answer": "Yes",
+                "description": "Tank A base 20cm². Water height 15cm. Poured into Tank B base 50cm². New height?",
+                "answer": "6cm",
                 "steps": [
-                    "Folds up."
+                    "Vol = 20×15=300. H = 300/50=6cm."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "6.18 Water Rise",
+                "difficulty": "hard",
+                "title": "6.18 Fold & Angle",
                 "relatedSectionId": "elite-geometry",
-                "description": "Base 10x10. Add 500ml. Rise?",
-                "answer": "5cm",
+                "description": "Rectangle folded so corner meets midpoint. Folded angle is 2x. Line along fold = x+30. Find x.",
+                "answer": "30",
                 "steps": [
-                    "500/100."
+                    "2x = x+30. x=30."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "6.19 Immersion",
+                "difficulty": "hard",
+                "title": "6.19 Rising Water",
                 "relatedSectionId": "elite-geometry",
-                "description": "Submerge object vol 200. Base 50. Rise?",
-                "answer": "4cm",
+                "description": "Object (vol 240cm³) submerged in tank with base 40cm². By how much does water rise?",
+                "answer": "6cm",
                 "steps": [
-                    "200/50."
+                    "Rise = 240/40 = 6cm."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "6.20 Rate of Flow",
+                "difficulty": "hard",
+                "title": "6.20 Pentagon Angle",
                 "relatedSectionId": "elite-geometry",
-                "description": "Tap 10L/min. Tank 100L. Time?",
-                "answer": "10 min",
+                "description": "Regular pentagon. One interior angle?",
+                "answer": "108°",
                 "steps": [
-                    "100/10."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "6.21 2 Taps",
-                "relatedSectionId": "elite-geometry",
-                "description": "In 5L/min, Out 2L/min. Net?",
-                "answer": "3L/min",
-                "steps": [
-                    "5-2."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "6.22 Fold Angle",
-                "relatedSectionId": "elite-geometry",
-                "description": "Corner folded to center. Angle x?",
-                "answer": "Equal",
-                "steps": [
-                    "Symmetry."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "6.23 Stacked Cubes",
-                "relatedSectionId": "elite-geometry",
-                "description": "3 on bottom, 2 on top. Vol?",
-                "answer": "5u",
-                "steps": [
-                    "3+2."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "6.24 SA Glue",
-                "relatedSectionId": "elite-geometry",
-                "description": "Glue 2 cubes face-to-face. SA lost?",
-                "answer": "2 faces",
-                "steps": [
-                    "1 from each."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "6.25 Max Rod",
-                "relatedSectionId": "elite-geometry",
-                "description": "Fit long rod in box. Length?",
-                "answer": "Diagonal",
-                "steps": [
-                    "Space diagonal."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "6.26 Cylinder Vol",
-                "relatedSectionId": "elite-geometry",
-                "description": "Base Area 10. Height 5. Vol?",
-                "answer": "50",
-                "steps": [
-                    "Base x Height."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "6.27 Cone Vol",
-                "relatedSectionId": "elite-geometry",
-                "description": "vs Cylinder def?",
-                "answer": "1/3",
-                "steps": [
-                    "Formula."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "6.28 Shadow Area",
-                "relatedSectionId": "elite-geometry",
-                "description": "Light from top. Cube shadow?",
-                "answer": "Square",
-                "steps": [
-                    "Projection."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "6.29 View from Top",
-                "relatedSectionId": "elite-geometry",
-                "description": "Plan view of Cylinder?",
-                "answer": "Circle",
-                "steps": [
-                    "Visual."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "6.30 Polygon Sum",
-                "relatedSectionId": "elite-geometry",
-                "description": "Sum of angles in Pentagon?",
-                "answer": "540",
-                "steps": [
-                    "(5-2)x180."
+                    "Sum = (5-2)×180=540. Each = 540/5=108°."
                 ]
             },
             {
@@ -13997,7 +13902,7 @@
                 "id": "p6-logic-quiz",
                 "type": "section-header",
                 "title": "Topic 7 Review: Logic",
-                "description": "Master logic and counting with 30 questions."
+                "description": "Master logic and counting with 15 questions. (5 easy, 5 medium, 5 hard)"
             },
             {
                 "type": "quiz",
@@ -14151,152 +14056,57 @@
             },
             {
                 "type": "quiz",
-                "title": "7.16 Max Intersections",
+                "difficulty": "hard",
+                "title": "7.16 Constrained Perm",
                 "relatedSectionId": "elite-combinations",
-                "description": "3 lines max intersections?",
-                "answer": "3",
-                "steps": [
-                    "Triangle."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "7.17 Rectangles",
-                "relatedSectionId": "elite-combinations",
-                "description": "Rectangles in 2x1 grid?",
-                "answer": "3",
-                "steps": [
-                    "2 small, 1 big."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "7.18 2 Dice Sum",
-                "relatedSectionId": "elite-combinations",
-                "description": "Max sum of 2 dice?",
+                "description": "Arrange A, B, C, D in a line. A must be before B. How many ways?",
                 "answer": "12",
                 "steps": [
-                    "6+6."
+                    "Total 4!=24. Half have A before B. 24/2=12."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "7.19 Prime Dice",
+                "difficulty": "hard",
+                "title": "7.17 Committee",
                 "relatedSectionId": "elite-combinations",
-                "description": "Prob prime on 1 die?",
+                "description": "Choose a team of 3 from 6 people. How many ways?",
+                "answer": "20",
+                "steps": [
+                    "6C3 = 6x5x4 / 3x2x1 = 20."
+                ]
+            },
+            {
+                "type": "quiz",
+                "difficulty": "hard",
+                "title": "7.18 Conditional Prob",
+                "relatedSectionId": "elite-combinations",
+                "description": "Bag has 3 red, 2 blue. Draw 1, don't replace. Prob 2nd is red given 1st was red?",
                 "answer": "1/2",
                 "steps": [
-                    "2, 3, 5. 3/6."
+                    "2 red left out of 4 total. 2/4=1/2."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "7.20 Cards",
+                "difficulty": "hard",
+                "title": "7.19 Pigeon Colours",
                 "relatedSectionId": "elite-combinations",
-                "description": "Prob Ace from explanation.",
-                "answer": "1/13",
-                "steps": [
-                    "4/52."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "7.21 Gender Prob",
-                "relatedSectionId": "elite-combinations",
-                "description": "Family with 2 kids. Prob BB?",
-                "answer": "1/4",
-                "steps": [
-                    "BB, BG, GB, GG."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "7.22 Tree Diagram",
-                "relatedSectionId": "elite-combinations",
-                "description": "Branches multiply or add?",
-                "answer": "Multiply",
-                "steps": [
-                    "Along path."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "7.23 Or Rule",
-                "relatedSectionId": "elite-combinations",
-                "description": "Prob A OR B (mutually exclusive).",
-                "answer": "Add",
-                "steps": [
-                    "Sum."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "7.24 Factorial",
-                "relatedSectionId": "elite-combinations",
-                "description": "Value of 3!",
-                "answer": "6",
-                "steps": [
-                    "3x2x1."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "7.25 Anagram",
-                "relatedSectionId": "elite-combinations",
-                "description": "Arrange 'CAT'.",
-                "answer": "6",
-                "steps": [
-                    "3!."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "7.26 Anagram Rep",
-                "relatedSectionId": "elite-combinations",
-                "description": "Arrange 'MOM'.",
-                "answer": "3",
-                "steps": [
-                    "MOM, MMO, OMM."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "7.27 Gap Method",
-                "relatedSectionId": "elite-combinations",
-                "description": "Plant trees in straight line, 4 gaps. Trees?",
-                "answer": "5",
-                "steps": [
-                    "n+1."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "7.28 Circle Cuts",
-                "relatedSectionId": "elite-combinations",
-                "description": "3 cuts max pieces?",
+                "description": "Drawer has 4 red, 4 green, 4 blue socks. Min draws to guarantee 3 matching?",
                 "answer": "7",
                 "steps": [
-                    "Pizza cuts logic."
+                    "Worst case: 2+2+2=6 (2 of each). Next must match. 6+1=7."
                 ]
             },
             {
                 "type": "quiz",
-                "title": "7.29 Logic Truth",
+                "difficulty": "hard",
+                "title": "7.20 Handshakes 8",
                 "relatedSectionId": "elite-combinations",
-                "description": "Double negative 'Not False'?",
-                "answer": "True",
+                "description": "8 teams each play each other once. Total games?",
+                "answer": "28",
                 "steps": [
-                    "Logic."
-                ]
-            },
-            {
-                "type": "quiz",
-                "title": "7.30 Guess",
-                "relatedSectionId": "elite-combinations",
-                "description": "Guess 4-digit pin 1 try prob?",
-                "answer": "1/10000",
-                "steps": [
-                    "10^4."
+                    "8C2 = 8x7/2 = 28."
                 ]
             }
         ]
